@@ -42,7 +42,7 @@ round-avatar: False
 #title-img: /assets/img/logo-roma.png
 
 # **Add this section to control the logo size**
-logo:
+avatar:
   # **Adjust the width and height values to your desired size**
   width: 600px
   height: 300px
