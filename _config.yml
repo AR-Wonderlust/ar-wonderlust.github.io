@@ -41,6 +41,11 @@ round-avatar: False
 # then specify the following parameter
 title-img: /assets/img/logo-roma.png
 
+# **Add this section to control the logo size**
+logo:
+  # **Adjust the width and height values to your desired size**
+  width: 200px
+  height: 100px
 
 #####################################
 # --- Footer social media links --- #
