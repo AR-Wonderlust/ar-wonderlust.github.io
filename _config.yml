@@ -33,7 +33,9 @@ navbar-links:
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
 avatar: "/assets/img/logo-roma.png"
-
+    # **Adjust the width and height values to your desired size**
+  width: 600px
+  height: 300px
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: False
 
@@ -41,11 +43,6 @@ round-avatar: False
 # then specify the following parameter
 #title-img: /assets/img/logo-roma.png
 
-# **Add this section to control the logo size**
-avatar:
-  # **Adjust the width and height values to your desired size**
-  width: 600px
-  height: 300px
 
 #####################################
 # --- Footer social media links --- #
