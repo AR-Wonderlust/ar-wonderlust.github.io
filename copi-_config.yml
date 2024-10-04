@@ -1,55 +1,30 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+###########################################################
+### Welcome to Beautiful Jekyll!
+### This config file is meant for settings that affect your entire website. When you first
+### set up your website you should go through all these settings and edit them, but after
+### the initial set up you won't need to come back to this file often.
+###########################################################
 
 ############################
 # --- Required options --- #
 ############################
+
 # Name of website
-title: ROMA 
+title: ROMA
+
 # Your name to show in the footer
 author: Lajuma Gonzalez
-email: lajuma10@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: lajuma10
-github_username: ar-wonderlust 
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
-navigation:
-  - title: Sobre Nosotros
-    url: /Quienes%20Somos 
-  - title: Blog
-    url: /blog
 
 navbar-links:
-  Sobre Nosotros: "Quienes Somos"
-  Servicios:
-    - Alquiler: "https://beautifuljekyll.com"
-    - Turismo Aventura: "https://www.markdowntutorial.com/"
-  CONTACTO: "https://casa.mercadolibre.com.ar/MLA-1453501127-casa-en-alquiler-san-pablo-de-reyes-jujuy-_JM"
+  About Me: "Quienes Somos"
+  Resources:
+    - Beautiful Jekyll: "https://beautifuljekyll.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "https://deanattali.com"
 
 ################
 # --- Logo --- #
@@ -66,18 +41,7 @@ round-avatar: False
 # then specify the following parameter
 title-img: /assets/img/logo-roma.png
 
-#####################################
-# --- Post --- #
-#####################################
-collections:
-  proyectos:
-    output: true  # Para que los posts de la colección se generen en el sitio
 
-liquid:
-  error_mode: warn
-# error_mode: strict
-# strict_variables: true
-# strict_filters: true
 #####################################
 # --- Footer social media links --- #
 #####################################
@@ -86,15 +50,15 @@ liquid:
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-email: "lajuma10@gmail.com"
-# rss: true  # remove this line if you don't want to show an RSS link at the bottom
-#facebook: romaviajeyturismo
-#github: Lajuma
-#twitter: @JujumaROMA
-#instagram : lacasaroma
-#patreon: DeanAttali
-#youtube: "@daattali"
-#whatsapp: +5493884381576
+  email: "lajuma10@gmail.com"
+  # rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  facebook:romaviajeyturismo 
+  github: Lajuma
+  twitter: @JujumaROMA
+  instagram : lacasaroma
+#  patreon: DeanAttali
+#  youtube: "@daattali"
+  whatsapp: +5493884381576
 #  medium: yourname
 #  reddit: yourname
 #  linkedin: daattali
@@ -204,6 +168,7 @@ footer-hover-col: "#0085A1"
 #################################
 # --- Web Analytics Section --- #
 #################################
+
 # Fill in your Google Analytics tag ID (or "Measurement ID") to track your website usage
 #gtag: "G-XXXXXXXXXX"
 
@@ -287,13 +252,14 @@ fb_comment_id: "100052813593193"
 date_format: "%B %-d, %Y"
 
 # Facebook App ID
-fb_app_id: "100052813593193"
+#fb_app_id: ""
+
 #################################################################################
 # --- You don't need to touch anything below here (but you can if you want) --- #
 #################################################################################
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Argentina/Buenos_Aires"
+timezone: "America/Toronto"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
@@ -317,6 +283,7 @@ defaults:
       path: "" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
+
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
@@ -328,34 +295,10 @@ exclude:
   - screenshot.png
   - docs/
 
-
-
-theme: minima
 plugins:
-  - jekyll-feed
-  - jekyll-paginate #Estos dos plugings estan generando conflicto de ejecution
+  - jekyll-paginate
   - jekyll-sitemap
 
-# Configuración de paginación
-paginate: 2  # Número de posts por página
-paginate_path: "/blog/page:num/"  # URL formato para páginas
+# Beautiful Jekyll / Dean Attali
+# 2fc73a3a967e97599c9763d05e564189
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/

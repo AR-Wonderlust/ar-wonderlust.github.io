@@ -30,8 +30,37 @@ subtitle: Bienvenido a Jujuy!!
   </button>
 </div>
 
-{% for post in site.posts limit:1 %}
+<!-- Este es un comentario en el cuerpo 
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
   {% endfor %}
+</ul>
+-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<ul class="list-inline text-center footer-links">
+  <li class="list-inline-item">
+    <a href="https://www.facebook.com/tu-pagina">
+      <i class="fab fa-facebook"></i>
+    </a>
+  </li>
+  <li class="list-inline-item">
+    <a href="https://www.instagram.com/tu-pagina">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </li>
+  <li class="list-inline-item">
+    <a href="https://wa.me/tu-numero-de-whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </li>
+</ul>
+
+
+
 
 <link rel="stylesheet" href="/assets/css/index.css">
 
