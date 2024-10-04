@@ -8,7 +8,7 @@ let BeautifulJekyllJS = {
   init : function() {
     setTimeout(BeautifulJekyllJS.initNavbar, 10);
 
-    // Shorten the navbar after scrolling a little bit down
+    //Agregar opcion para ocultar sidebar. Shorten the navbar after scrolling a little bit down
     $(window).scroll(function() {
         if ($(".navbar").offset().top > 50) {
             $(".navbar").addClass("top-nav-short");
@@ -16,6 +16,22 @@ let BeautifulJekyllJS = {
             $(".navbar").removeClass("top-nav-short");
         }
     });
+// Barra Lateral  scripts jQuery
+$(document).ready(function() {
+    $(window).scroll(function() {
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+        var scrollPosition = $(window).scrollTop();
+
+        // Calcula cuándo estamos cerca del final de la página
+        if (documentHeight - (scrollPosition + windowHeight) < 200) { // 200px antes del final
+            $(".sidebar").addClass("sidebar-hidden");
+        } else {
+            $(".sidebar").removeClass("sidebar-hidden");
+        }
+    });
+});
+
 
     // On mobile, hide the avatar when expanding the navbar menu
     $('#main-navbar').on('show.bs.collapse', function () {
@@ -27,9 +43,9 @@ let BeautifulJekyllJS = {
 
     // show the big header image
     BeautifulJekyllJS.initImgs();
-
     BeautifulJekyllJS.initSearch();
   },
+
 
   initNavbar : function() {
     // Set the navbar-dark/light class based on its background color
