@@ -1,0 +1,19 @@
+.social-icons ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 0px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #000; /* Cambia esto según tus necesidades */
+}
+
+.social-icons i {
+  margin-right: 0px;
+}
+

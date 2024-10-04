@@ -20,8 +20,52 @@
   --mid-col: #808080;
 }
 
-/* --- General --- */
 
+
+
+/* --- Bara Lateral --- */
+.sidebar {
+  width: 80px;
+  position: fixed;
+  top: 50%; /* Coloca la barra a la mitad de la pantalla verticalmente */
+  right: 20px;
+  transform: translateY(-50%); /* Centra la barra verticalmente */
+  background-color: #ffffff; /*#f8f9fa color anterior*/
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
+  transition: display 0.6s ease; /* Suaviza la transición de aparecer/desaparecer */
+    /* Agregar estas propiedades para la transición */
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  opacity: 1;
+  visibility: visible;
+}
+.sidebar-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  color: #007bff;
+}
+
+/* --- General --- */
 html {
   font-size: 100%
 }
@@ -350,9 +394,15 @@ img {
   -moz-transition: visibility linear 0.5s, opacity 0.5s ease-in-out;
 }
 
+/*--Icono Central CasaRoma CSS--*/
 .navbar-custom .avatar-container .avatar-img-border {
-  width: 100%;
+  width: 180%;
   margin-left: -50%;
+  
+    border-radius: 100%;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 0.3125rem rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 0.5rem rgba(0, 0, 0, .8);
   
 }
 .navbar-custom .avatar-container .avatar-img {

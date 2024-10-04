@@ -58,8 +58,8 @@
 }, 
  
 { 
-"title"    : "Viaje y Turismo", 
-"desc"     : "Viaje y Turismo", 
+"title"    : "Turismo y Viaje", 
+"desc"     : "Turismo y Viaje", 
 "category" : "page", 
 "url"      : "/", 
 "date"     : "January 1, 1970" 
@@ -74,16 +74,16 @@
 }, 
  
 { 
-"title"    : "Viaje y Turismo", 
-"desc"     : "Viaje y Turismo", 
+"title"    : "Turismo y Viaje", 
+"desc"     : "Turismo y Viaje", 
 "category" : "page", 
 "url"      : "/blog/page2/", 
 "date"     : "January 1, 1970" 
 }, 
  
 { 
-"title"    : "Viaje y Turismo", 
-"desc"     : "Viaje y Turismo", 
+"title"    : "Turismo y Viaje", 
+"desc"     : "Turismo y Viaje", 
 "category" : "page", 
 "url"      : "/blog/page3/", 
 "date"     : "January 1, 1970" 
