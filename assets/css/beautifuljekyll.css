@@ -528,10 +528,20 @@ footer .footer-custom-content {
 }
 
 /* --- Post preview (feed) --- */
+.post-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #eee;
+}
 .contact-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 10px 20px;
+  display: flex; /*Habilita flexbox*/
+  flex-direction: column;
+  margin-top: 1rem;	/*Apila los elementos verticalmente*/
+  align-items: center;	/*Centra horizontalmente los elementos*/
+  padding: 10px 20px; 
+  border-bottom: 1px solid #eee;
   background-color: #007bff;
   color: white;
   text-align: center;
@@ -545,6 +555,7 @@ footer .footer-custom-content {
   background-color: #0056b3;
 }
 
+/*Hasta aqui los parametros del Boton de contacto*/
 
 .posts-list {
     margin: 0;
