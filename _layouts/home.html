@@ -36,7 +36,7 @@ layout: page
 
       {% if site.feed_show_excerpt == false %}
       {% if thumbnail != "" %}
-      <div class="post-image post-image-normal">
+      <div class="post-image post-image-normal" style="max-width: 800px;">
         <a href="{{ post.url | absolute_url }}" aria-label="Thumbnail">
           <img src="{{ thumbnail | absolute_url }}" alt="Post thumbnail">
         </a>
@@ -128,6 +128,7 @@ layout: page
   {% endif %}
 </ul>
 {% endif %}
+
 <div class="post-preview">
   <!-- Contenido de la publicación -->
   <a href="/contact" class="contact-button">Contact Us</a>
