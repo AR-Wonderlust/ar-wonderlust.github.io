@@ -21,19 +21,20 @@
 ############################
 # --- Required options --- #
 ############################
+lang: es-ES
 # Name of website
-title: ROMA 
+title: JuJuy 
 # Your name to show in the footer
 author: Lajuma Gonzalez
 email: lajuma10@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
+  Una manera diferente de conocer Jujuy. Sumate a esta Aventura.
+  It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lajuma10
-github_username: ar-wonderlust 
+#github_username: ar-wonderlust 
 
 ###############################################
 # --- List of links in the navigation bar --- #
@@ -45,14 +46,14 @@ navigation:
     url: /blog
 
 navbar-links:
-  Sobre Nosotros: "Quienes Somos"
-  Servicios:
+  About Us: "Quienes Somos"
+  Service:
     - Alquiler: "https://beautifuljekyll.com"
     - Turismo Aventura: "https://www.markdowntutorial.com/"
-  CONTACTO: "https://casa.mercadolibre.com.ar/MLA-1453501127-casa-en-alquiler-san-pablo-de-reyes-jujuy-_JM"
+  CONTACT: "https://casa.mercadolibre.com.ar/MLA-1453501127-casa-en-alquiler-san-pablo-de-reyes-jujuy-_JM"
 
 ################
-# --- Logo --- #
+# --- Logo circulo central --- #
 ################
 
 # Image to show in the navigation bar - works best with a square image
@@ -64,7 +65,7 @@ round-avatar: False
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
-title-img: /assets/img/logo-roma.png
+#title-img: /assets/img/logo-roma.png
 
 #####################################
 # --- Post --- #
@@ -87,13 +88,13 @@ liquid:
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: lajuma10@gmail.com
-  # rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  #rss: true  # remove this line if you don't want to show an RSS link at the bottom
   facebook: romaviajeyturismo
-  github: Lajuma
+  #github: Lajuma
   twitter: JujumaROMA
   instagram : lacasaroma
   #patreon: DeanAttali
-  #youtube: "@daattali"
+  youtube: "@lauragonzalez3661"
   whatsapp:  +5493884381576
 #  medium: yourname
 #  reddit: yourname
@@ -188,7 +189,7 @@ footer-hover-col: "#0085A1"
 
 #navbar-img: "/assets/img/bgimage.png"
 #footer-img: "/assets/img/bgimage.png"
-#page-img: "/assets/img/logo-roma.png"
+#page-img: "/assets/img/casa-roma.JPG"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
 #mobile-theme-col: "#0085A1"
@@ -327,8 +328,6 @@ exclude:
   - README.md
   - screenshot.png
   - docs/
-
-
 
 theme: minima
 plugins:
