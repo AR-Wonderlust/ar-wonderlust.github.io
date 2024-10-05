@@ -27,7 +27,11 @@ layout: null
 
 
 
-/* --- Bara Lateral --- */
+/* ---primero ocultar la Barra Lateral --- */
+.sidebar-hidden {
+  display: none;
+}
+
 .sidebar {
   width: 80px;
   position: fixed;
@@ -48,7 +52,7 @@ layout: null
 }
 .sidebar-hidden {
     opacity: 0;
-    visibility: hidden;
+    visibility: visible;
 }
 
 .sidebar ul {
@@ -73,7 +77,7 @@ layout: null
 html {
   font-size: 100%
 }
-
+/*Ajustar tamano de la imagen del fondo de pantalla*/
 body {
   font-family: var(--body-font);
   font-size: 1.125rem;
@@ -83,6 +87,9 @@ body {
   {% if site.page-img %}
   background-image: url({{ site.page-img | relative_url }});
   background-attachment: fixed;
+  background-size: 100vw 100vh; /* Ajusta la imagen al tamaño exacto de la pantalla */
+  background-position: center; /* Centra la imagen en el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
   {% endif %}
   overflow-wrap: break-word;
   min-height: 100vh;
@@ -133,7 +140,9 @@ blockquote p:first-child {
 .jumbotron {
   background: #EEE;
 }
+/*Barra DEspues del nombre Turismo y Viaje*/
 hr.small {
+  display: none !important;
   max-width: 6.25rem;
   margin: 1rem auto;
   border-width: 0.25rem;
@@ -519,6 +528,23 @@ footer .footer-custom-content {
 }
 
 /* --- Post preview (feed) --- */
+.contact-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+}
+
 
 .posts-list {
     margin: 0;
@@ -561,8 +587,10 @@ footer .footer-custom-content {
   font-weight: 300;
   margin-bottom: 0.625rem;
 }
+/*No mostrar fecha de publicacion*/
 .post-preview .post-meta,
 .post-heading .post-meta {
+  display: none;
   color: var(--mid-col);
   font-size: 1.125rem;
   font-style: italic;
@@ -848,7 +876,9 @@ nav.top-nav-short-permanent ~ header > .intro-header.big-img {
   }
 }
 
+/*No se muestra el boton de siguiente Post*/
 .pagination .page-item .page-link {
+  display: none;
   font-family: var(--header-font);
   text-transform: uppercase;
   font-size: 0.875rem;

@@ -1,6 +1,7 @@
 ---
 layout: base
 ---
+<html lang="{{ site.lang }}">
 
 <div class="intro-header"></div>
 
@@ -14,6 +15,11 @@ layout: base
   {% endif %}
 
   {{ content }}
+
+<div class="post-preview">
+  <!-- Contenido de la publicación -->
+  <a href="/contact" class="contact-button">Contact Us</a>
+</div>
 
   <div class="sidebar">
   {% include social-networks-links.html %}

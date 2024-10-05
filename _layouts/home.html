@@ -9,6 +9,10 @@ layout: page
 {{ content }}
 
 {% assign posts = paginator.posts | default: site.posts %}
+<div class="post-preview">
+  <!-- Contenido de la publicación -->
+  <a href="/contact" class="contact-button">Contact Us</a>
+</div>
 
 <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
 <ul class="posts-list list-unstyled" role="list">
@@ -124,3 +128,8 @@ layout: page
   {% endif %}
 </ul>
 {% endif %}
+<div class="post-preview">
+  <!-- Contenido de la publicación -->
+  <a href="/contact" class="contact-button">Contact Us</a>
+</div>
+

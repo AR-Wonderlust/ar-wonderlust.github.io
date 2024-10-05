@@ -10,18 +10,41 @@ let BeautifulJekyllJS = {
 
     //Agregar opcion para ocultar sidebar. Shorten the navbar after scrolling a little bit down
     $(window).scroll(function() {
-        if ($(".navbar").offset().top > 50) {
+        if ($(".navbar").offset().top > 200) {
             $(".navbar").addClass("top-nav-short");
         } else {
             $(".navbar").removeClass("top-nav-short");
         }
     });
 // Barra Lateral  scripts jQuery
+
+// Barra Lateral - Mostrar solo cuando se pose el mouse
+$(document).ready(function() {
+    // Ocultar la barra al cargar la página
+    $(".sidebar").addClass("sidebar-hidden");
+
+    // Mostrar la barra cuando se pose el mouse sobre la zona lateral
+    $(".sidebar").mouseenter(function() {
+        $(this).removeClass("sidebar-hidden");
+    });
+
+    // Ocultar la barra cuando el mouse salga de la barra lateral
+    $(".sidebar").mouseleave(function() {
+        $(this).addClass("sidebar-hidden");
+    });
+});
+
 $(document).ready(function() {
     $(window).scroll(function() {
         var windowHeight = $(window).height();
         var documentHeight = $(document).height();
         var scrollPosition = $(window).scrollTop();
+       // Mostrar la barra después de haber hecho scroll más de 100px
+        if ( documentHeight - (scrollPosition + windowHeight)> 150) {
+    	    $(".sidebar").removeClass("sidebar-hidden");
+	} else {
+        $(".sidebar").addClass("sidebar-hidden");
+        }
 
         // Calcula cuándo estamos cerca del final de la página
         if (documentHeight - (scrollPosition + windowHeight) < 200) { // 200px antes del final
