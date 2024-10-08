@@ -24,9 +24,6 @@ layout: null
   --mid-col: #808080;
 }
 
-
-
-
 /* ---primero ocultar la Barra Lateral --- */
 .sidebar-hidden {
   display: none;
@@ -38,7 +35,8 @@ layout: null
   top: 50%; /* Coloca la barra a la mitad de la pantalla verticalmente */
   right: 20px;
   transform: translateY(-50%); /* Centra la barra verticalmente */
-  background-color: #ffffff; /*#f8f9fa color anterior*/
+/*  background-color: #ffffff; /*#f8f9fa color anterior */ 
+  background-color: rgba(255, 255, 255, 0); /* Color transparente */
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -203,10 +201,10 @@ img {
 }
 
 /* --- Navbar --- */
-
+/*-- Barra del inicio --*/
 .navbar-custom {
-  background-color: var(--navbar-col);
-  border-bottom: 1px solid var(--navbar-border-col);
+  background-color:transparent; /* var(--navbar-col); */
+  border-bottom: 0px solid var(--navbar-border-col);
   font-family: var(--header-font);
   {% if site.navbar-img %}
     background-image: url({{ site.navbar-img | relative_url }});
@@ -342,28 +340,31 @@ img {
 
 .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
   padding: 0.625rem;
-  background-color: var(--navbar-col);
+  background-color: transparent !important ; /* var(--navbar-col);  con fondo transparente */
   text-decoration: none !important;
   font-weight: normal;
-  color: var(--navbar-text-col);
+  color:  var(--navbar-text-col);
   {% unless site.navbar-var-length %}
   white-space: normal;
   {% endunless %}
 }
 
-@media (min-width: 1200px) {
+/*-- Aqui es donde se cambia el color del fondo de la Etiqueta Service-- */
+@media (min-width: 1300px) {
   .navbar-custom .nav-item.dropdown .dropdown-menu {
+    background-color: transparent !important ;
     text-align: center;
+
   }
 
   .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item {
     padding-left: 0.625rem;
-    border: 1px solid var(--navbar-border-col);
-    border-width: 0 1px 1px;
+    border: 0px solid var(--navbar-border-col);
+    border-width: 0 0px 0px;
   }
 
   .navbar-custom .nav-item.dropdown .dropdown-menu .dropdown-item:first-child {
-    border-top-width: 1px;
+    border-top-width: 0px;
   }
 }
 
@@ -458,14 +459,16 @@ img {
   }
 }
 
-/* --- Footer --- */
+/* --- Footer Inferior de la Pagina --- */
 
 footer {
   padding: 1.875rem 0;
-  border-top: 1px var(--footer-col) solid;
+/*  border-top: 1px var(--footer-col) solid; */
+  border-top:rgba(255, 255, 255, 0); /* Color transparente */
   margin-top: 3.125rem;
   font-size: 0.875rem;
-  background-color: var(--footer-col);
+/*  background-color: var(--footer-col); */
+  background-color: rgba(255, 255, 255, 0); /* Color transparente */
   {% if site.footer-img %}
     background-image: url({{ site.footer-img | relative_url }});
     background-attachment: fixed;
@@ -480,15 +483,16 @@ footer a {
   color: var(--footer-link-col);
 }
 footer .footer-links a {
-  color: var(--text-col);
+  color: none /*  var(--text-col) */ ;
 }
+
 footer .footer-links .fa-inverse {
-  color: var(--page-col);
+  color: none /* var(--page-col) */;
 }
 
 footer a:hover,
 footer a:focus {
-  color: var(--footer-hover-col);
+  color: none /* var(--footer-hover-col) */ ;
 }
 
 footer .list-inline {
@@ -527,21 +531,25 @@ footer .footer-custom-content {
   }
 }
 
-/* --- Post preview (feed) --- */
+/* --- Post preview (feed)   inicio de Posteos --- */
+
 .post-preview {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centra el contenido horizontalmente */
   padding: 1.25rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: none; /*  0px solid #eee; */
+  overflow: hidden;
 }
+
+/*-- Boton de COntacto Caracteristicas --*/
 .contact-button {
   display: flex; /*Habilita flexbox*/
   flex-direction: column;
   margin-top: 1rem;	/*Apila los elementos verticalmente*/
   align-items: center;	/*Centra horizontalmente los elementos*/
   padding: 10px 20px; 
-  border-bottom: 1px solid #eee;
+  border-bottom: 0px solid #eee;
   background-color: #007bff;
   color: white;
   text-align: center;
@@ -567,8 +575,21 @@ footer .footer-custom-content {
   overflow: hidden;
 }
 
+/*-- Antes de post clasico agrego -- */
+
+/*--Imagenes sin Bordes--*/
+
+.post-preview img {
+  border: none; /* Elimina los bordes de las imágenes */
+}
+
+.post-preview h1, .post-preview h2, .post-preview h3 {
+  border: none; /* Elimina cualquier borde de los títulos */
+}
+
 @media (min-width: 768px) {
   .post-preview {
+    border: none; /* Elimina los bordes de las imágenes */
     padding: 2.1875rem 0;
   }
 }
@@ -602,7 +623,8 @@ footer .footer-custom-content {
 .post-preview .post-meta,
 .post-heading .post-meta {
   display: none;
-  color: var(--mid-col);
+  color: var(--text-col);
+/*  color: var(--mid-col); */
   font-size: 1.125rem;
   font-style: italic;
   margin: 0 0 0.625rem;
@@ -621,6 +643,7 @@ footer .footer-custom-content {
   margin: 0 0.625rem;
 }
 .post-preview .post-entry {
+  color: var(--text-col);
   width: 100%;
 }
 .post-preview .post-image {
@@ -745,6 +768,49 @@ footer .footer-custom-content {
   color: var(--mid-col);
   font-style: italic;
   font-size: 1rem;
+}
+
+/* --- Letras de inicio --- */
+/* Cambiar el color del texto a blanco con borde negro */
+.custom-text {
+  color: #ffffff; /* Color blanco para el texto */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
+}
+/* Aplica el estilo a párrafos y encabezados */
+p, h1, h2, h3, h4, h5, h6 {
+  color: #ffffff; /* Color blanco */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
+}
+
+
+.custom-text h1 {
+  font-size: 5rem; /* Aumenta el tamaño del título */
+  font-family: Arial, sans-serif; /* Establece la fuente Arial */
+  color: #ffffff; /* Color blanco para el texto */
+  /*text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin: 0 auto; /* Asegura que el contenedor esté centrado */
+  padding: 20px; /* Añade algo de espacio alrededor del texto */
+}
+
+.custom-text h2 {
+  font-size: 3rem; /* Aumenta el tamaño del título */
+  font-family: Arial, sans-serif; /* Establece la fuente Arial */
+  color: #ffffff; /* Color blanco para el texto */
+  text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin: 0 auto; /* Asegura que el contenedor esté centrado */
+  padding: 20px; /* Añade algo de espacio alrededor del texto */
+}
+
+
+.custom-text {
+  color: #ffffff; /* Color blanco para el texto */
+  text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro alrededor del texto */
+  font-family: Arial, sans-serif; /* Fuente Arial */
+  font-size: 3rem; /* Aumentar el tamaño del texto */
+  text-align: center; /* Centrar el texto horizontalmente */
+  margin: 0 auto; /* Centrar el contenedor del texto */
 }
 
 /* --- Post and page headers --- */
