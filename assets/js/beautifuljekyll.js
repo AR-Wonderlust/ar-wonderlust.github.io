@@ -177,5 +177,33 @@ $(document).ready(function() {
 };
 
 // 2fc73a3a967e97599c9763d05e564189
+//Controlar el inicio o detener la animacion de Imagen Pagina Principal
+window.addEventListener('scroll', function() {
+  var imageContainer = document.querySelector('page-img');
+  var image = document.getElementById('page-img');
+  
+  if (window.scrollY > 100) { // Cuando se desplaza más de 100px
+    image.style.animationPlayState = 'running';
+  } else {
+    image.style.animationPlayState = 'paused';
+  }
+});
+
+window.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+  var image = document.getElementById('page-img');
+  
+  if (scrollPosition > 100) { // Si se desplaza más de 100px
+    image.style.opacity = '0.8'; // Cambia la opacidad de la imagen
+  } else {
+    image.style.opacity = '1'; // Vuelve a la opacidad completa
+  }
+});
+
+// Fin de Timer de secuencia
+// Segundo ejemplo de la secuencia de animacion
+//Fin de la secuencia
+
+
 
 document.addEventListener('DOMContentLoaded', BeautifulJekyllJS.init);
