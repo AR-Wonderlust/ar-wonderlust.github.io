@@ -9,11 +9,6 @@ layout: page
 {{ content }}
 
 {% assign posts = paginator.posts | default: site.posts %}
-<div class="post-preview">
-  <!-- Contenido de la publicación -->
-  <a href="/contact" class="contact-button">Contact Us</a>
-</div>
-
 <!-- role="list" needed so that `list-style: none` in Safari doesn't remove the list semantics -->
 <ul class="posts-list list-unstyled" role="list">
   {% for post in posts %}
@@ -108,6 +103,13 @@ layout: page
   {% endfor %}
 </ul>
 
+  <!--Boton de contac Us -->
+<div class="post-preview">
+  <!-- Contenido de la publicación -->
+  <a href="/contact" class="contact-button">Contact Us</a>
+</div>
+
+
 {% if paginator.total_pages > 1 %}
 <ul class="pagination main-pager">
   {% if paginator.previous_page %}
@@ -128,9 +130,3 @@ layout: page
   {% endif %}
 </ul>
 {% endif %}
-
-<div class="post-preview">
-  <!-- Contenido de la publicación -->
-  <a href="/contact" class="contact-button">Contact Us</a>
-</div>
-
