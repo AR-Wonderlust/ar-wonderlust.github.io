@@ -85,7 +85,7 @@ body {
   {% if site.page-img %}
   background-image: url({{ site.page-img | relative_url }});
   background-attachment: fixed;
-  background-size: 100vw 100vh; /* Ajusta la imagen al tamaño exacto de la pantalla */
+  background-size: cover; /* 100vw 100vh; /* Ajusta la imagen al tamaño exacto de la pantalla */
   background-position: center; /* Centra la imagen en el fondo */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   {% endif %}
@@ -350,7 +350,7 @@ img {
 }
 
 /*-- Aqui es donde se cambia el color del fondo de la Etiqueta Service-- */
-@media (min-width: 1300px) {
+@media (min-width: 0px) {
   .navbar-custom .nav-item.dropdown .dropdown-menu {
     background-color: transparent !important ;
     text-align: center;
@@ -368,7 +368,15 @@ img {
   }
 }
 
-@media (max-width: 1199px) {
+/* Para dispositivos móviles (pantallas más pequeñas) */
+@media (max-width: 768px) {
+  body {
+    background-size: auto; /* Evita que la imagen se ajuste al tamaño de la pantalla */
+    background-attachment: scroll; /* Permite que la imagen se mueva junto con la página */
+  }
+}
+
+@media (max-width: 768px) {
   .navbar-custom .navbar-collapse {
     border-top: 1px solid var(--navbar-border-col);
     margin: 0 -1rem;
@@ -439,15 +447,18 @@ img {
   display: none;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 100px) {
   .navbar-custom.top-nav-regular .avatar-container {
+    background-color: transparent !important ;
     width: 6.25rem;
     bottom: -1.9375rem;
   }
 
   .navbar-custom.top-nav-regular .avatar-container .avatar-img-border {
     width: 100%;
+    background-color: transparent !important ;
     {% unless site.round-avatar == false %}
+    background-color: transparent !important ;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
     -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
     -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
@@ -542,7 +553,7 @@ footer .footer-custom-content {
   overflow: hidden;
 }
 
-/*-- Boton de COntacto Caracteristicas --*/
+/*-- Boton de Contacto Caracteristicas --*/
 .contact-button {
   display: flex; /*Habilita flexbox*/
   flex-direction: column;
