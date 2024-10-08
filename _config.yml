@@ -144,7 +144,7 @@ url-pretty: "ar-wonderlust.github.io"
 title-on-all-pages: false
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
-excerpt_length: 99
+excerpt_length: 33
 
 # Whether or not to show an excerpt for every blog post in the feed page
 feed_show_excerpt: true
@@ -172,17 +172,28 @@ navbar-var-length: false
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-page-col: "#FFFFFF"
-text-col:  "#ffffff" #"#404040"
-link-col:  "#008AFF"
-hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#ffffff" #"#404040" #Color de la barra de arriba
-navbar-border-col: "#DDDDDD"
-footer-col: "#ffffff" # "#EAEAEA" # Coloor de la barra de Abajo
-footer-text-col: "#ffffff"  # "#777777"
-footer-link-col:  "#404040"
-footer-hover-col: "#ffffff"  #"#0085A1"
+page-col: "#FFFFFF"  # Fondo blanco
+text-col: "#ffffff"  # Texto blanco
+link-col: "#008AFF"  # Color de los enlaces
+hover-col: "#0085A1"  # Color de los enlaces al pasar el cursor
+navbar-col: "#EAEAEA"  # Color de fondo de la barra de navegación
+navbar-text-col: "#ffffff"  # Texto blanco en la barra de navegación
+navbar-border-col: "#DDDDDD"  # Color del borde de la barra de navegación
+footer-col: "#ffffff"  # Fondo blanco del pie de página
+footer-text-col: "#ffffff"  # Texto blanco en el pie de página
+footer-link-col: "#404040"  # Enlaces en el pie de página
+footer-hover-col: "#ffffff"  # Color al pasar el cursor por los enlaces en el pie de página
+  ##page-col: "#FFFFFF"
+  ##text-col:  "#ffffff" #"#404040"
+  ##link-col:  "#008AFF"
+  ##hover-col: "#0085A1"
+  ##navbar-col: "#EAEAEA"
+  ##navbar-text-col: "#ffffff" #"#404040" #Color de la barra de arriba
+  ##navbar-border-col: "#DDDDDD"
+  ##footer-col: "#ffffff" # "#EAEAEA" # Coloor de la barra de Abajo
+  ##footer-text-col: "#ffffff"  # "#777777"
+  ##footer-link-col:  "#404040"
+  ##footer-hover-col: "#ffffff"  #"#0085A1"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
