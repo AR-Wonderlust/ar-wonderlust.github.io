@@ -102,9 +102,11 @@ p {
   margin: 1.875rem 0;
 }
 h1,h2,h3,h4,h5,h6 {
+	color: var(--text-col);
   font-family: var(--header-font);
   font-weight: 800;
   line-height: 1.1;
+  text-shadow: none; /* Eliminar cualquier sombra de texto */
 }
 h1 {
   font-size: 2.25rem;
@@ -201,9 +203,10 @@ img {
 }
 
 /* --- Navbar --- */
-/*-- Barra del inicio --*/
+/*-- Barra del inicio Top --*/
 .navbar-custom {
-  background-color:transparent; /* var(--navbar-col); */
+  background-color: rgba(0, 0, 0, 0.6);  /* Un color blanco semitransparente */
+  /* background-color: var(--navbar-col);   /*transparent; /* var(--navbar-col); */
   border-bottom: 0px solid var(--navbar-border-col);
   font-family: var(--header-font);
   {% if site.navbar-img %}
@@ -417,8 +420,8 @@ img {
   -moz-transition: opacity 0.5s ease-in-out;
 }
 .navbar-custom.top-nav-short .avatar-container {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible; /* hidden;*/
   transition: visibility linear 0.5s, opacity 0.5s ease-in-out;
   -webkit-transition: visibility linear 0.5s, opacity 0.5s ease-in-out;
   -moz-transition: visibility linear 0.5s, opacity 0.5s ease-in-out;
@@ -444,7 +447,7 @@ img {
 }
 
 .navbar-custom.top-nav-expanded .avatar-container {
-  display: none;
+  display:  none; 
 }
 
 @media (min-width: 100px) {
@@ -692,6 +695,7 @@ footer .footer-custom-content {
   display: none;
 }
 .post-preview .post-image-small img {
+  display: none;
   max-width: 6.25rem;
   max-height: 6.25rem;
 }
@@ -786,6 +790,12 @@ footer .footer-custom-content {
 .custom-text {
   color: #ffffff; /* Color blanco para el texto */
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
+  {% if site.ini-img %}
+    background-image: url({{ site.ini-img | relative_url }});
+    background-attachment: fixed;
+  {% endif %}
+  background-size: cover; /* Ajusta el tamaño de la imagen */
+  background-position: center; /* Centra la imagen */
 }
 /* Aplica el estilo a párrafos y encabezados */
 p, h1, h2, h3, h4, h5, h6 {
