@@ -49,7 +49,7 @@ navbar-links:
   About Us: "Quienes Somos"
   Service:
     - Viaje: "https://beautifuljekyll.com"
-    - Alojamiento: "https://www.markdowntutorial.com/"
+    - Turismo: "https://www.markdowntutorial.com/"
   CONTACT: "https://casa.mercadolibre.com.ar/MLA-1453501127-casa-en-alquiler-san-pablo-de-reyes-jujuy-_JM"
 
 ################
@@ -348,7 +348,7 @@ plugins:
   - jekyll-sitemap
 
 # Configuración de paginación
-paginate: 2  # Número de posts por página
+paginate: 1  # Número de posts por página
 paginate_path: "/blog/page:num/"  # URL formato para páginas
 
 # Exclude from processing.
