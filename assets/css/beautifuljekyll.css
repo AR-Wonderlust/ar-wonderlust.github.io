@@ -556,6 +556,14 @@ footer .footer-custom-content {
   overflow: hidden;
 }
 
+/* Espacio vacío equivalente al tamaño de un post */
+.post-preview:before {
+  content: "";
+  display: block;
+  height: 650px; /* Ajusta la altura al tamaño de un post */
+  width: 100%; /* Asegúrate de que ocupe todo el ancho */
+}
+
 /*-- Boton de Contacto Caracteristicas --*/
 .contact-button {
   display: flex; /*Habilita flexbox*/
