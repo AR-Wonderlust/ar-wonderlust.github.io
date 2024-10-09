@@ -14,7 +14,6 @@ layout: page
   {% for post in posts %}
   <li class="post-preview">
     <article>
-
       {%- capture thumbnail -%}
         {% if post.thumbnail-img %}
           {{ post.thumbnail-img }}
@@ -83,6 +82,7 @@ layout: page
         {% endif %}
       </div>
       {% endunless %}
+
 
       {% if site.feed_show_tags != false and post.tags.size > 0 %}
       <div class="blog-tags">
