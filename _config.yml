@@ -176,7 +176,7 @@ page-col: "#FFFFFF"  # Fondo blanco
 text-col: "#ffffff"  # Texto blanco
 link-col: "#008AFF"  # Color de los enlaces
 hover-col: "#0085A1"  # Color de los enlaces al pasar el cursor
-navbar-col: "#f0f0f0"; # Light gray "#EAEAEA"  # Color de fondo de la barra de navegación
+navbar-col: "#f0f0f0" # Light gray "#EAEAEA"  # Color de fondo de la barra de navegación
 navbar-text-col: "#ffffff"  # Texto blanco en la barra de navegación
 navbar-border-col: "#DDDDDD"  # Color del borde de la barra de navegación
 footer-col: "#ffffff"  # Fondo blanco del pie de página
