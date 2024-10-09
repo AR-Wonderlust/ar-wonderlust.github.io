@@ -373,9 +373,9 @@ img {
 
 /* Para dispositivos móviles (pantallas más pequeñas) */
 
-/* Espacio vacío equivalente al tamaño de un post */
+/* Espacio vacío equivalente al tamaño de un post, solo para el primer post el resto  */
  @media (max-width: 768px) {
-     .post-preview:before {
+      .post-preview:first-of-type:before {
        content: "";
        display: block;
        height: 650px; /* Ajusta la altura al tamaño de un post */
