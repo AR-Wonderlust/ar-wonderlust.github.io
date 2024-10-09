@@ -176,7 +176,7 @@ page-col: "#FFFFFF"  # Fondo blanco
 text-col: "#ffffff"  # Texto blanco
 link-col: "#008AFF"  # Color de los enlaces
 hover-col: "#0085A1"  # Color de los enlaces al pasar el cursor
-navbar-col: "#EAEAEA"  # Color de fondo de la barra de navegación
+navbar-col: "#f0f0f0"; # Light gray "#EAEAEA"  # Color de fondo de la barra de navegación
 navbar-text-col: "#ffffff"  # Texto blanco en la barra de navegación
 navbar-border-col: "#DDDDDD"  # Color del borde de la barra de navegación
 footer-col: "#ffffff"  # Fondo blanco del pie de página
@@ -202,6 +202,7 @@ footer-hover-col: "#ffffff"  # Color al pasar el cursor por los enlaces en el pi
 #footer-img: "/assets/img/bgimage.png"
 page-img: "/assets/img/casa-roma.JPG"
 #fixed-img: "/assets/img/casa-roma.JPG" #Queda pendiente agregar esta img como variable al archivo _yml
+ini-img: "/assets/img/casa-roma.JPG" #imagen al inicio de la pagina
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
 #mobile-theme-col: "#0085A1"
