@@ -349,7 +349,7 @@ plugins:
   - jekyll-sitemap
 
 # Configuración de paginación
-paginate: 1  # Número de posts por página
+paginate: 2  # Número de posts por página
 paginate_path: "/blog/page:num/"  # URL formato para páginas
 
 # Exclude from processing.
