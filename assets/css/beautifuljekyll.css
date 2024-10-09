@@ -372,6 +372,17 @@ img {
 }
 
 /* Para dispositivos móviles (pantallas más pequeñas) */
+
+/* Espacio vacío equivalente al tamaño de un post */
+ @media (max-width: 768px) {
+     .post-preview:before {
+       content: "";
+       display: block;
+       height: 650px; /* Ajusta la altura al tamaño de un post */
+       width: 100%; /* Asegúrate de que ocupe todo el ancho */
+     }
+ }
+
 @media (max-width: 768px) {
   body {
     background-size: auto; /* Evita que la imagen se ajuste al tamaño de la pantalla */
@@ -554,14 +565,6 @@ footer .footer-custom-content {
   padding: 1.25rem 0;
   border-bottom: none; /*  0px solid #eee; */
   overflow: hidden;
-}
-
-/* Espacio vacío equivalente al tamaño de un post */
-.post-preview:before {
-  content: "";
-  display: block;
-  height: 650px; /* Ajusta la altura al tamaño de un post */
-  width: 100%; /* Asegúrate de que ocupe todo el ancho */
 }
 
 /*-- Boton de Contacto Caracteristicas --*/
@@ -810,8 +813,6 @@ p, h1, h2, h3, h4, h5, h6 {
   color: #ffffff; /* Color blanco */
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
 }
-
-
 .custom-text h1 {
   font-size: 5rem; /* Aumenta el tamaño del título */
   font-family: Arial, sans-serif; /* Establece la fuente Arial */
@@ -821,7 +822,6 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0 auto; /* Asegura que el contenedor esté centrado */
   padding: 20px; /* Añade algo de espacio alrededor del texto */
 }
-
 .custom-text h2 {
   font-size: 3rem; /* Aumenta el tamaño del título */
   font-family: Arial, sans-serif; /* Establece la fuente Arial */
@@ -831,8 +831,6 @@ p, h1, h2, h3, h4, h5, h6 {
   margin: 0 auto; /* Asegura que el contenedor esté centrado */
   padding: 20px; /* Añade algo de espacio alrededor del texto */
 }
-
-
 .custom-text {
   color: #ffffff; /* Color blanco para el texto */
   text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro alrededor del texto */
