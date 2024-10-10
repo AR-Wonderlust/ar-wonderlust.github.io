@@ -8,15 +8,21 @@ let BeautifulJekyllJS = {
   init : function() {
     setTimeout(BeautifulJekyllJS.initNavbar, 10);
 
-    //Agregar opcion para ocultar sidebar. Shorten the navbar after scrolling a little bit down
-    $(window).scroll(function() {
-        if ($(".navbar").offset().top > 200) {
-            $(".navbar").addClass("top-nav-short");
-        } else {
-            $(".navbar").removeClass("top-nav-short");
-        }
-    });
-// Barra Lateral  scripts jQuery
+//Agregar opcion para ocultar sidebar. Shorten the navbar after scrolling a little bit down
+//    $(window).scroll(function() {
+//        if ($(".navbar").offset().top > 200) {
+//            $(".navbar").addClass("top-nav-short");
+//        } else {
+//            $(".navbar").removeClass("top-nav-short");
+//        }
+//    });
+// Barra Lateral  oculta despues de 3 segundos
+//window.onload = function() {
+//  setTimeout(function() {
+//    document.querySelector('.sidebar').classList.add('hide');
+//  }, 3000); // Después de 3 segundos se oculta
+//};
+//
 
 // Barra Lateral - Mostrar solo cuando se pose el mouse
 $(document).ready(function() {
