@@ -48,6 +48,12 @@ layout: null
   opacity: 1;
   visibility: visible;
 }
+/* Estilo cuando se oculta */
+.sidebar.hide {
+  opacity: 0; /* Desaparece gradualmente */
+  visibility: hidden; /* Oculta completamente */
+  transform: scale(1.5); /* Agranda el tamaño antes de desaparecer */
+}
 .sidebar-hidden {
     opacity: 0;
     visibility: visible;
@@ -800,7 +806,7 @@ footer .footer-custom-content {
 /* Cambiar el color del texto a blanco con borde negro */
 .custom-text {
   color: #ffffff; /* Color blanco para el texto */
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
+  /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
   {% if site.ini-img %}
     background-image: url({{ site.ini-img | relative_url }});
     background-attachment: fixed;
@@ -808,13 +814,15 @@ footer .footer-custom-content {
   background-size: cover; /* Ajusta el tamaño de la imagen */
   background-position: center; /* Centra la imagen */
 }
+
 /* Aplica el estilo a párrafos y encabezados */
-p, h1, h2, h3, h4, h5, h6 {
-  color: #ffffff; /* Color blanco */
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
+p, h1, h2, h3, h4, h5, h6  {
+/*  color: #ffffff; /* Color blanco */
+  opacity: 1; /* Asegura que la opacidad sea completa si no quieres transparencia */
+/*  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Borde negro */
 }
 .custom-text h1 {
-  font-size: 5rem; /* Aumenta el tamaño del título */
+  font-size: 3rem; /* Aumenta el tamaño del título */
   font-family: Arial, sans-serif; /* Establece la fuente Arial */
   color: #ffffff; /* Color blanco para el texto */
   /*text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro */
@@ -826,19 +834,29 @@ p, h1, h2, h3, h4, h5, h6 {
   font-size: 3rem; /* Aumenta el tamaño del título */
   font-family: Arial, sans-serif; /* Establece la fuente Arial */
   color: #ffffff; /* Color blanco para el texto */
-  text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro */
+ /* text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro */
   text-align: center; /* Centra el texto horizontalmente */
   margin: 0 auto; /* Asegura que el contenedor esté centrado */
   padding: 20px; /* Añade algo de espacio alrededor del texto */
 }
 .custom-text {
   color: #ffffff; /* Color blanco para el texto */
-  text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro alrededor del texto */
+  /*text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro alrededor del texto */
   font-family: Arial, sans-serif; /* Fuente Arial */
   font-size: 3rem; /* Aumentar el tamaño del texto */
   text-align: center; /* Centrar el texto horizontalmente */
   margin: 0 auto; /* Centrar el contenedor del texto */
 }
+/*--Color de los iconos de redes sociales y contactos--*/
+span {
+  opacity: 1; /* Asegura que la opacidad sea completa si no quieres transparencia */
+  color: transparent; /* #ffffff; /* Color blanco para el texto */
+  text-shadow: -0.05px -0.05px 0 #000, 0.05px -0.05px 0 #000, -0.05px 0.05px 0 #000, 0.05px 0.05px 0 #000; /* Borde negro */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin: 0 auto; /* Asegura que el contenedor esté centrado */
+  padding: 20px; /* Añade algo de espacio alrededor del texto */
+}
+
 
 /* --- Post and page headers --- */
 
@@ -1164,12 +1182,15 @@ pre {
   max-width: 100%;
 }
 
+.blog-post {
+  color: #ffffff; /* Cambia el color del texto a blanco */
+}
 .blog-post .caption {
   text-align: center;
   font-size: 0.875rem;
   padding: 0.625rem;
   font-style: italic;
-  color: #777;
+  color: #777; 
   margin: 0;
   display: block;
   border-bottom-right-radius: 0.3125rem;
