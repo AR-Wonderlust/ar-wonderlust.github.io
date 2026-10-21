@@ -1,0 +1,6 @@
+# Valores públicos. Nunca poner claves de API en este archivo.
+api_url: ""
+calendar_id: ""
+# Confirmar que siga siendo el WhatsApp comercial. Tomado del _config.yml original.
+whatsapp: "5493884381576"
+maps_url: ""

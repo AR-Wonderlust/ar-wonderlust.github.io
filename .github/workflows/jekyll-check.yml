@@ -1,0 +1,26 @@
+name: Comprobar Jekyll
+on:
+  push:
+    branches: [main, feature/roma-portada-chat]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - run: bundle exec jekyll build --trace --destination /tmp/roma-site
+        env:
+          JEKYLL_ENV: production
+      - name: Comprobar portada y exclusiones
+        run: |
+          test -f /tmp/roma-site/index.html
+          test -f /tmp/roma-site/blog/index.html
+          test ! -d /tmp/roma-site/server
+          test ! -f /tmp/roma-site/copy-Gemfile

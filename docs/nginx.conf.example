@@ -1,0 +1,15 @@
+# Dentro del contexto http de nginx.conf:
+# limit_req_zone $binary_remote_addr zone=roma:10m rate=6r/m;
+# limit_req_zone $server_name zone=roma_global:1m rate=20r/m;
+# Dentro de un server con TLS válido, dedicado a la API:
+location / {
+    client_max_body_size 24k;
+    limit_req zone=roma burst=6 nodelay;
+    limit_req zone=roma_global burst=10 nodelay;
+    limit_req_status 429;
+    proxy_pass http://127.0.0.1:8000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_read_timeout 45s;
+    # Evitar registrar cuerpos de mensajes y claves.
+}

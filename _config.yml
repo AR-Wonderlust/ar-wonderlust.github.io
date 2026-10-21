@@ -21,18 +21,17 @@
 ############################
 # --- Required options --- #
 ############################
-lang: es-ES
+lang: es-AR
 # Name of website
-title: JuJuy 
+title: Agencia ROMA
 # Your name to show in the footer
 author: Laura Gonzalez
 email: lajuma10@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Una manera diferente de conocer Jujuy. Sumate a esta Aventura.
-  It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+  Excursiones, traslados y alojamiento. Tu viaje al Norte, resuelto.
+baseurl: "https://ar-wonderlust.github.io" # the subpath of your site, e.g. /blog
+url: "https://ar-wonderlust.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lajuma10
 #github_username: ar-wonderlust 
 
@@ -46,11 +45,11 @@ navigation:
     url: /blog
 
 navbar-links:
-  About Us: "Quienes Somos"
-  Service:
-    - Viaje: "https://beautifuljekyll.com"
-    - Turismo: "https://www.markdowntutorial.com/"
-  CONTACT: "https://casa.mercadolibre.com.ar/MLA-1453501127-casa-en-alquiler-san-pablo-de-reyes-jujuy-_JM"
+  Inicio: "/"
+  Quiénes somos: "/#nosotros"
+  Servicios: "/#servicios"
+  Actividades: "/#calendario"
+  Novedades: "/blog/"
 
 ################
 # --- Logo circulo central --- #
@@ -173,14 +172,14 @@ navbar-var-length: false
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
 page-col: "#FFFFFF"  # Fondo blanco
-text-col: "#ffffff"  # Texto blanco
+text-col: "#242d30"  # Texto blanco
 link-col: "#008AFF"  # Color de los enlaces
 hover-col: "#0085A1"  # Color de los enlaces al pasar el cursor
 navbar-col: "#f0f0f0" # Light gray "#EAEAEA"  # Color de fondo de la barra de navegación
-navbar-text-col: "#ffffff"  # Texto blanco en la barra de navegación
+navbar-text-col: "#242d30"  # Texto blanco en la barra de navegación
 navbar-border-col: "#DDDDDD"  # Color del borde de la barra de navegación
 footer-col: "#ffffff"  # Fondo blanco del pie de página
-footer-text-col: "#ffffff"  # Texto blanco en el pie de página
+footer-text-col: "#242d30"  # Texto blanco en el pie de página
 footer-link-col: "#404040"  # Enlaces en el pie de página
 footer-hover-col: "#ffffff"  # Color al pasar el cursor por los enlaces en el pie de página
   ##page-col: "#FFFFFF"
@@ -188,10 +187,10 @@ footer-hover-col: "#ffffff"  # Color al pasar el cursor por los enlaces en el pi
   ##link-col:  "#008AFF"
   ##hover-col: "#0085A1"
   ##navbar-col: "#EAEAEA"
-  ##navbar-text-col: "#ffffff" #"#404040" #Color de la barra de arriba
+  ##navbar-text-col: "#242d30" #"#404040" #Color de la barra de arriba
   ##navbar-border-col: "#DDDDDD"
   ##footer-col: "#ffffff" # "#EAEAEA" # Coloor de la barra de Abajo
-  ##footer-text-col: "#ffffff"  # "#777777"
+  ##footer-text-col: "#242d30"  # "#777777"
   ##footer-link-col:  "#404040"
   ##footer-hover-col: "#ffffff"  #"#0085A1"
 
@@ -311,7 +310,6 @@ timezone: "America/Argentina/Buenos_Aires"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 1
 
 kramdown:
   input: GFM
@@ -334,13 +332,19 @@ defaults:
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
-  - CNAME
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
   - screenshot.png
   - docs/
+  - server/
+  - preview.html
+  - copy-Gemfile
+  - copi-_config.yml
+  - Appraisals
+  - beautiful-jekyll-theme.gemspec
+  - staticman.yml
 
 theme: minima
 plugins:
