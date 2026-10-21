@@ -339,6 +339,8 @@ exclude:
   - screenshot.png
   - docs/
   - server/
+  - vendor/
+  - node_modules/
   - preview.html
   - copy-Gemfile
   - copi-_config.yml
