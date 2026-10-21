@@ -24,3 +24,20 @@ jobs:
           test -f /tmp/roma-site/blog/index.html
           test ! -d /tmp/roma-site/server
           test ! -f /tmp/roma-site/copy-Gemfile
+          python3 - <<'PYTEST'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import urlparse
+          class Assets(HTMLParser):
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "link" and attrs.get("rel") == "stylesheet":
+                      self.check(attrs["href"])
+                  if tag == "script" and attrs.get("src"):
+                      self.check(attrs["src"])
+              def check(self, url):
+                  assert not url.startswith(("/https:", "/http:")), url
+                  if url.startswith("/"):
+                      assert (Path("/tmp/roma-site") / urlparse(url).path.lstrip("/")).is_file(), url
+          Assets().feed(Path("/tmp/roma-site/index.html").read_text())
+          PYTEST

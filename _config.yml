@@ -30,7 +30,7 @@ email: lajuma10@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Una manera diferente de conocer Jujuy. Sumate a esta Aventura.
   Excursiones, traslados y alojamiento. Tu viaje al Norte, resuelto.
-baseurl: "https://ar-wonderlust.github.io" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ar-wonderlust.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lajuma10
 #github_username: ar-wonderlust 
