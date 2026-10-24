@@ -6,3 +6,6 @@ __pycache__/
 .venv/
 _site/
 .jekyll-cache/
+
+# Instrucciones locales del operador, independientes de las actualizaciones
+server/config/
