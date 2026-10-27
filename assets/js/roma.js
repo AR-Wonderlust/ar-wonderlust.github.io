@@ -29,7 +29,7 @@ async function send(text){if(busy||!text.trim())return;const message=text.trim()
  try{let reply;if(cfg.api_url){const response=await fetch(cfg.api_url.replace(/\/$/,'')+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,history:history.slice(-12)}),signal:AbortSignal.timeout(45000)});if(!response.ok)throw new Error('request');const data=await response.json();if(typeof data.reply!=='string'||!data.reply)throw new Error('empty');reply=data.reply;}else{reply=questions[Math.min(step++,questions.length-1)];}
  history.push({role:'user',text:message},{role:'model',text:reply});addMessage('model',reply);
  }catch{addMessage('model','No pude completar la respuesta. Tu mensaje queda disponible para continuar por WhatsApp. Podés volver a intentarlo.');history.push({role:'user',text:message});}
- finally{setBusy(false);syncWA();$('#message').focus();}}
+ finally{setBusy(false);syncWA();if(!$('#chat').hidden)$('#message').focus();}}
 $('#chat-form').addEventListener('submit',e=>{e.preventDefault();send($('#message').value)});
 document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>send(b.dataset.prompt)));
 $('#reset').addEventListener('click',reset);if(cfg.api_url)$('#chat-mode').textContent='Asistente IA de ROMA';reset();
@@ -41,3 +41,24 @@ function safeURL(s){try{const u=new URL(s);return u.protocol==='https:'?u.href:n
 if(cfg.maps_url&&safeURL(cfg.maps_url)){$('#maps-link').href=cfg.maps_url;$('#maps-link').hidden=false;}
 async function loadReviews(){if(!cfg.api_url)return;try{const res=await fetch(cfg.api_url.replace(/\/$/,'')+'/reviews',{signal:AbortSignal.timeout(15000)});if(!res.ok)return;const data=await res.json();if(!data.reviews?.length)return;$('#reviews').replaceChildren();const brand=document.createElement('p');brand.className='google-brand';brand.textContent='Google Maps';$('#reviews').before(brand);for(const r of data.reviews){const card=document.createElement('article');card.className='review';const author=document.createElement('a');author.textContent=r.author||'Viajero';author.href=safeURL(r.author_url)||safeURL(r.url)||'https://maps.google.com';author.target='_blank';author.rel='noopener';if(safeURL(r.photo)){const img=document.createElement('img');img.src=r.photo;img.alt='';img.loading='lazy';card.append(img)}const stars=document.createElement('p');stars.className='stars';stars.textContent='★'.repeat(Math.max(0,Math.min(5,Math.round(Number(r.rating)||0))))+` · ${r.relative_time||''}`;const p=document.createElement('p');p.textContent=r.text;const link=document.createElement('a');link.textContent='Leer opinión en Google Maps ↗';link.href=safeURL(r.url)||safeURL(data.url)||'https://maps.google.com';link.target='_blank';link.rel='noopener';card.append(author,stars,p,link);$('#reviews').append(card)}if(safeURL(data.url)){$('#maps-link').href=data.url;$('#maps-link').hidden=false;}}catch{/* Se conserva el estado honesto sin reseñas. */}}
 loadReviews();
+
+
+// Non-modal floating assistant: preserve conversation when closing.
+const chatPanel = $('#chat');
+const chatLauncher = $('#chat-launcher');
+let chatOpener = chatLauncher;
+function showChat(open, trigger) {
+ if (open && trigger) chatOpener = trigger;
+ chatPanel.hidden = !open;
+ chatLauncher.setAttribute('aria-expanded', String(open));
+ chatLauncher.textContent = open ? 'Cerrar asistente ×' : 'Asistente IA · ROMA';
+ if (open) { (busy ? $('#chat-close') : $('#message')).focus(); }
+ else if (chatOpener?.isConnected) chatOpener.focus();
+}
+chatLauncher.addEventListener('click', () => showChat(chatPanel.hidden, chatLauncher));
+$('#chat-close').addEventListener('click', () => showChat(false));
+document.querySelectorAll('a[href="#chat"]').forEach(a => a.addEventListener('click', e => {
+ e.preventDefault(); showChat(true, a);
+}));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !chatPanel.hidden) showChat(false); });
+if (location.hash === '#chat') showChat(true, chatLauncher);

@@ -61,6 +61,6 @@
   .then(data => {
    items = (Array.isArray(data.items) ? data.items : []).filter(i =>
     ['image', 'video'].includes(i.kind) && Object.hasOwn(labels, i.region) && /^\/media\/[\w-]+$/.test(i.url));
-   if (items.length) { section.hidden = false; render(); }
+   if (items.length) { section.hidden = false; document.getElementById('fallback-regions').hidden = true; document.getElementById('photo-credit').hidden = true; document.querySelector('.hero').classList.add('has-gallery'); render(); }
   }).catch(() => { /* Existing hero landscapes remain available while the server is offline. */ });
 })();
