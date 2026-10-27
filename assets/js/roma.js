@@ -47,13 +47,13 @@ loadReviews();
 const chatPanel = $('#chat');
 const chatLauncher = $('#chat-launcher');
 let chatOpener = chatLauncher;
-function showChat(open, trigger) {
+function showChat(open, trigger, focusInput = true) {
  if (open && trigger) chatOpener = trigger;
  chatPanel.hidden = !open;
  chatLauncher.setAttribute('aria-expanded', String(open));
- chatLauncher.textContent = open ? 'Cerrar asistente ×' : 'Asistente IA · ROMA';
- if (open) { (busy ? $('#chat-close') : $('#message')).focus(); }
- else if (chatOpener?.isConnected) chatOpener.focus();
+ chatLauncher.textContent = open ? (matchMedia('(max-width:700px)').matches ? 'Minimizar asistente −' : 'Cerrar asistente ×') : 'Asistente IA · ROMA';
+ if (open && focusInput) { (busy ? $('#chat-close') : $('#message')).focus(); }
+ else if (!open && chatOpener?.isConnected) chatOpener.focus();
 }
 chatLauncher.addEventListener('click', () => showChat(chatPanel.hidden, chatLauncher));
 $('#chat-close').addEventListener('click', () => showChat(false));
@@ -61,4 +61,9 @@ document.querySelectorAll('a[href="#chat"]').forEach(a => a.addEventListener('cl
  e.preventDefault(); showChat(true, a);
 }));
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !chatPanel.hidden) showChat(false); });
-if (location.hash === '#chat') showChat(true, chatLauncher);
+if (matchMedia('(max-width:700px)').matches) {
+ $('#chat-close').textContent = '−';
+ $('#chat-close').setAttribute('aria-label', 'Minimizar asistente');
+ // Open without focusing the input: avoid opening the phone keyboard on arrival.
+ showChat(true, chatLauncher, false);
+} else if (location.hash === '#chat') showChat(true, chatLauncher);

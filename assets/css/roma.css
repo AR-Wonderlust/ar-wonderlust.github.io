@@ -10,3 +10,46 @@
 /* Landscapes take the hero; the assistant follows the visitor. */
 .hero{min-height:500px}.hero-grid{display:block}.hero-copy{padding:12px 0 28px}.hero h1{font-size:clamp(44px,5.4vw,72px);margin:12px 0 20px}.hero-copy p{max-width:650px}.hero.has-gallery{background:#253630}.hero.has-gallery .hero-bg{opacity:.16}.hero.has-gallery:after{background:linear-gradient(180deg,#182a2380,#182a23e0)}.hero.has-gallery .hero-copy{display:grid;grid-template-columns:1fr 1fr;column-gap:50px;align-items:center}.hero.has-gallery .hero-copy .eyebrow{grid-column:1/-1}.hero.has-gallery .hero-copy h1{grid-column:1;grid-row:2/5}.hero.has-gallery .hero-copy p{margin:8px 0}.hero.has-gallery .hero-copy .button{justify-self:start;margin-top:10px}.hero-gallery{margin:8px 0 14px}.hero-gallery .gallery-filters button{color:white;border-color:#ffffff70}.hero-gallery .gallery-filters button[aria-pressed=true]{background:var(--cream);color:var(--ink)}.hero-gallery .media-controls .button{color:white;border-color:#ffffff70}.hero-gallery .media-controls p{color:#f0eade}.hero-gallery .media-stage{box-shadow:0 12px 35px #0003}
 .chat-launcher{position:fixed;right:18px;bottom:18px;z-index:101;padding:14px 22px;min-height:48px;border:1px solid #ffffff70;border-radius:28px;background:var(--rust);color:white;font-weight:650;box-shadow:0 6px 24px #0004}.whatsapp{right:auto;left:18px}.floating-chat{position:fixed;right:18px;bottom:84px;width:min(440px,calc(100vw - 36px));height:640px;max-height:calc(100dvh - 110px);z-index:100;display:flex;flex-direction:column;border:1px solid var(--line);box-shadow:0 18px 70px #0005}.floating-chat .chat-head{padding:16px 18px;flex-shrink:0}.chat-close{margin-left:auto;align-self:flex-start;border:1px solid #ffffff70;border-radius:6px;background:transparent;color:white;min-width:40px;min-height:40px;font-size:26px;line-height:1}.floating-chat .chat-log{flex:1;min-height:60px;height:auto;overscroll-behavior:contain}.floating-chat .chips,.floating-chat .chat-form,.floating-chat .chat-note,.floating-chat .chat-tools,.floating-chat .live-status{flex-shrink:0}.floating-chat .chat-form input{font-size:16px}.floating-chat .chat-note{font-size:11px}.floating-chat .chat-tools{flex-wrap:wrap}@media(max-width:650px){.hero.has-gallery .hero-copy{display:block}.hero.has-gallery .hero-copy .button{margin:12px 0}.hero h1{font-size:48px}.floating-chat{right:10px;bottom:78px;width:calc(100vw - 20px);max-height:calc(100dvh - 90px)}.chat-launcher{right:10px;bottom:14px;padding:12px 15px;font-size:13px}.whatsapp{left:10px;bottom:14px;padding:11px 14px}.floating-chat .chips{padding:0 14px 8px}.floating-chat .chat-note{padding:0 14px 10px}.floating-chat .chat-log{padding:14px}}@media(max-height:500px){.floating-chat .chips,.floating-chat .chat-note{display:none}.floating-chat .chat-head{padding:8px 12px}.floating-chat .chat-tools{padding-bottom:6px}.floating-chat .chat-form{padding:6px}}
+
+/* Mobile: immersive full-height landscape and a minimizable welcome chat. */
+@media(max-width:700px){
+ main#principal{display:flex;flex-direction:column}
+ main#principal>.hero{order:-1}
+ .hero,.hero.has-gallery{height:100svh;min-height:560px;padding:0;position:relative}
+ .hero>.wrap{width:100%;height:100%;position:relative}
+ .hero .hero-grid{position:absolute;inset:0;pointer-events:none;z-index:3}
+ .hero .hero-copy,.hero.has-gallery .hero-copy{display:block;padding:0;margin:0}
+ .hero .hero-copy>.eyebrow{position:absolute;top:24px;left:12px;right:12px;text-align:center;font-size:13px;letter-spacing:.18em;text-shadow:0 2px 10px #000;line-height:1.5}
+ .hero .hero-copy>h1{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .hero .hero-copy>p,.hero .hero-copy>.button{display:none}
+ .hero-gallery{position:absolute;inset:0;margin:0}
+ .hero-gallery .media-stage{position:absolute;inset:0;width:100%;height:100%;max-height:none;aspect-ratio:auto;border-radius:0;box-shadow:none}
+ .hero-gallery .media-stage figure{height:100%;width:100%}
+ .hero-gallery .media-stage video,.hero-gallery .media-stage img{object-fit:cover}
+ .hero-gallery .media-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#0006,transparent 28%,transparent 65%,#0008)}
+ .hero-gallery .media-stage figcaption{z-index:1;bottom:160px;left:16px}
+ .hero-gallery .gallery-filters{position:absolute;top:65px;left:12px;right:12px;z-index:4;justify-content:center;gap:6px}
+ .hero-gallery .gallery-filters button{background:#182a23b8;padding:7px 10px;font-size:12px;min-height:36px}
+ .hero-gallery .media-controls{position:absolute;bottom:88px;left:16px;right:16px;z-index:4;justify-content:center;margin:0}
+ .hero-gallery .media-controls .button{background:#182a23bd;padding:8px 12px;font-size:12px;min-height:40px}
+ .hero-gallery .media-controls p{display:none}
+ .hero .hero-bg{opacity:1}
+ .hero #fallback-regions{position:absolute;bottom:125px;left:12px;right:12px;justify-content:center}
+ .hero #photo-credit{position:absolute;bottom:85px;left:16px;right:16px;font-size:10px;text-align:center}
+ .floating-chat{right:10px;bottom:calc(76px + env(safe-area-inset-bottom,0px));width:calc(100vw - 20px);height:58svh;max-height:calc(100dvh - 100px);min-height:0}
+ .floating-chat .chat-head{padding:10px 14px}
+ .floating-chat .chat-log{min-height:50px;padding:12px}
+ .floating-chat .chat-head strong{font-size:14px}
+ .floating-chat .chips{display:none}
+ .floating-chat .chat-note{font-size:10px;padding:0 12px 8px}
+ .floating-chat .chat-tools{padding:0 12px 8px;gap:6px}
+ .floating-chat .chat-form{padding:8px}
+ .chat-launcher{right:10px;bottom:calc(14px + env(safe-area-inset-bottom,0px));font-size:12px;padding:12px 14px;min-height:46px}
+ .whatsapp{left:10px;bottom:calc(14px + env(safe-area-inset-bottom,0px));font-size:12px;padding:11px 12px}
+}
+@media(max-width:700px) and (max-height:500px){
+ .hero,.hero.has-gallery{min-height:100svh}
+ .floating-chat{height:calc(100dvh - 92px)}
+ .floating-chat .chat-note,.floating-chat .avatar{display:none}
+ .floating-chat .chat-head{padding:5px 10px}
+}
