@@ -11,6 +11,7 @@ import google.auth
 from google.auth.transport.requests import Request as GoogleRequest
 import httpx
 from instructions import load_instructions
+from gallery import Gallery
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -31,12 +32,12 @@ async def lifespan(app):
     yield
 
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None)
-app.add_middleware(CORSMiddleware, allow_origins=[origin], allow_methods=['GET','POST'], allow_headers=['Content-Type'])
+app.add_middleware(CORSMiddleware, allow_origins=[origin], allow_methods=['GET','POST'], allow_headers=['Content-Type', 'Range'], expose_headers=['Content-Range', 'Accept-Ranges', 'Content-Length'])
 
 @app.middleware('http')
 async def origin_and_size(request: Request, call_next):
     from starlette.responses import JSONResponse
-    if request.method != 'OPTIONS' and request.url.path != '/health':
+    if request.method != 'OPTIONS' and request.url.path != '/health' and not request.url.path.startswith('/media/'):
         if request.headers.get('origin') != origin:
             return JSONResponse({'detail':'Origen no permitido'},403)
     if request.method == 'POST':
@@ -157,3 +158,16 @@ async def reviews():
         data=res.json()
         return {'url':data.get('googleMapsUri',''),'reviews':[{'author':r.get('authorAttribution',{}).get('displayName',''),'author_url':r.get('authorAttribution',{}).get('uri',''),'photo':r.get('authorAttribution',{}).get('photoUri',''),'text':r.get('originalText',r.get('text',{})).get('text',''),'rating':r.get('rating',0),'relative_time':r.get('relativePublishTimeDescription',''),'url':r.get('googleMapsUri',data.get('googleMapsUri',''))} for r in data.get('reviews',[])]}
     except Exception:raise HTTPException(503,'No se pudieron cargar las reseñas') from None
+
+
+# Media routes publish only files allowlisted by the configured gallery folder.
+gallery = Gallery(drive_headers)
+
+@app.get('/gallery')
+async def gallery_manifest():
+    items = await gallery.listing()
+    return {'items': [{k: v for k, v in item.items() if k not in ('mime', 'size')} for item in items]}
+
+@app.get('/media/{file_id}')
+async def gallery_file(file_id: str, request: Request):
+    return await gallery.media(file_id, request.headers.get('range'))

@@ -3,3 +3,6 @@
 !requirements.txt
 !Dockerfile
 !instructions.py
+
+
+!gallery.py
