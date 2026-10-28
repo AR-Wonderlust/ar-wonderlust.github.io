@@ -93,3 +93,10 @@
 .calendar-intro{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0}
 .calendar-intro p{max-width:680px;margin:0}
 @media(max-width:650px){.calendar-disclosure>summary{padding:20px}.calendar-intro{display:block}.calendar-intro .button{margin-top:16px}}
+
+/* Original company logo; frame removes only the asset's transparent margins. */
+header .brand-with-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-wordmark{display:grid;gap:3px}
+.brand-logo-frame{position:relative;display:block;width:110px;height:90px;overflow:hidden;flex-shrink:0}
+.brand-logo{position:absolute;top:50%;left:50%;width:150px;height:150px;max-width:none;object-fit:contain;transform:translate(-50%,-50%)}
+@media(max-width:650px){header .brand-with-logo{gap:8px}.brand-logo-frame{width:80px;height:68px}.brand-logo{width:112px;height:112px}header .brand-wordmark b{font-size:30px}header .brand-wordmark small{font-size:10px}}
