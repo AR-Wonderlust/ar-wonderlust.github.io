@@ -59,3 +59,24 @@
 .review-invitation strong{font:28px/1.2 Georgia,serif}.review-invitation p{max-width:620px;margin:12px 0 0}.review-actions{display:flex;flex-direction:column;gap:10px;flex-shrink:0}.review-actions .button{text-align:center}
 #review-rating{font-weight:700}#reviews-note{color:#5e645f;font-size:14px}.review-grid:empty{display:none}
 @media(max-width:700px){.review-invitation{flex-direction:column;align-items:stretch;padding:22px}.review-actions{width:100%}.review-actions .button{white-space:normal}}
+
+/* Horizontal review banner with a fixed invitation and swipeable cards. */
+.reviews-banner{display:grid;grid-template-columns:245px minmax(0,1fr);gap:24px;align-items:center}
+.reviews-banner .review-invitation{display:block;padding:0;border:0;background:transparent}
+.review-source{display:block;font-size:13px;margin-top:8px;color:#5e645f}
+.reviews-banner .review-invitation p{font-size:14px}
+.reviews-banner .review-actions{margin-top:20px;gap:8px}
+.reviews-banner .review-actions .button{font-size:13px;padding:12px}
+.reviews-carousel{min-width:0}
+.reviews-carousel .review-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:4px 2px 14px}
+.reviews-carousel .review{flex:0 0 calc((100% - 32px)/3);min-width:230px;scroll-snap-align:start;border:0;border-radius:14px;padding:22px;box-sizing:border-box}
+.reviews-carousel .review>a:first-of-type{font-weight:700;font-size:15px}
+.review-excerpt{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;font-size:15px;line-height:1.5}
+.review-excerpt.expanded{display:block}
+.review-more{display:block;border:0;background:transparent;padding:0;margin:0 0 15px;color:#665c50;text-decoration:underline;cursor:pointer}
+.review-controls{display:flex;justify-content:flex-end;gap:8px;margin-bottom:12px}
+.review-controls[hidden]{display:none}
+.review-controls button{border:1px solid var(--line);background:#fffdfa;color:var(--ink);border-radius:22px;min-height:40px;min-width:40px;padding:8px 14px;cursor:pointer}
+.reviews-carousel .google-brand{font-size:13px;font-weight:bold}
+@media(max-width:1100px){.reviews-carousel .review{flex-basis:calc((100% - 16px)/2)}}
+@media(max-width:700px){.reviews-banner{grid-template-columns:minmax(0,1fr);gap:18px}.reviews-banner .review-invitation{text-align:center}.reviews-banner .review-actions{align-items:stretch}.reviews-carousel .review{flex-basis:86%;min-width:0}.review-controls{justify-content:center}}
