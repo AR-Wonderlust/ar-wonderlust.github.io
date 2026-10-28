@@ -29,7 +29,7 @@ Editar `_data/roma.yml`:
 
 - `api_url`: URL HTTPS del servicio, sin `/chat` final.
 - `calendar_id`: ID del calendario público exclusivo de actividades. Google Calendar → Configuración del calendario → Integrar calendario. Habilitar visibilidad pública solo para ese calendario, sin datos de reservas o pasajeros. No es una carpeta de Drive.
-- `whatsapp`: número con código de país, sin signos. Se tomó `5493884381576` del archivo original: confirmar vigencia.
+- `whatsapp`: número con código de país, sin signos. Contacto de Agencia ROMA: `5493885383215` (+54 9 388 538-3215).
 - `maps_url`: enlace a la ficha correcta de Agencia ROMA. El servidor puede devolverlo automáticamente.
 
 La marca de la cabecera es tipográfica: falta el archivo original del logo para incorporarlo sin pérdida de calidad. No se recortó el logo de la fotografía del monitor.

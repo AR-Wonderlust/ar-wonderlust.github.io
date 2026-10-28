@@ -1,6 +1,6 @@
 # Valores públicos. Nunca poner claves de API en este archivo.
 api_url: "https://asistente.romanomad.travel"
 calendar_id: "85c172a9c864406f2d7c257aaf1c21b5492cd961ef9fea9c014bdcfe343b0a61@group.calendar.google.com"
-# Confirmar que siga siendo el WhatsApp comercial. Tomado del _config.yml original.
-whatsapp: "5493884381576"
+# WhatsApp comercial de Agencia ROMA, confirmado por el operador.
+whatsapp: "5493885383215"
 maps_url: ""
