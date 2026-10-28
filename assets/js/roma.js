@@ -97,3 +97,21 @@ if (matchMedia('(max-width:700px)').matches) {
  showChat(true, chatLauncher, false);
 } else if (location.hash === '#chat') showChat(true, chatLauncher);
 
+
+// Keep the calendar open while visitors interact with its embedded contents.
+const calendarDisclosure = $('#calendar-disclosure');
+const calendarTrigger = $('#calendar-trigger');
+let calendarHoverTimer;
+function cancelCalendarHover(){clearTimeout(calendarHoverTimer);}
+calendarTrigger.addEventListener('pointerenter',event=>{
+ if(event.pointerType==='mouse'&&matchMedia('(hover: hover) and (pointer: fine)').matches){
+  calendarHoverTimer=setTimeout(()=>{calendarDisclosure.open=true;},400);
+ }
+});
+calendarTrigger.addEventListener('pointerleave',cancelCalendarHover);
+calendarTrigger.addEventListener('pointerdown',cancelCalendarHover);
+calendarTrigger.addEventListener('keydown',cancelCalendarHover);
+document.querySelectorAll('a[href="#calendario"]').forEach(link=>link.addEventListener('click',()=>{calendarDisclosure.open=true;}));
+function openCalendarFromHash(){if(location.hash==='#calendario')calendarDisclosure.open=true;}
+window.addEventListener('hashchange',openCalendarFromHash);
+openCalendarFromHash();

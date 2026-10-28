@@ -80,3 +80,16 @@
 .reviews-carousel .google-brand{font-size:13px;font-weight:bold}
 @media(max-width:1100px){.reviews-carousel .review{flex-basis:calc((100% - 16px)/2)}}
 @media(max-width:700px){.reviews-banner{grid-template-columns:minmax(0,1fr);gap:18px}.reviews-banner .review-invitation{text-align:center}.reviews-banner .review-actions{align-items:stretch}.reviews-carousel .review{flex-basis:86%;min-width:0}.review-controls{justify-content:center}}
+
+/* Calendar disclosure: native keyboard/touch support and optional mouse hover. */
+.calendar-disclosure>summary{list-style:none;cursor:pointer;padding:24px;border:1px solid var(--line);border-radius:12px;background:#eee9df}
+.calendar-disclosure>summary::-webkit-details-marker{display:none}
+.calendar-disclosure>summary h2{margin:10px 0 16px}
+.calendar-disclosure>summary:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
+.calendar-open-label,.calendar-close-label{font-weight:600;color:var(--rust)}
+.calendar-close-label{display:none}
+.calendar-disclosure[open] .calendar-open-label{display:none}
+.calendar-disclosure[open] .calendar-close-label{display:inline}
+.calendar-intro{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0}
+.calendar-intro p{max-width:680px;margin:0}
+@media(max-width:650px){.calendar-disclosure>summary{padding:20px}.calendar-intro{display:block}.calendar-intro .button{margin-top:16px}}
