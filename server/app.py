@@ -153,10 +153,10 @@ async def reviews():
     if not key or not re.fullmatch(r'[\w-]+',place):return {'reviews':[]}
     try:
         async with httpx.AsyncClient(timeout=10) as client:
-            res=await client.get('https://places.googleapis.com/v1/places/'+place,params={'languageCode':'es'},headers={'X-Goog-Api-Key':key,'X-Goog-FieldMask':'reviews,googleMapsUri'})
+            res=await client.get('https://places.googleapis.com/v1/places/'+place,params={'languageCode':'es'},headers={'X-Goog-Api-Key':key,'X-Goog-FieldMask':'reviews,googleMapsUri,rating,userRatingCount'})
             res.raise_for_status()
         data=res.json()
-        return {'url':data.get('googleMapsUri',''),'reviews':[{'author':r.get('authorAttribution',{}).get('displayName',''),'author_url':r.get('authorAttribution',{}).get('uri',''),'photo':r.get('authorAttribution',{}).get('photoUri',''),'text':r.get('originalText',r.get('text',{})).get('text',''),'rating':r.get('rating',0),'relative_time':r.get('relativePublishTimeDescription',''),'url':r.get('googleMapsUri',data.get('googleMapsUri',''))} for r in data.get('reviews',[])]}
+        return {'rating':data.get('rating'),'review_count':data.get('userRatingCount',0),'url':data.get('googleMapsUri',''),'reviews':[{'author':r.get('authorAttribution',{}).get('displayName',''),'author_url':r.get('authorAttribution',{}).get('uri',''),'photo':r.get('authorAttribution',{}).get('photoUri',''),'text':r.get('originalText',r.get('text',{})).get('text',''),'rating':r.get('rating',0),'relative_time':r.get('relativePublishTimeDescription',''),'url':r.get('googleMapsUri',data.get('googleMapsUri',''))} for r in data.get('reviews',[])]}
     except Exception:raise HTTPException(503,'No se pudieron cargar las reseñas') from None
 
 
