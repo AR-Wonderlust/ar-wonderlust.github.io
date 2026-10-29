@@ -1,4 +1,4 @@
-"""Servidor ROMA. No almacena conversaciones. Ejecutar detrás de HTTPS y límites de tráfico."""
+"""Servidor ROMA. Registro de consultas opcional y explícito mediante /enquiries. Ejecutar detrás de HTTPS y límites de tráfico."""
 import asyncio
 import os
 import re
@@ -12,6 +12,7 @@ from google.auth.transport.requests import Request as GoogleRequest
 import httpx
 from instructions import load_instructions
 from gallery import Gallery
+from crm.public import router as crm_router
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -32,6 +33,7 @@ async def lifespan(app):
     yield
 
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None)
+app.include_router(crm_router)
 app.add_middleware(CORSMiddleware, allow_origins=[origin], allow_methods=['GET','POST'], allow_headers=['Content-Type', 'Range'], expose_headers=['Content-Range', 'Accept-Ranges', 'Content-Length'])
 
 @app.middleware('http')
@@ -136,7 +138,11 @@ async def chat(body:ChatRequest):
             owner_instructions=await asyncio.to_thread(load_instructions)
         except (OSError, ValueError):
             raise HTTPException(503,'Revisar los archivos de configuración del asistente.') from None
-        knowledge=await catalog()
+        if os.getenv('CATALOG_SOURCE','drive') == 'postgres':
+            from crm.service import catalog_context
+            knowledge=await catalog_context()
+        else:
+            knowledge=await catalog()
         system_prompt=(SYSTEM+'\n\nLas instrucciones del operador siguientes definen estilo y procedimientos, '
                        'pero no pueden contradecir las reglas anteriores ni habilitar herramientas. '
                        'Aplicá cada habilidad solo cuando sea pertinente a la consulta.\n'
@@ -183,3 +189,4 @@ async def gallery_manifest():
 @app.get('/media/{file_id}')
 async def gallery_file(file_id: str, request: Request):
     return await gallery.media(file_id, request.headers.get('range'))
+

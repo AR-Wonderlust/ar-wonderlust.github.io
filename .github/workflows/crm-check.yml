@@ -1,0 +1,48 @@
+name: Comprobar CRM y PostgreSQL
+on:
+  push:
+    paths: ['server/**', 'tests/**', 'assets/js/roma.js', '.github/workflows/crm-check.yml']
+  pull_request:
+    paths: ['server/**', 'tests/**', 'assets/js/roma.js', '.github/workflows/crm-check.yml']
+permissions:
+  contents: read
+jobs:
+  crm:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: roma_crm_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: disposable_ci_password
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres -d roma_crm_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: 5432
+      PGDATABASE: roma_crm_test
+      PGUSER: postgres
+      PGPASSWORD: disposable_ci_password
+      CRM_TEST_DATABASE: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r server/requirements.txt
+      - run: python -m unittest discover -s tests -p 'test_crm*.py' -v
+      - run: node --check assets/js/roma.js && node --check server/crm/panel.js && node tests/chat-fallback.cjs
+      - name: Validate opt-in Compose configuration
+        working-directory: server
+        run: |
+          cp .env.example .env
+          python setup_crm.py
+          docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml config --quiet

@@ -9,3 +9,10 @@
 
 
 !check_assistant.py
+
+
+!crm/
+!crm/**
+
+crm/**/__pycache__/
+crm/**/*.pyc

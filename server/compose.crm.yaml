@@ -1,0 +1,95 @@
+# Opt-in overlay. Keep using this file for future CRM deployments.
+services:
+  assistant:
+    env_file:
+      - .env
+      - .env.crm
+    environment:
+      CRM_ENABLED: "true"
+      PGHOST: crm-db
+    depends_on:
+      crm-migrate:
+        condition: service_completed_successfully
+
+  crm-db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PGDATABASE:-roma_crm}
+      POSTGRES_USER: ${PGUSER:-roma}
+      POSTGRES_PASSWORD: ${PGPASSWORD:?Ejecutar python3 setup_crm.py}
+    volumes:
+      - roma-crm-data:/var/lib/postgresql/data
+    # No host port: PostgreSQL is reachable only inside Docker.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+
+  crm-migrate:
+    build: .
+    restart: "no"
+    command: ["python", "-m", "crm.migrate"]
+    env_file: [.env.crm]
+    environment: {PGHOST: crm-db}
+    depends_on:
+      crm-db: {condition: service_healthy}
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+
+  crm-admin:
+    build: .
+    restart: unless-stopped
+    command: ["uvicorn", "crm.admin:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1", "--no-access-log"]
+    env_file: [.env.crm]
+    environment: {PGHOST: crm-db}
+    ports:
+      - "${CRM_BIND_IP:-127.0.0.1}:8011:8000"
+    depends_on:
+      crm-migrate: {condition: service_completed_successfully}
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 100
+    mem_limit: 256m
+    cpus: 0.5
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+
+  crm-drive:
+    profiles: [drive-import]
+    build: .
+    restart: unless-stopped
+    command: ["python", "-m", "crm.drive_import", "--watch"]
+    env_file: [.env, .env.crm]
+    environment: {PGHOST: crm-db}
+    volumes:
+      - type: bind
+        source: /etc/roma-assistant/google-service-account.json
+        target: /run/secrets/google-service-account.json
+        read_only: true
+        bind: {create_host_path: false}
+    depends_on:
+      crm-migrate: {condition: service_completed_successfully}
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+
+volumes:
+  roma-crm-data:

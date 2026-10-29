@@ -9,3 +9,9 @@ _site/
 
 # Instrucciones locales del operador, independientes de las actualizaciones
 server/config/
+
+# Local database backups must never be committed
+server/backups/
+*.dump
+*.dump.partial
+

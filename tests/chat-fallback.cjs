@@ -3,11 +3,11 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const path = require('node:path');
 const source = fs.readFileSync(path.join(__dirname, '../assets/js/roma.js'), 'utf8');
-const block = source.slice(source.indexOf('let history='), source.indexOf('const nowParts='));
+const block = source.slice(source.indexOf('let crmReference='), source.indexOf('const nowParts='));
 function harness(fetcher) {
  const nodes={};
- function node(){return {hidden:false,children:[],value:'',textContent:'',append(x){this.children.push(x)},replaceChildren(){this.children=[]},addEventListener(){},focus(){}};}
- const context={cfg:{api_url:'https://example.test',whatsapp:'5493884381576'},$:s=>nodes[s]??=(node()),document:{createElement:node,querySelectorAll:()=>[]},fetch:fetcher,AbortSignal};
+ function node(){return {hidden:false,children:[],value:'',textContent:'',append(x){this.children.push(x)},replaceChildren(){this.children=[]},addEventListener(){},focus(){},reset(){}};}
+ const context={cfg:{api_url:'https://example.test',whatsapp:'5493885383215'},$:s=>nodes[s]??=(node()),document:{createElement:node,querySelectorAll:()=>[]},fetch:fetcher,AbortSignal};
  vm.createContext(context);vm.runInContext(block+'\nthis.testApi={send,reset,waLink};',context);return {api:context.testApi,nodes};
 }
 (async()=>{
@@ -28,3 +28,4 @@ function harness(fetcher) {
  const chinese=harness(async()=>({ok:false}));await chinese.api.send('你好');assert.match(chinese.nodes['#messages'].children.at(-1).textContent,/几位/);
  console.log('OK: HTTP error, network error, malformed/empty response, guided steps, WhatsApp summary, reset, AI success and Chinese fallback');
 })().catch(e=>{console.error(e);process.exit(1)});
+
