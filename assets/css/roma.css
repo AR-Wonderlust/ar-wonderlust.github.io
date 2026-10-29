@@ -100,3 +100,10 @@ header .brand-with-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .brand-logo-frame{position:relative;display:block;width:110px;height:90px;overflow:hidden;flex-shrink:0}
 .brand-logo{position:absolute;top:50%;left:50%;width:120px;height:120px;max-width:none;object-fit:contain;transform:translate(-50%,-42%)}
 @media(max-width:650px){header .brand-with-logo{gap:8px}.brand-logo-frame{width:80px;height:68px}.brand-logo{width:90px;height:90px}header .brand-wordmark b{font-size:30px}header .brand-wordmark small{font-size:10px}}
+
+/* Primary handoff action, visible in both AI and guided conversations. */
+.chat-tools #handoff{display:flex;align-items:center;justify-content:center;flex:1 1 100%;min-height:46px;padding:11px 18px;border:1px solid #126534;border-radius:8px;background:#16803c;color:#fff;font-size:16px;font-weight:700;line-height:1.4;text-align:center;text-decoration:none;box-shadow:0 2px 5px #0002}
+.chat-tools #handoff:hover{background:#126534}
+.chat-tools #handoff:focus-visible{outline:3px solid #d59125;outline-offset:3px}
+.chat-tools #handoff[hidden]{display:none}
+.chat-tools{flex-wrap:wrap}
