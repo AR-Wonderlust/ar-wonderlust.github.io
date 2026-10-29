@@ -64,6 +64,22 @@ async def drive_headers():
         await asyncio.to_thread(credentials.refresh,GoogleRequest())
     return {'Authorization':f'Bearer {credentials.token}'}
 
+async def read_catalog_document(client, file, headers):
+    """Limit downloaded text, not the Google Docs storage size."""
+    url = 'https://www.googleapis.com/drive/v3/files/' + file['id']
+    query = {'alt': 'media'}
+    if file['mimeType'] == 'application/vnd.google-apps.document':
+        url += '/export'
+        query = {'mimeType': 'text/plain'}
+    data = bytearray()
+    async with client.stream('GET', url, params=query, headers=headers) as response:
+        response.raise_for_status()
+        async for chunk in response.aiter_bytes(chunk_size=16384):
+            if len(data) + len(chunk) > 200000:
+                raise HTTPException(503, 'Texto de un documento demasiado grande; resumir su contenido.')
+            data.extend(chunk)
+        return data.decode(response.encoding or 'utf-8', errors='replace')
+
 async def catalog():
     """Carpeta directa, Docs y texto. Lectura completa antes de reemplazar caché."""
     async with lock:
@@ -88,16 +104,12 @@ async def catalog():
                     mime=f['mimeType']
                     if mime not in ('application/vnd.google-apps.document','text/plain','text/markdown','text/csv'):continue
                     count+=1
-                    if count>50 or int(f.get('size',0))>200000:
+                    if count>50:
                         raise HTTPException(503,'Catálogo demasiado grande; dividir o resumir documentos.')
-                    url='https://www.googleapis.com/drive/v3/files/'+f['id']
-                    query={'alt':'media'}
-                    if mime=='application/vnd.google-apps.document':url+='/export';query={'mimeType':'text/plain'}
-                    doc=await client.get(url,params=query,headers=headers)
-                    doc.raise_for_status()
-                    total+=len(doc.text)
+                    text=await read_catalog_document(client,f,headers)
+                    total+=len(text)
                     if total>120000:raise HTTPException(503,'Catálogo demasiado grande.')
-                    parts.append('DOCUMENTO: '+f['name']+'\n'+doc.text)
+                    parts.append('DOCUMENTO: '+f['name']+'\n'+text)
                 token=page.get('nextPageToken')
                 if not token:break
         if not parts:raise HTTPException(503,'No hay actividades publicadas en la carpeta.')

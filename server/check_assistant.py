@@ -26,7 +26,7 @@ async def main():
         files, token = [], None
         async with httpx.AsyncClient(timeout=20) as client:
             for _ in range(20):
-                params = {'q': f"'{folder}' in parents and trashed=false", 'fields': 'nextPageToken,files(name,mimeType,size)', 'pageSize': 100}
+                params = {'q': f"'{folder}' in parents and trashed=false", 'fields': 'nextPageToken,files(id,name,mimeType,size)', 'pageSize': 100}
                 if token:
                     params['pageToken'] = token
                 res = await client.get('https://www.googleapis.com/drive/v3/files', params=params, headers=headers)
@@ -40,12 +40,24 @@ async def main():
                 print('DRIVE: demasiados archivos para completar el diagnóstico')
                 return 1
         print('DOCUMENTOS COMPATIBLES:', len(files), '(máximo 50)')
-        oversized = [f for f in files if int(f.get('size', 0)) > 200000]
-        for f in oversized:
-            name = ''.join(c for c in f.get('name', '') if c.isprintable())[:120]
-            print('ARCHIVO EXCESIVO:', name, '| bytes:', f['size'], '| máximo: 200000')
-        if len(files) > 50 or oversized:
-            print('ACCIÓN: retirar de la carpeta del catálogo los documentos ajenos al turismo y resumir los extensos. Conservar hasta 50 documentos. Las fotos y videos no cuentan para este límite.')
+        if len(files) > 50:
+            print('ACCIÓN: conservar hasta 50 documentos compatibles en la carpeta del catálogo.')
+            return 1
+        oversized = False
+        async with httpx.AsyncClient(timeout=20) as client:
+            for f in files:
+                name = ''.join(c for c in f.get('name', '') if c.isprintable())[:120]
+                try:
+                    text = await app.read_catalog_document(client, f, headers)
+                    print('TEXTO OK:', name, '| caracteres:', len(text),
+                          '| tamaño del archivo en Drive:', f.get('size', 'no informado'))
+                except app.HTTPException as exc:
+                    if exc.detail != 'Texto de un documento demasiado grande; resumir su contenido.':
+                        raise
+                    oversized = True
+                    print('TEXTO EXCESIVO:', name, '| supera 200000 bytes de texto descargado.')
+        if oversized:
+            print('ACCIÓN: resumir el texto de los documentos indicados. No hace falta eliminar imágenes de Google Docs.')
             return 1
         knowledge = await asyncio.wait_for(app.catalog(), timeout=90)
         print('CATÁLOGO: OK; caracteres:', len(knowledge), '(máximo 120000)')
@@ -56,7 +68,7 @@ async def main():
         print('CATÁLOGO: ERROR', type(exc).__name__)
         detail = getattr(exc, 'detail', '')
         # Only known application messages, never upstream exception strings.
-        if detail in ('Catálogo demasiado grande.', 'No hay actividades publicadas en la carpeta.'):
+        if detail in ('Catálogo demasiado grande.', 'No hay actividades publicadas en la carpeta.', 'Texto de un documento demasiado grande; resumir su contenido.'):
             print(detail)
         return 1
     try:
