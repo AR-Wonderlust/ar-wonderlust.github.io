@@ -51,7 +51,7 @@ async def dashboard():
             FROM enquiries''')).fetchone()
         categories=await (await conn.execute('''SELECT c.code,c.name,count(ec.enquiry_id) total FROM categories c
             LEFT JOIN enquiry_categories ec ON ec.category_code=c.code GROUP BY c.code,c.name ORDER BY total DESC,c.name''')).fetchall()
-        months=await (await conn.execute('''SELECT to_char(created_at AT TIME ZONE 'America/Argentina/Jujuy','YYYY-MM') month,
+        months=await (await conn.execute('''SELECT to_char(created_at AT TIME ZONE 'America/Argentina/Jujuy','YYYY-MM') AS "month",
             channel,count(*) total FROM enquiries GROUP BY 1,2 ORDER BY 1 DESC,2 LIMIT 72''')).fetchall()
         pending=await (await conn.execute("SELECT count(*) total FROM catalog_items WHERE status='pendiente'")).fetchone()
         events=await (await conn.execute('SELECT count(*) total FROM automation_events WHERE processed_at IS NULL')).fetchone()
