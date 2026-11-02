@@ -39,7 +39,8 @@ app.add_middleware(CORSMiddleware, allow_origins=[origin], allow_methods=['GET',
 @app.middleware('http')
 async def origin_and_size(request: Request, call_next):
     from starlette.responses import JSONResponse
-    if request.method != 'OPTIONS' and request.url.path != '/health' and not request.url.path.startswith('/media/'):
+    passenger_path=request.url.path in {'/solicitud','/solicitud/form.js','/solicitud/form.css','/solicitud/read','/solicitud/submit'}
+    if not passenger_path and request.method != 'OPTIONS' and request.url.path != '/health' and not request.url.path.startswith('/media/'):
         if request.headers.get('origin') != origin:
             return JSONResponse({'detail':'Origen no permitido'},403)
     if request.method == 'POST':
@@ -49,7 +50,11 @@ async def origin_and_size(request: Request, call_next):
             if len(body) > 24000:
                 return JSONResponse({'detail':'Consulta demasiado larga'},413)
         request._body = bytes(body)
-    return await call_next(request)
+    response=await call_next(request)
+    if passenger_path:
+        from crm.passenger_requests import headers
+        response.headers.update(headers())
+    return response
 
 class Turn(BaseModel):
     role: Literal['user','model']
@@ -189,4 +194,5 @@ async def gallery_manifest():
 @app.get('/media/{file_id}')
 async def gallery_file(file_id: str, request: Request):
     return await gallery.media(file_id, request.headers.get('range'))
+
 

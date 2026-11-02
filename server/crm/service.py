@@ -60,7 +60,7 @@ async def dashboard():
 
 async def list_enquiries(limit, offset):
     async with connection() as conn:
-        return await (await conn.execute('''SELECT e.*,ARRAY(SELECT category_code FROM enquiry_categories WHERE enquiry_id=e.id ORDER BY category_code) categories
+        return await (await conn.execute('''SELECT e.*,(SELECT CASE WHEN status='awaiting' AND expires_at<=now() THEN 'expired' ELSE status END FROM passenger_requests WHERE enquiry_id=e.id ORDER BY created_at DESC LIMIT 1) AS details_status,ARRAY(SELECT category_code FROM enquiry_categories WHERE enquiry_id=e.id ORDER BY category_code) categories
             FROM enquiries e ORDER BY created_at DESC,id DESC LIMIT %s OFFSET %s''',(limit,offset))).fetchall()
 
 
@@ -127,3 +127,4 @@ async def acknowledge(event_id,token):
             WHERE id=%s AND lease_token=%s AND (lease_until>now() OR processed_at IS NOT NULL) RETURNING id''',(event_id,token))).fetchone()
         if not row: raise HTTPException(409,'Evento no reclamado o concesión vencida')
         return {'ok':True}
+

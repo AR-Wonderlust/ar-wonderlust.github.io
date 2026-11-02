@@ -19,7 +19,7 @@ class WhatsAppRules(unittest.TestCase):
         self.assertEqual((kind,category),('posible_consulta','transfer'))
         self.assertIn('sujetas a confirmación',draft)
         self.assertEqual(wa.classify('Ofrecemos alojamiento en Yala')[0],'oferta')
-        self.assertEqual(wa.classify('Buen día, gracias')[0],'revisar')
+        self.assertEqual(wa.classify('Buen día, gracias')[0],'irrelevante')
         self.assertEqual(wa.classify('Busco excursión a Salinas')[1],'actividad')
         self.assertEqual(wa.classify('Busco alquiler de vehículo')[1],'alquiler_vehiculo')
 
@@ -35,7 +35,7 @@ class WhatsAppAccess(unittest.IsolatedAsyncioTestCase):
                     r=await c.post('/integrations/whatsapp/events',json={},headers={'Authorization':'Bearer '+token})
                     self.assertEqual(r.status_code,401)
                 self.assertEqual((await c.post('/automation/whatsapp/run',headers={'Authorization':'Bearer '+'c'*40})).status_code,401)
-                with patch('crm.whatsapp.process_batch',AsyncMock(return_value=0)),patch('crm.whatsapp.dispatch_batch',AsyncMock(return_value=[])):
+                with patch('crm.whatsapp.process_batch',AsyncMock(return_value=0)),patch('crm.whatsapp.dispatch_batch',AsyncMock(return_value=[])),patch('crm.whatsapp.dispatch_responses',AsyncMock(return_value=[])):
                     self.assertEqual((await c.post('/automation/whatsapp/run',headers={'Authorization':'Bearer '+'b'*40})).status_code,200)
 
 

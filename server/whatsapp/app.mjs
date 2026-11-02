@@ -88,21 +88,22 @@ const server=http.createServer(async(req,res)=>{
   }
   if(path==='/send-alert'&&req.method==='POST'){
    const b=await body(req);if(!/^[a-f0-9]{64}$/.test(b.event_id)||typeof b.text!=='string'||b.text.length>9000)throw Error('Aviso inválido');
+   const deliveryId=b.delivery_id||b.event_id;if(!/^[a-f0-9]{64}$/.test(deliveryId))throw Error('Aviso inválido');
    const original=db.prepare('SELECT * FROM inbox WHERE id=?').get(b.event_id);if(!original)throw Error('Evento no disponible');
    const event=JSON.parse(store.unseal(original.body)),a=account(original.account_id);
-   const hash=digest(b.text),prior=db.prepare('SELECT * FROM deliveries WHERE id=?').get(b.event_id);
+   const hash=digest(b.text),prior=db.prepare('SELECT * FROM deliveries WHERE id=?').get(deliveryId);
    if(prior){if(prior.hash!==hash)throw Error('El aviso cambió');return answer(res,200,{status:prior.status});}
    if(!db.prepare('SELECT 1 FROM sources WHERE group_id=? AND account_id=?').get(event.group_id,a.id))return answer(res,200,{status:'paused'});
    if(!a.internal_group||!a.enabled||status.get(a.id)!=='conectada')return answer(res,200,{status:'pending'});
    if(!(await groups(a.id)).some(g=>g.id===a.internal_group))return answer(res,200,{status:'pending'});
    const current=account(a.id);
    if(!current.enabled||current.internal_group!==a.internal_group||status.get(a.id)!=='conectada'||!db.prepare('SELECT 1 FROM sources WHERE group_id=? AND account_id=?').get(event.group_id,a.id))return answer(res,200,{status:'pending'});
-   const raced=db.prepare('SELECT * FROM deliveries WHERE id=?').get(b.event_id);
+   const raced=db.prepare('SELECT * FROM deliveries WHERE id=?').get(deliveryId);
    if(raced)return answer(res,200,{status:raced.hash===hash?raced.status:'unknown'});
    // Persist before the external side effect. Unknown results are never retried blindly.
-   db.prepare("INSERT INTO deliveries VALUES(?,?,'sending',NULL,?)").run(b.event_id,hash,Date.now());
-   try{const sent=await sockets.get(a.id).sendMessage(a.internal_group,{text:b.text});db.prepare("UPDATE deliveries SET status='sent',provider_id=? WHERE id=?").run(sent?.key?.id||null,b.event_id);return answer(res,200,{status:'sent'});}
-   catch{db.prepare("UPDATE deliveries SET status='unknown' WHERE id=?").run(b.event_id);return answer(res,200,{status:'unknown'});}
+   db.prepare("INSERT INTO deliveries VALUES(?,?,'sending',NULL,?)").run(deliveryId,hash,Date.now());
+   try{const sent=await sockets.get(a.id).sendMessage(a.internal_group,{text:b.text});db.prepare("UPDATE deliveries SET status='sent',provider_id=? WHERE id=?").run(sent?.key?.id||null,deliveryId);return answer(res,200,{status:'sent'});}
+   catch{db.prepare("UPDATE deliveries SET status='unknown' WHERE id=?").run(deliveryId);return answer(res,200,{status:'unknown'});}
   }
   return answer(res,404,{detail:'Ruta inexistente'});
  }catch(e){const safe=['Nombre requerido','Límite del piloto','Cuenta inexistente','Cuenta no conectada','Seleccionar grupos','Destino interno inválido','Un destino interno','El destino está','Otra cuenta','Desvincular','Evento no disponible','El aviso cambió','Aviso inválido','Solicitud demasiado grande'];answer(res,400,{detail:safe.some(s=>e.message.startsWith(s))?e.message:'Operación no completada. Revisá estado y conexión.'});}

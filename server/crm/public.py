@@ -27,3 +27,7 @@ async def create(body:EnquiryInput):
     except HTTPException: raise
     except Exception:
         raise HTTPException(503,'No se pudo registrar la consulta. Podés continuar por WhatsApp.') from None
+
+
+from crm.passenger_requests import router as passenger_router
+router.include_router(passenger_router)

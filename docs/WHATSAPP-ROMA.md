@@ -59,7 +59,7 @@ sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f c
 sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml exec -T wa-bridge node -e "fetch('http://127.0.0.1:3000/health').then(r=>r.json()).then(console.log)"
 ```
 
-Se aplica la migración 002 sin reemplazar las tablas existentes. El diagnóstico debe indicar `schema_migrations: 3`, PostgreSQL OK y `{ ok: true }` para el conector. **Health comprueba el proceso; no significa que una cuenta de WhatsApp esté vinculada.**
+Se aplican las migraciones pendientes sin reemplazar las tablas existentes. El diagnóstico debe indicar `schema_migrations: 4`, PostgreSQL OK y `{ ok: true }` para el conector. **Health comprueba el proceso; no significa que una cuenta de WhatsApp esté vinculada.**
 
 En los próximos `up` y reconstrucciones del CRM, incluir siempre los tres archivos Compose. `wa-bridge` no publica puertos; la administración se realiza a través del panel privado existente. No apuntar Cloudflare Tunnel al panel ni al conector. Si el importador Drive está activo con un perfil, conservar también su opción `--profile drive-import` en los despliegues que lo incluyan.
 
@@ -133,7 +133,7 @@ En el nodo **Clasificar y avisar al grupo interno**, crear una credencial **Head
 
 Leer ese valor localmente con `nano .env.crm`; no enviarlo por chat ni incluirlo en el JSON del workflow. No utilizar la contraseña del panel ni `WA_BRIDGE_TOKEN` como credencial de n8n.
 
-Ejecutar manualmente una vez y comprobar el resultado. El endpoint devuelve solo contadores y estados. Después activar/publicar el workflow según la versión de n8n. Cada minuto procesa hasta 20 mensajes y hasta 5 avisos. Un bloqueo en PostgreSQL impide despachadores simultáneos y un registro durable en el conector evita reenvíos del mismo evento.
+Ejecutar manualmente una vez y comprobar el resultado. El endpoint devuelve solo contadores y estados. Después activar/publicar el workflow según la versión de n8n. Cada minuto procesa hasta 20 mensajes, hasta 3 avisos iniciales y hasta 2 avisos de formularios recibidos. Un bloqueo en PostgreSQL impide despachadores simultáneos y un registro durable en el conector evita reenvíos del mismo evento.
 
 El workflow de prueba anterior `roma-crm-events.json` es independiente: no sustituye esta automatización. Esta etapa no necesita un webhook público, bibliotecas de scraping ni un modelo de IA.
 
@@ -209,3 +209,50 @@ Esta versión usa reglas locales en español y no consume tokens de IA: cantidad
 Nombre, contacto y pasajeros se reflejan en Gestión comercial. Las fechas pasan al CRM solo cuando se marcan confirmadas. El resto de la ficha y su borrador permanecen en la captura asociada al código CON. Guardar detecta cambios simultáneos tanto en la ficha como en Gestión comercial y pide actualizar antes de sobrescribir.
 
 El aviso interno conserva su contenido original para mantener la deduplicación. Las ediciones posteriores se consultan en el panel y no generan otro aviso. Los avisos nuevos incluyen nombre y teléfono disponibles y el borrador basado en los datos extraídos. Las respuestas posteriores del pasajero aún no se fusionan automáticamente con esta ficha: completarlas manualmente.
+
+## Actualización: formulario para el pasajero y filtros (migración 004)
+
+### Qué cambia
+
+El botón **Solicitar datos al pasajero** aparece visible en cada consulta CON, fuera de la ficha desplegable. Genera un formulario individual alojado en `https://asistente.romanomad.travel/solicitud` con token en el fragmento `#` del enlace. El pasajero no necesita VPN ni acceso al panel.
+
+El formulario muestra solo datos del viaje/contacto y la duda adicional que el operador haya guardado: nunca muestra el grupo, mensaje original, notas internas, identificadores del conector ni otras consultas. No carga recursos de terceros. Cada enlace vence en 7 días; generar uno nuevo anula el anterior. La base almacena un hash del token, no el token original. No se puede recuperar el enlace después de recargar el panel: copiar el mensaje al crearlo o regenerarlo. Quien recibe el enlace puede abrir esa solicitud; compartirlo solo con su destinatario.
+
+### Instalar
+
+Pausar temporalmente el workflow ROMA de n8n. Ejecutar `sudo bash backup_crm.sh` desde `~/roma-asistente-web/server`; luego `git pull --ff-only` desde el repositorio y volver a `server`:
+
+```bash
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml up -d --build
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml exec -T assistant python -m crm.smoke
+curl --fail --max-time 30 https://asistente.romanomad.travel/solicitud -o /dev/null -w 'Formulario público: HTTP %{http_code}\n'
+```
+
+Esperar `schema_migrations: 4`, PostgreSQL OK y HTTP 200. No hace falta cambiar el túnel si ese dominio ya dirige todas las rutas al servicio `assistant`. El panel CRM continúa privado. Si usás otro dominio público para el asistente, configurar `CRM_PUBLIC_BASE_URL=https://dominio-del-asistente` en `.env.crm` (solo origen HTTPS, sin ruta) y recrear los servicios. El valor debe ser el mismo para `assistant` y `crm-admin`.
+
+Reactivar n8n. El workflow existente no requiere reimportación: `/automation/whatsapp/run` ahora devuelve además `form_results`, los estados de avisos de formularios recibidos. Por ejecución clasifica hasta 20 capturas y despacha hasta 3 avisos iniciales y 2 respuestas de formularios. No envía formularios automáticamente a los pasajeros.
+
+### Recorrido del operador y pasajero
+
+1. En **Consultas con ficha**, buscar por código CON si hace falta. Si una consulta antigua no tiene ficha, extraer los datos y guardar.
+2. Revisar los campos precargados y escribir **Otra duda para consultar al pasajero**. Guardar la ficha antes de generar el formulario.
+3. Pulsar **Solicitar datos al pasajero**. Copiar el mensaje con enlace o usar **Compartir formulario por WhatsApp** si el teléfono está revisado. El operador pulsa Enviar en WhatsApp.
+4. El pasajero abre el enlace, revisa los valores, completa los campos y acepta el uso de sus datos para esta cotización. Nombre y pasajeros son obligatorios; si no conoce una fecha/detalle, puede dejarlo pendiente y explicarlo en observaciones. No es una reserva.
+5. El servidor guarda la respuesta sin sobrescribir todavía la ficha ni modificar precios. Se ve **Datos recibidos · revisar**, tanto en WhatsApp como en Gestión comercial. n8n envía un aviso interno, sin el enlace privado, para revisarla.
+6. Abrir **Ver datos enviados por el pasajero**, revisar también las observaciones y pulsar **Revisé los datos: aplicar a la ficha**. Esto aplica los campos, guarda un nuevo borrador y deja la solicitud como **Datos revisados**. Verificar todavía tarifa, disponibilidad y cualquier dato faltante antes de cotizar. El teléfono vuelve a requerir revisión antes de abrir WhatsApp.
+7. Si hace falta una aclaración adicional, editar la duda, guardar y crear otra solicitud después de revisar la anterior.
+
+El mismo formulario se envía una sola vez. Reintentar por un corte de conexión usa el mismo identificador y no duplica la respuesta. Tras enviarlo, el enlace solo muestra confirmación; para corregir datos hay que contactar a ROMA y solicitar otro enlace. Una respuesta recibida debe revisarse antes de generar otro formulario, para no perderla. Las ediciones simultáneas se detectan y piden actualizar.
+
+Los avisos internos usan una clave de entrega distinta para cada formulario y conservan el mecanismo de deduplicación. `unknown` requiere comprobación manual; no hay reenvíos automáticos de resultado incierto. Para notificar, la cuenta debe seguir conectada y mantener el grupo fuente habilitado y su destino interno.
+
+### Filtrado con mayor volumen
+
+- La consulta debe combinar intención de preguntar con contexto turístico. Ejemplos: “alguien sabe dónde alojarse”, “cuánto alquilan una camioneta”, “dónde alquilan cabañas”, “cómo llego a Purmamarca”.
+- “Alguien sabe” o “cuánto cobran” solos no bastan. Un mensaje sobre psicólogos o alquiler de herramientas queda para revisión y no genera una oportunidad automáticamente.
+- Ofertas de prestadores y mensajes sin señales de consulta se separan. Nada se elimina automáticamente.
+- El panel abre en **Consultas con ficha**, permite filtrar **Datos recibidos**, **Pendientes**, **Dudosos**, **Ofertas**, **Sin señales** o **Todas**, y pagina de 50 en 50.
+- En una captura sin código CON, **Es una consulta turística: crear ficha** permite recuperar manualmente un falso negativo. Puede quedar en la cola si hay más de 20 mensajes pendientes.
+- El filtro nuevo se aplica a capturas aún no procesadas. No elimina ni reclasifica oportunidades ya creadas. Sigue usando reglas locales, sin tokens de IA; revisar periódicamente los casos dudosos.
+
+Los datos recibidos y formularios se incluyen en el respaldo PostgreSQL existente. No hay eliminación automática de respuestas: establecer una política de retención antes de ampliar mucho el volumen. El límite público es de 120 solicitudes por minuto por proceso, pensado para el despliegue actual de un worker; para varias réplicas habrá que compartir ese control.

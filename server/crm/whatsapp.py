@@ -8,7 +8,7 @@ import secrets
 import unicodedata
 from datetime import datetime, timezone
 from uuid import UUID, uuid5, NAMESPACE_URL
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.responses import HTMLResponse, Response
 from pathlib import Path
@@ -16,6 +16,8 @@ from pydantic import BaseModel, Field, field_validator
 import httpx
 from crm.db import connection
 from crm.service import audit
+from crm.whatsapp_filter import classify_message
+from crm.passenger_requests import install_admin, dispatch_responses
 from crm.whatsapp_ficha import Ficha, extract, missing, draft_for
 from psycopg.types.json import Jsonb
 from urllib.parse import urlencode
@@ -27,18 +29,8 @@ def normalize(text):
 
 
 def classify(text):
-    t=normalize(text)
-    demand=bool(re.search(r'\b(busco|buscamos|necesito|necesitamos|quisiera|queremos|precio|cuanto|recomiendan|consulta|looking for|need|procuro|preciso)\b|有没有|需要',t))
-    offer=bool(re.search(r'\b(ofrezco|ofrecemos|reservas al|tarifas promocionales|tenemos disponibilidad)\b',t))
-    service='otro'
-    if re.search(r'\b(transfer|aeropuerto|airport)\b',t): service='transfer'
-    elif re.search(r'\b(traslado|transporte|transferir)\b',t): service='traslado'
-    elif re.search(r'\b(alojamiento|cabana|casa|hospedaje|hotel|accommodation|lodging)\b',t):
-        service='alojamiento_yala' if 'yala' in t else 'alojamiento_carmen' if ('carmen' in t or 'cienaga' in t) else 'otro'
-    elif re.search(r'\b(alquil|alquiler)\w*.*\b(auto|vehiculo|mobi)\b',t): service='alquiler_vehiculo'
-    elif re.search(r'\b(excursion|excursiones|trekking|travesia|salinas|hornocal|tour|hiking)\b',t): service='actividad'
-    if offer and not demand:return 'oferta',service,''
-    if not demand:return 'revisar',service,''
+    classification,service=classify_message(text)
+    if classification!='posible_consulta':return classification,service,''
     questions={
         'transfer':'¿Qué fecha y horario necesitan, desde qué aeropuerto y hacia qué destino? ¿Cuántas personas viajan y con cuánto equipaje?',
         'traslado':'¿Desde dónde y hacia dónde necesitan viajar, en qué fecha y cuántas personas son?',
@@ -85,6 +77,7 @@ async def process_batch():
           ORDER BY received_at FOR UPDATE SKIP LOCKED LIMIT 20''')).fetchall()
         for row in rows:
             classification,category,draft=classify(row['text'])
+            if row.get('manual_category'):classification,category='posible_consulta',row['manual_category']
             ficha=extract(row['text'],row['source_at'],category,row['sender_name'],row['sender_phone'])
             if classification=='posible_consulta':draft=draft_for(ficha)
             enquiry_id=None;notice='';delivery='not_required'
@@ -121,12 +114,12 @@ async def bridge(method,path,body=None):
 
 async def dispatch_batch():
     results=[]
-    # Only one dispatcher; limits each run to five notices. Connection timeout is bounded.
+    # Only one dispatcher; limits each run to three initial notices. Connection timeout is bounded.
     async with connection() as conn:
         locked=await (await conn.execute('SELECT pg_try_advisory_xact_lock(19413003) AS locked')).fetchone()
         if not locked['locked']:return []
         rows=await (await conn.execute('''SELECT event_id,notice FROM whatsapp_events WHERE delivery_status='pending' AND enquiry_id IS NOT NULL
-          AND (last_attempt_at IS NULL OR last_attempt_at<now()-interval '1 minute') ORDER BY received_at LIMIT 5''')).fetchall()
+          AND (last_attempt_at IS NULL OR last_attempt_at<now()-interval '1 minute') ORDER BY received_at LIMIT 3''')).fetchall()
         for row in rows:
             await conn.execute('UPDATE whatsapp_events SET last_attempt_at=now() WHERE event_id=%s',(row['event_id'],))
             try: result=await bridge('POST','/send-alert',{'event_id':row['event_id'],'text':row['notice']})
@@ -191,6 +184,7 @@ class ConfigInput(BaseModel):
 
 
 def install(app,operator,automation):
+    install_admin(app,operator)
     auth=HTTPBearer(auto_error=False)
     def connector(credentials:HTTPAuthorizationCredentials|None=Depends(auth)):
         token=os.getenv('WA_BRIDGE_TOKEN','')
@@ -216,10 +210,26 @@ def install(app,operator,automation):
         if action not in ('start','pause','logout'):raise HTTPException(404)
         return await bridge('POST',f'/accounts/{account_id}/{action}',{})
     @app.get('/api/whatsapp/events',dependencies=[Depends(operator)])
-    async def events():
+    async def events(limit:int=Query(50,ge=1,le=100),offset:int=Query(0,ge=0),filter:str='consultas',code:str=Query('',max_length=40)):
+        clauses={'consultas':'w.enquiry_id IS NOT NULL','pendientes':'w.processed_at IS NULL','revisar':"w.classification='revisar'",'oferta':"w.classification='oferta'",'irrelevante':"w.classification='irrelevante'",'todos':'TRUE','datos_recibidos':"pr.status='received'"}
+        if filter not in clauses:raise HTTPException(400,'Filtro inválido')
         async with connection() as conn:
-            return await (await conn.execute('''SELECT w.event_id,w.group_name,w.text,w.source_at,w.classification,w.draft,w.delivery_status,w.sender_name,w.sender_phone,w.phone_source,w.ficha,w.ficha_version,e.code,e.version AS enquiry_version
-               FROM whatsapp_events w LEFT JOIN enquiries e ON e.id=w.enquiry_id ORDER BY w.received_at DESC LIMIT 100''')).fetchall()
+            return await (await conn.execute("""SELECT w.event_id,w.group_name,w.text,w.source_at,w.classification,w.draft,w.delivery_status,
+                w.sender_name,w.sender_phone,w.phone_source,w.ficha,w.ficha_version,e.code,e.version AS enquiry_version,
+                pr.id AS request_id,pr.status AS request_status,pr.expires_at AS request_expires_at,
+                pr.response AS passenger_response,pr.snapshot AS request_snapshot
+                FROM whatsapp_events w LEFT JOIN enquiries e ON e.id=w.enquiry_id
+                LEFT JOIN LATERAL (SELECT * FROM passenger_requests WHERE event_id=w.event_id ORDER BY created_at DESC LIMIT 1) pr ON TRUE
+                WHERE """+clauses[filter]+" AND (%s='' OR e.code=%s) ORDER BY w.received_at DESC,w.event_id DESC LIMIT %s OFFSET %s",(code.upper(),code.upper(),limit,offset))).fetchall()
+    @app.post('/api/whatsapp/events/{event_id}/promote',dependencies=[Depends(operator)])
+    async def promote(event_id:str):
+        async with connection() as conn:
+            row=await (await conn.execute('SELECT enquiry_id FROM whatsapp_events WHERE event_id=%s FOR UPDATE',(event_id,))).fetchone()
+            if not row:raise HTTPException(404,'Captura inexistente')
+            if row['enquiry_id']:return {'queued':False}
+            await conn.execute("UPDATE whatsapp_events SET manual_category='otro',processed_at=NULL WHERE event_id=%s",(event_id,))
+        await process_batch()
+        return {'queued':True}
     @app.post('/api/whatsapp/preview',dependencies=[Depends(operator)])
     async def preview(b:Ficha):return ficha_result(b,draft_for(b))
     @app.post('/api/whatsapp/events/{event_id}/extract',dependencies=[Depends(operator)])
@@ -236,8 +246,8 @@ def install(app,operator,automation):
     @app.post('/api/whatsapp/process',dependencies=[Depends(operator)])
     async def process():return {'processed':await process_batch()}
     @app.post('/api/whatsapp/dispatch',dependencies=[Depends(operator)])
-    async def dispatch():return {'results':await dispatch_batch()}
+    async def dispatch():return {'results':await dispatch_batch(),'form_results':await dispatch_responses(bridge)}
     @app.post('/integrations/whatsapp/events',dependencies=[Depends(connector)])
     async def inbound(b:Event):return await receive(b)
     @app.post('/automation/whatsapp/run',dependencies=[Depends(automation)])
-    async def run():return {'processed':await process_batch(),'results':await dispatch_batch()}
+    async def run():return {'processed':await process_batch(),'results':await dispatch_batch(),'form_results':await dispatch_responses(bridge)}

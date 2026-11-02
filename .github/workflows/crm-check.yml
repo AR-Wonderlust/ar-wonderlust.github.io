@@ -43,6 +43,7 @@ jobs:
       - name: Check WhatsApp pilot
         run: |
           node --check server/crm/whatsapp.js
+          node --check server/crm/passenger_form.js
           node --check server/whatsapp/app.mjs
           npm ci --omit=optional --prefix server/whatsapp
           npm test --prefix server/whatsapp
