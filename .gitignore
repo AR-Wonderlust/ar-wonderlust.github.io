@@ -14,4 +14,7 @@ server/config/
 server/backups/
 *.dump
 *.dump.partial
+node_modules/
+*.sqlite*
+
 

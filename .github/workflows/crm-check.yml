@@ -40,9 +40,20 @@ jobs:
       - run: pip install -r server/requirements.txt
       - run: python -m unittest discover -s tests -p 'test_crm*.py' -v
       - run: node --check assets/js/roma.js && node --check server/crm/panel.js && node tests/chat-fallback.cjs
+      - name: Check WhatsApp pilot
+        run: |
+          node --check server/crm/whatsapp.js
+          node --check server/whatsapp/app.mjs
+          npm ci --omit=optional --prefix server/whatsapp
+          npm test --prefix server/whatsapp
+          docker build -t roma-wa-test server/whatsapp
+          docker run --rm -e WA_BRIDGE_TOKEN=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -e WA_SESSION_KEY=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa roma-wa-test node --test test.mjs
       - name: Validate opt-in Compose configuration
         working-directory: server
         run: |
           cp .env.example .env
           python setup_crm.py
+          python setup_whatsapp.py
           docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml config --quiet
+          docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml config --quiet
+

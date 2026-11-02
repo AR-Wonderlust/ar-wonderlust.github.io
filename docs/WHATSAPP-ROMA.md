@@ -1,0 +1,169 @@
+# WhatsApp en ROMA: despliegue del piloto
+
+Este módulo suma al CRM existente cuentas vinculadas por QR, selección de grupos, captura de texto, clasificación local y avisos al grupo interno. Usa un conector no oficial (Baileys): puede desconectarse o dejar de funcionar ante cambios de WhatsApp. No modifica el número ni migra la aplicación a Cloud API. Comenzar con una cuenta y dos grupos de prueba.
+
+## Flujo y alcance
+
+```mermaid
+flowchart TD
+    P[Panel privado por VPN] --> C[Cuentas y QR]
+    C --> B[Conector Baileys]
+    P --> G[Grupos permitidos y destino interno]
+    G --> B
+    B --> S[Cola local cifrada]
+    S --> F[FastAPI privado]
+    F --> D[PostgreSQL]
+    N[n8n cada minuto] --> R[Clasificar pendientes]
+    D --> R
+    R --> Q{Posible consulta}
+    Q -->|Sí| O[Consulta CRM y borrador]
+    Q -->|Dudosa u oferta| V[Captura para revisión]
+    O --> I[Aviso al grupo interno]
+    I --> H[Revisión humana en panel]
+    V --> H
+    H --> M[Respuesta manual desde WhatsApp]
+```
+
+- Hasta 10 cuentas en este piloto. Cada grupo fuente tiene una sola cuenta recolectora.
+- Solo grupos donde esa cuenta participa, seleccionados explícitamente en el panel. Un grupo interno receptor nunca puede ser una fuente, tampoco para otra cuenta.
+- Solo mensajes nuevos de texto, recibidos como `notify`, con antigüedad máxima de una hora. Se excluyen mensajes propios, chats privados, historial, imágenes, audio, mensajes temporales y de una sola visualización. No hay recuperación garantizada de mensajes durante desconexiones.
+- Las reglas detectan algunas expresiones de demanda; pueden equivocarse. Lo dudoso y las ofertas permanecen en Capturas; las posibles consultas generan un código CON y una plantilla. La plantilla puede repetir datos ya informados. No usa Gemini ni consume tokens en esta etapa.
+- Cada mensaje se trata por separado; aún no se agrupan conversaciones ni se extraen fechas/pasajeros a campos estructurados.
+- El panel muestra las últimas 100 capturas. No hay borrado automático: los originales y la auditoría se conservan; revisar retención y espacio antes de ampliar el piloto.
+- El borrador es editable para copiar, pero esas ediciones son locales y no se guardan. No existe envío automatizado al pasajero ni al grupo fuente. Tampoco aprobación persistente del borrador en esta etapa.
+- El aviso interno incluye un extracto de la consulta y el borrador inicial; el original completo queda en el panel.
+
+## 1. Respaldo y actualización en la VM
+
+Ejecutar desde la sesión SSH habitual de `shifuleinad`. No pegar aquí archivos `.env`, claves, QR ni datos de sesión.
+
+```bash
+cd ~/roma-asistente-web/server
+sudo bash backup_crm.sh
+cd ..
+git status --short
+git pull --ff-only
+cd server
+python3 setup_whatsapp.py
+```
+
+Si hay archivos de código modificados localmente o `git pull` falla, conservarlos y resolver el conflicto antes de seguir; no hacer reset. El generador preserva `.env.whatsapp` si ya existe. Crea `WA_BRIDGE_TOKEN` y `WA_SESSION_KEY` con permisos 600; conservarlos en respaldo privado, fuera de GitHub. La clave de sesiones es necesaria para volver a abrir la cola y las sesiones cifradas.
+
+## 2. Construcción y arranque
+
+```bash
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml config --quiet
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml up -d --build
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml ps
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml exec -T assistant python -m crm.smoke
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml exec -T wa-bridge node -e "fetch('http://127.0.0.1:3000/health').then(r=>r.json()).then(console.log)"
+```
+
+Se aplica la migración 002 sin reemplazar las tablas existentes. El diagnóstico debe indicar `schema_migrations: 2`, PostgreSQL OK y `{ ok: true }` para el conector. **Health comprueba el proceso; no significa que una cuenta de WhatsApp esté vinculada.**
+
+En los próximos `up` y reconstrucciones del CRM, incluir siempre los tres archivos Compose. `wa-bridge` no publica puertos; la administración se realiza a través del panel privado existente. No apuntar Cloudflare Tunnel al panel ni al conector. Si el importador Drive está activo con un perfil, conservar también su opción `--profile drive-import` en los despliegues que lo incluyan.
+
+## 3. Vincular una cuenta: intervención en el teléfono
+
+1. Con la VPN conectada, abrir el panel habitual, normalmente `http://172.27.91.193:8011/whatsapp`, con el usuario y contraseña existentes. Si el panel usa otra IP privada, conservar esa dirección.
+2. Agregar una cuenta con un nombre reconocible. Pulsar **Conectar**.
+3. En ese teléfono: WhatsApp → Dispositivos vinculados → Vincular un dispositivo. Escanear el QR del panel. No compartir el QR.
+4. Esperar el estado `conectada`. Pulsar **Cargar grupos**.
+5. Elegir un grupo de prueba como fuente y otro grupo interno como receptor. Guardar. La cuenta debe pertenecer a ambos y poder enviar en el receptor.
+
+Guardar el destino interno configura dónde se enviarán los avisos cuando se pulse el botón de envío o se active n8n. No se realiza una campaña ni se contacta a pasajeros.
+
+Alternativa si el panel solo escucha en localhost: desde la computadora personal, `ssh -L 8011:127.0.0.1:8011 shifuleinad@172.27.91.193` y abrir `http://127.0.0.1:8011/whatsapp` mientras esa sesión permanece abierta.
+
+## 4. Prueba de punta a punta, antes de automatizar
+
+Desde **otro número**, escribir en el grupo fuente seleccionado:
+
+> Necesito un transfer desde el aeropuerto para cuatro personas el viernes.
+
+Esperar unos segundos y en el panel:
+
+1. **Actualizar capturas**: debe aparecer el mensaje original.
+2. **Clasificar pendientes**: debe aparecer un código CON, categoría transfer y borrador. La consulta también aparece en Gestión comercial.
+3. **Enviar avisos internos pendientes**: debe llegar un único aviso al grupo receptor.
+4. Repetir los botones: el mismo evento no debe generar otra consulta ni otro aviso.
+5. Confirmar que no se publicó nada en el grupo fuente. Revisar el borrador y responder manualmente cuando corresponda.
+
+La deduplicación usa cuenta, grupo, autor e ID del mensaje; un mensaje nuevo con el mismo texto es otro evento. `sent` significa que WhatsApp aceptó el envío, no que alguien lo leyó. `unknown` significa resultado incierto: revisar el grupo interno manualmente, no se reintenta automáticamente. `pending` se reintenta; `paused` indica fuente retirada y no se reanuda por sí solo.
+
+## 5. Conectar n8n a la red privada de Docker
+
+Primero identificar los nombres reales:
+
+```bash
+sudo docker ps --format 'table {{.Names}}\t{{.Status}}'
+sudo docker network ls
+```
+
+Con los nombres habituales de este servidor, si todavía no está conectado:
+
+```bash
+sudo docker network connect roma-assistant_default n8n-docker-n8n-1
+```
+
+Si devuelve que ya existe el endpoint, ya está conectado. No cambiar la red predeterminada de n8n: necesita seguir llegando a su propia base de datos. Esta conexión manual se pierde al recrear su contenedor; para hacerla persistente, agregar al Compose **de n8n**, adaptando el nombre real de su servicio:
+
+```yaml
+services:
+  n8n:
+    networks:
+      - default
+      - roma_crm
+networks:
+  roma_crm:
+    external: true
+    name: roma-assistant_default
+```
+
+Si n8n ya declara otras redes, conservarlas y agregar `roma_crm` a esa lista. Aplicar el cambio desde su propio directorio Compose. No exponer PostgreSQL ni agregar puertos al conector.
+
+## 6. Importar y activar el workflow
+
+Importar en n8n el archivo `server/n8n/roma-whatsapp-pilot.json`, desde archivo o desde su URL raw de GitHub. Se entrega **inactivo**.
+
+En el nodo **Clasificar y avisar al grupo interno**, crear una credencial **Header Auth**:
+
+- Name: `Authorization`
+- Value: `Bearer ` seguido del valor de `CRM_AUTOMATION_TOKEN` ya existente en `.env.crm`.
+
+Leer ese valor localmente con `nano .env.crm`; no enviarlo por chat ni incluirlo en el JSON del workflow. No utilizar la contraseña del panel ni `WA_BRIDGE_TOKEN` como credencial de n8n.
+
+Ejecutar manualmente una vez y comprobar el resultado. El endpoint devuelve solo contadores y estados. Después activar/publicar el workflow según la versión de n8n. Cada minuto procesa hasta 20 mensajes y hasta 5 avisos. Un bloqueo en PostgreSQL impide despachadores simultáneos y un registro durable en el conector evita reenvíos del mismo evento.
+
+El workflow de prueba anterior `roma-crm-events.json` es independiente: no sustituye esta automatización. Esta etapa no necesita un webhook público, bibliotecas de scraping ni un modelo de IA.
+
+## 7. Operación y respaldo
+
+- **Pausar** detiene esa cuenta. Para detener avisos programados, desactivar también el workflow. Los avisos pendientes permanecen guardados.
+- **Desvincular** intenta cerrar la sesión remota y borra sus claves locales; comprobar también Dispositivos vinculados en el teléfono. Si falla la revocación, eliminar allí el dispositivo. Se conservan configuración, capturas y auditoría.
+- `requiere_revision`: revisar el teléfono, desvincular y escanear un nuevo QR. No crear cuentas repetidas para eludir fallos de conexión.
+- El respaldo `backup_crm.sh` incluye consultas y capturas en PostgreSQL, **no las sesiones del conector**. Para respaldarlas sin inconsistencias, detener `wa-bridge`, copiar el directorio `/data` y volver a iniciarlo. Guardar también `.env.whatsapp` en un lugar privado separado. La copia contiene claves cifradas y mensajes; restringir acceso.
+
+Ejemplo de copia local con el contenedor detenido:
+
+```bash
+cd ~/roma-asistente-web/server
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml stop wa-bridge
+sudo install -d -m 700 backups/whatsapp
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml cp wa-bridge:/data/. backups/whatsapp/
+sudo chmod -R go-rwx backups/whatsapp
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml start wa-bridge
+```
+
+Ese destino se reutiliza; para conservar varias generaciones usar un directorio nuevo con fecha por respaldo. No ejecutar dos conectores simultáneos con la misma sesión restaurada. La restauración debe mantener juntas base SQLite, archivos WAL si existen y clave original.
+
+Diagnóstico sin imprimir sesiones ni mensajes:
+
+```bash
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml ps
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml logs --tail=40 wa-bridge crm-migrate
+```
+
+## Criterio para ampliar el piloto
+
+Vinculación estable, captura desde un segundo número, oportunidad visible, aviso interno único y revisión humana completada. Después incorporar más cuentas y grupos desde el panel. Evaluación por IA con catálogo aprobado, agrupación de mensajes, guardado/aprobación de borradores, clasificación de audio y métricas por cuenta son fases posteriores.

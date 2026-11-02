@@ -106,3 +106,8 @@ class Ack(BaseModel):
 
 @app.post('/automation/events/{event_id}/ack',dependencies=[Depends(automation)])
 async def ack(event_id:int,body:Ack): return await service.acknowledge(event_id,body.lease_token)
+
+
+# Separate private module: never mounted on app.py / public Cloudflare endpoint.
+from crm.whatsapp import install as install_whatsapp
+install_whatsapp(app,operator,automation)

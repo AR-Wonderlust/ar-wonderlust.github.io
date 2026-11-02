@@ -1,0 +1,32 @@
+# Always combine with compose.yaml and compose.crm.yaml.
+services:
+  crm-admin:
+    env_file: [.env.crm, .env.whatsapp]
+  wa-bridge:
+    build: ./whatsapp
+    restart: unless-stopped
+    env_file: [.env.whatsapp]
+    environment:
+      WA_DATA_DIR: /data
+    volumes:
+      - roma-wa-sessions:/data
+    # Internal Docker network only; the authenticated panel proxies management.
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 150
+    mem_limit: 768m
+    cpus: 1.0
+    depends_on:
+      crm-admin: {condition: service_started}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options: {max-size: '10m', max-file: '3'}
+volumes:
+  roma-wa-sessions:
