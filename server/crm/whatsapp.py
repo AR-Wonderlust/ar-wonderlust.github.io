@@ -16,6 +16,10 @@ from pydantic import BaseModel, Field, field_validator
 import httpx
 from crm.db import connection
 from crm.service import audit
+from crm.whatsapp_ficha import Ficha, extract, missing, draft_for
+from psycopg.types.json import Jsonb
+from urllib.parse import urlencode
+from typing import Literal
 
 
 def normalize(text):
@@ -52,6 +56,9 @@ class Event(BaseModel):
     group_id:str=Field(pattern=r'^[0-9-]+@g\.us$',max_length=100)
     group_name:str=Field(max_length=200)
     sender_id:str=Field(max_length=150)
+    sender_name:str=Field(default='',max_length=120)
+    sender_phone:str=Field(default='',pattern=r'^(?:\+[1-9][0-9]{7,14})?$')
+    phone_source:Literal['','participant','participant_alt','lid_mapping']=''
     message_id:str=Field(min_length=1,max_length=200)
     text:str=Field(min_length=1,max_length=5000)
     timestamp:float=Field(ge=0,le=4102444800)
@@ -65,9 +72,9 @@ class Event(BaseModel):
 
 async def receive(body):
     async with connection() as conn:
-        row=await (await conn.execute('''INSERT INTO whatsapp_events(event_id,account_id,group_id,group_name,sender_id,message_id,text,source_at)
-          VALUES(%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT(event_id) DO NOTHING RETURNING event_id''',
-          (body.event_id,body.account_id,body.group_id,body.group_name,body.sender_id,body.message_id,body.text,datetime.fromtimestamp(body.timestamp,timezone.utc)))).fetchone()
+        row=await (await conn.execute('''INSERT INTO whatsapp_events(event_id,account_id,group_id,group_name,sender_id,message_id,text,source_at,sender_name,sender_phone,phone_source)
+          VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ON CONFLICT(event_id) DO NOTHING RETURNING event_id''',
+          (body.event_id,body.account_id,body.group_id,body.group_name,body.sender_id,body.message_id,body.text,datetime.fromtimestamp(body.timestamp,timezone.utc),body.sender_name,body.sender_phone,body.phone_source))).fetchone()
     return {'accepted':True,'created':bool(row)}
 
 
@@ -78,22 +85,24 @@ async def process_batch():
           ORDER BY received_at FOR UPDATE SKIP LOCKED LIMIT 20''')).fetchall()
         for row in rows:
             classification,category,draft=classify(row['text'])
+            ficha=extract(row['text'],row['source_at'],category,row['sender_name'],row['sender_phone'])
+            if classification=='posible_consulta':draft=draft_for(ficha)
             enquiry_id=None;notice='';delivery='not_required'
             if classification=='posible_consulta':
                 request_id=uuid5(NAMESPACE_URL,'roma:whatsapp:'+row['event_id'])
                 summary=('OPORTUNIDAD DETECTADA EN GRUPO (revisar antes de contactar)\nGrupo: '+row['group_name']+
                          '\nFecha: '+row['source_at'].isoformat()+'\n\nConsulta original:\n'+row['text'])[:6000]
-                result=await (await conn.execute('''INSERT INTO enquiries(request_id,channel,summary,next_action)
-                  VALUES(%s,'whatsapp',%s,%s) RETURNING id,code''',(request_id,summary,'Revisar borrador en WhatsApp / Capturas; responder manualmente.'))).fetchone()
+                result=await (await conn.execute('''INSERT INTO enquiries(request_id,channel,summary,next_action,name,contact,passengers)
+                  VALUES(%s,'whatsapp',%s,%s,%s,%s,%s) RETURNING id,code''',(request_id,summary,'Revisar ficha y datos faltantes en WhatsApp / Capturas.',ficha.name,ficha.phone,ficha.passengers))).fetchone()
                 enquiry_id=result['id']
                 await conn.execute('INSERT INTO enquiry_categories VALUES(%s,%s)',(enquiry_id,category))
                 await audit(conn,'whatsapp-pilot','capture','enquiry',enquiry_id,{'source':'selected_group','event_id':row['event_id']})
-                notice=('ROMA · Oportunidad '+result['code']+'\nOrigen: '+row['group_name']+'\n\nConsulta:\n'+row['text'][:1200]+
+                notice=('ROMA · Oportunidad '+result['code']+'\nOrigen: '+row['group_name']+'\nAutor: '+(row['sender_name'] or 'Sin nombre')+'\nContacto: '+(row['sender_phone'] or 'Número no disponible')+'\n\nConsulta:\n'+row['text'][:1200]+
                         '\n\nBORRADOR PARA REVISAR (no enviado al pasajero):\n'+draft+
                         '\n\nAbrir panel VPN → WhatsApp / Capturas. Validar contexto, datos ya informados y destinatario antes de responder.')
                 delivery='pending'
-            await conn.execute('''UPDATE whatsapp_events SET processed_at=now(),classification=%s,enquiry_id=%s,draft=%s,notice=%s,delivery_status=%s WHERE event_id=%s''',
-                               (classification,enquiry_id,draft,notice,delivery,row['event_id']))
+            await conn.execute('''UPDATE whatsapp_events SET processed_at=now(),classification=%s,enquiry_id=%s,draft=%s,notice=%s,delivery_status=%s,ficha=%s,ficha_updated_at=now(),ficha_version=ficha_version+1 WHERE event_id=%s''',
+                               (classification,enquiry_id,draft,notice,delivery,Jsonb(ficha.model_dump(mode='json')),row['event_id']))
             processed+=1
     return processed
 
@@ -128,6 +137,49 @@ async def dispatch_batch():
             await conn.execute('UPDATE whatsapp_events SET delivery_status=%s WHERE event_id=%s',(state,row['event_id']))
             results.append(state)
     return results
+
+
+class FichaSave(BaseModel):
+    version:int=Field(ge=1)
+    enquiry_version:int=Field(ge=1)
+    ficha:Ficha
+    draft:str=Field(min_length=1,max_length=6000)
+
+    @field_validator('draft')
+    @classmethod
+    def draft_not_empty(cls,v):
+        if not v.strip():raise ValueError('Completar el borrador')
+        return v
+
+
+def ficha_result(ficha,draft):
+    url=''
+    if ficha.contact_confirmed and ficha.phone and draft.strip():
+        url='https://wa.me/'+ficha.phone[1:]+'?'+urlencode({'text':draft})
+    return {'ficha':ficha.model_dump(mode='json'),'missing':missing(ficha),'draft':draft,'whatsapp_url':url}
+
+
+async def save_ficha(event_id,body,actor):
+    async with connection() as conn:
+        row=await (await conn.execute('SELECT * FROM whatsapp_events WHERE event_id=%s FOR UPDATE',(event_id,))).fetchone()
+        if not row:raise HTTPException(404,'Captura inexistente')
+        if not row['enquiry_id']:raise HTTPException(409,'Primero clasificar la consulta')
+        if row['ficha_version']!=body.version:raise HTTPException(409,'La ficha cambió. Actualizá las capturas antes de guardar.')
+        enquiry=await (await conn.execute('SELECT version FROM enquiries WHERE id=%s FOR UPDATE',(row['enquiry_id'],))).fetchone()
+        if enquiry['version']!=body.enquiry_version:raise HTTPException(409,'La consulta cambió en Gestión comercial. Actualizá antes de guardar.')
+        f=body.ficha
+        await conn.execute('UPDATE whatsapp_events SET ficha=%s,draft=%s,ficha_version=ficha_version+1,ficha_updated_at=now() WHERE event_id=%s',
+            (Jsonb(f.model_dump(mode='json')),body.draft,event_id))
+        await conn.execute('''UPDATE enquiries SET name=%s,contact=%s,passengers=%s,travel_start=%s,travel_end=%s,
+            updated_at=now(),version=version+1 WHERE id=%s''',
+            (f.name,f.phone,f.passengers,f.travel_date if f.date_confirmed else None,f.end_date if f.date_confirmed else None,row['enquiry_id']))
+        old_category=(row['ficha'] or {}).get('category')
+        if old_category and old_category!=f.category:
+            await conn.execute('DELETE FROM enquiry_categories WHERE enquiry_id=%s AND category_code=%s',(row['enquiry_id'],old_category))
+        await conn.execute('INSERT INTO enquiry_categories VALUES(%s,%s) ON CONFLICT DO NOTHING',(row['enquiry_id'],f.category))
+        await audit(conn,actor,'save_whatsapp_ficha','enquiry',row['enquiry_id'],{'event_id':event_id,'version':body.version+1})
+    # Preserve the immutable internal notice and delivery ledger. Saving never sends a message.
+    return {**ficha_result(f,body.draft),'ficha_version':body.version+1,'enquiry_version':body.enquiry_version+1}
 
 
 class AccountInput(BaseModel):
@@ -166,8 +218,21 @@ def install(app,operator,automation):
     @app.get('/api/whatsapp/events',dependencies=[Depends(operator)])
     async def events():
         async with connection() as conn:
-            return await (await conn.execute('''SELECT w.event_id,w.group_name,w.text,w.source_at,w.classification,w.draft,w.delivery_status,e.code
+            return await (await conn.execute('''SELECT w.event_id,w.group_name,w.text,w.source_at,w.classification,w.draft,w.delivery_status,w.sender_name,w.sender_phone,w.phone_source,w.ficha,w.ficha_version,e.code,e.version AS enquiry_version
                FROM whatsapp_events w LEFT JOIN enquiries e ON e.id=w.enquiry_id ORDER BY w.received_at DESC LIMIT 100''')).fetchall()
+    @app.post('/api/whatsapp/preview',dependencies=[Depends(operator)])
+    async def preview(b:Ficha):return ficha_result(b,draft_for(b))
+    @app.post('/api/whatsapp/events/{event_id}/extract',dependencies=[Depends(operator)])
+    async def extract_original(event_id:str):
+        async with connection() as conn:
+            row=await (await conn.execute('SELECT * FROM whatsapp_events WHERE event_id=%s',(event_id,))).fetchone()
+        if not row:raise HTTPException(404,'Captura inexistente')
+        _,category,_=classify(row['text'])
+        f=extract(row['text'],row['source_at'],category,row['sender_name'],row['sender_phone'])
+        return ficha_result(f,draft_for(f))
+    @app.put('/api/whatsapp/events/{event_id}/ficha')
+    async def save(event_id:str,b:FichaSave,actor=Depends(operator)):
+        return await save_ficha(event_id,b,actor)
     @app.post('/api/whatsapp/process',dependencies=[Depends(operator)])
     async def process():return {'processed':await process_batch()}
     @app.post('/api/whatsapp/dispatch',dependencies=[Depends(operator)])

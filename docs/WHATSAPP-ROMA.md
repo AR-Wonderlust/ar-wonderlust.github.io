@@ -28,9 +28,9 @@ flowchart TD
 - Solo grupos donde esa cuenta participa, seleccionados explícitamente en el panel. Un grupo interno receptor nunca puede ser una fuente, tampoco para otra cuenta.
 - Solo mensajes nuevos de texto, recibidos como `notify`, con antigüedad máxima de una hora. Se excluyen mensajes propios, chats privados, historial, imágenes, audio, mensajes temporales y de una sola visualización. No hay recuperación garantizada de mensajes durante desconexiones.
 - Las reglas detectan algunas expresiones de demanda; pueden equivocarse. Lo dudoso y las ofertas permanecen en Capturas; las posibles consultas generan un código CON y una plantilla. La plantilla puede repetir datos ya informados. No usa Gemini ni consume tokens en esta etapa.
-- Cada mensaje se trata por separado; aún no se agrupan conversaciones ni se extraen fechas/pasajeros a campos estructurados.
+- Cada mensaje se trata por separado; aún no se agrupan conversaciones. La migración 003 agrega extracción de pasajeros/fechas y ficha editable (ver actualización al final).
 - El panel muestra las últimas 100 capturas. No hay borrado automático: los originales y la auditoría se conservan; revisar retención y espacio antes de ampliar el piloto.
-- El borrador es editable para copiar, pero esas ediciones son locales y no se guardan. No existe envío automatizado al pasajero ni al grupo fuente. Tampoco aprobación persistente del borrador en esta etapa.
+- Con la migración 003 el borrador se guarda en la ficha y puede abrirse en WhatsApp para envío manual. No existe envío automatizado al pasajero ni al grupo fuente.
 - El aviso interno incluye un extracto de la consulta y el borrador inicial; el original completo queda en el panel.
 
 ## 1. Respaldo y actualización en la VM
@@ -59,7 +59,7 @@ sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f c
 sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml exec -T wa-bridge node -e "fetch('http://127.0.0.1:3000/health').then(r=>r.json()).then(console.log)"
 ```
 
-Se aplica la migración 002 sin reemplazar las tablas existentes. El diagnóstico debe indicar `schema_migrations: 2`, PostgreSQL OK y `{ ok: true }` para el conector. **Health comprueba el proceso; no significa que una cuenta de WhatsApp esté vinculada.**
+Se aplica la migración 002 sin reemplazar las tablas existentes. El diagnóstico debe indicar `schema_migrations: 3`, PostgreSQL OK y `{ ok: true }` para el conector. **Health comprueba el proceso; no significa que una cuenta de WhatsApp esté vinculada.**
 
 En los próximos `up` y reconstrucciones del CRM, incluir siempre los tres archivos Compose. `wa-bridge` no publica puertos; la administración se realiza a través del panel privado existente. No apuntar Cloudflare Tunnel al panel ni al conector. Si el importador Drive está activo con un perfil, conservar también su opción `--profile drive-import` en los despliegues que lo incluyan.
 
@@ -166,4 +166,46 @@ sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f c
 
 ## Criterio para ampliar el piloto
 
-Vinculación estable, captura desde un segundo número, oportunidad visible, aviso interno único y revisión humana completada. Después incorporar más cuentas y grupos desde el panel. Evaluación por IA con catálogo aprobado, agrupación de mensajes, guardado/aprobación de borradores, clasificación de audio y métricas por cuenta son fases posteriores.
+Vinculación estable, captura desde un segundo número, oportunidad visible, aviso interno único y revisión humana completada. Después incorporar más cuentas y grupos desde el panel. Evaluación por IA con catálogo aprobado, agrupación de mensajes, aprobación formal de presupuestos, clasificación de audio y métricas por cuenta son fases posteriores.
+
+## Actualización: ficha comercial y contacto (migración 003)
+
+Las nuevas consultas incluyen una ficha editable, borrador persistente y botón verde para abrir WhatsApp con el texto guardado. El workflow de n8n existente sigue siendo válido y no necesita nuevos nodos ni credenciales.
+
+### Actualizar la VM
+
+Desactivar temporalmente el workflow programado de n8n mientras se reconstruyen los servicios. Desde `~/roma-asistente-web/server`, crear respaldo con `sudo bash backup_crm.sh`. Luego:
+
+```bash
+cd ~/roma-asistente-web
+# Si hay cambios locales, conservarlos y resolverlos antes de actualizar.
+git status --short
+git pull --ff-only
+cd server
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml up -d --build
+sudo docker compose --env-file .env.crm -f compose.yaml -f compose.crm.yaml -f compose.whatsapp.yaml exec -T assistant python -m crm.smoke
+```
+
+El diagnóstico debe mostrar `schema_migrations: 3`. Reactivar n8n al terminar y recargar el panel. Las sesiones existentes se conservan en su volumen; no regenerar `.env.whatsapp`.
+
+### Uso
+
+1. Abrir **Ficha, datos faltantes y respuesta** debajo de una consulta CON.
+2. Revisar nombre y teléfono. El conector obtiene el número cuando llega como identificador telefónico, como identificador alternativo del autor o mediante una correspondencia LID disponible. Un LID nunca se convierte directamente en teléfono. El nombre mostrado no verifica la identidad de la persona.
+3. Revisar pasajeros, origen, destino, fechas propuestas, horario/vuelo y equipaje. Completar actividad o fecha final según el servicio. La fecha relativa se calcula respecto del mensaje, en `America/Argentina/Jujuy`, y necesita confirmación antes de pasar a las fechas del CRM.
+4. Completar **Otra duda para consultar al pasajero** si falta un dato especial, por ejemplo silla infantil, movilidad reducida o punto exacto de encuentro.
+5. Pulsar **Preparar pregunta con datos faltantes** para actualizar el borrador. Los datos presentes no vuelven a preguntarse, salvo las fechas propuestas aún sin confirmar. Revisar el texto.
+6. Confirmar el teléfono del destinatario y pulsar **Guardar ficha y borrador**. El botón verde se habilita solo con teléfono revisado y cambios guardados.
+7. Pulsar **Abrir WhatsApp con respuesta**. Se abre `wa.me` con el texto preparado; el operador revisa el destinatario y pulsa Enviar en WhatsApp. Abrir el enlace no registra una venta ni marca automáticamente la consulta como contactada.
+
+Si el teléfono no está disponible, completar manualmente un número internacional con `+` cuando se conozca, o copiar el borrador para responder desde el grupo. No se deduce Instagram a partir del teléfono.
+
+Las consultas anteriores siguen disponibles. Usar **Extraer del mensaje original** para preparar su ficha y guardar. Los mensajes anteriores al despliegue pueden no contener nombre/teléfono; la extracción no recupera información que nunca se capturó.
+
+### Alcance de la extracción
+
+Esta versión usa reglas locales en español y no consume tokens de IA: cantidades explícitas, números escritos del uno al veinte, `somos N`, suma de adultos y menores cuando ambos están indicados; fechas `DD/MM[/AAAA]`, rangos `del DD/MM al DD/MM`, días de la semana, hoy/mañana/pasado mañana; trayectos explícitos `desde X a/hasta/hacia Y` o `transfer de X a Y`; horarios `a las HH:MM` y números de vuelo. Casos ambiguos quedan para revisión. No es un extractor general de lenguaje ni consulta tarifas/disponibilidad.
+
+Nombre, contacto y pasajeros se reflejan en Gestión comercial. Las fechas pasan al CRM solo cuando se marcan confirmadas. El resto de la ficha y su borrador permanecen en la captura asociada al código CON. Guardar detecta cambios simultáneos tanto en la ficha como en Gestión comercial y pide actualizar antes de sobrescribir.
+
+El aviso interno conserva su contenido original para mantener la deduplicación. Las ediciones posteriores se consultan en el panel y no generan otro aviso. Los avisos nuevos incluyen nombre y teléfono disponibles y el borrador basado en los datos extraídos. Las respuestas posteriores del pasajero aún no se fusionan automáticamente con esta ficha: completarlas manualmente.

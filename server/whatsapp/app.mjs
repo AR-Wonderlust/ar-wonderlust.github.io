@@ -3,7 +3,7 @@ import {randomUUID} from 'node:crypto';
 import makeWASocket,{initAuthCreds,BufferJSON,proto,DisconnectReason} from '@whiskeysockets/baileys';
 import pino from 'pino';
 import QRCode from 'qrcode';
-import {authorized,digest,validGroup,eligible,extractText} from './core.mjs';
+import {authorized,digest,validGroup,eligible,extractText,authorContact} from './core.mjs';
 import {openStore} from './store.mjs';
 process.umask(0o077);
 const token=process.env.WA_BRIDGE_TOKEN||'',key=process.env.WA_SESSION_KEY||'';
@@ -34,7 +34,7 @@ async function start(id){
    if(n<=5)setTimeout(()=>{if(generations.get(id)===generation)start(id).catch(()=>status.set(id,'error'));},Math.min(60000,3000*2**n));
   }
  });
- sock.ev.on('messages.upsert',({messages,type})=>{
+ sock.ev.on('messages.upsert',async({messages,type})=>{
   if(generations.get(id)!==generation)return;
   const sources=new Map(db.prepare('SELECT group_id,name FROM sources WHERE account_id=?').all(id).map(r=>[r.group_id,r.name]));
   const internals=new Set(db.prepare("SELECT internal_group FROM accounts WHERE internal_group<>''").all().map(r=>r.internal_group));
@@ -42,7 +42,9 @@ async function start(id){
    if(!eligible(m,type,new Set(sources.keys()),internals))continue;
    const ts=Number(m.messageTimestamp);if(!Number.isFinite(ts)||ts<Date.now()/1000-3600||ts>Date.now()/1000+300)continue;
    const eventId=digest(id+'|'+m.key.remoteJid+'|'+(m.key.participant||'')+'|'+m.key.id);
-   const body={event_id:eventId,account_id:id,group_id:m.key.remoteJid,group_name:sources.get(m.key.remoteJid),sender_id:m.key.participant||'',message_id:m.key.id,text:extractText(m.message),timestamp:ts};
+   const contact=await authorContact(m.key,lid=>Promise.race([sock.signalRepository.lidMapping.getPNForLID(lid),new Promise(resolve=>{const timer=setTimeout(()=>resolve(null),1000);timer.unref();})]));
+   if(generations.get(id)!==generation)continue;
+   const body={...contact,sender_name:String(m.pushName||'').slice(0,120),event_id:eventId,account_id:id,group_id:m.key.remoteJid,group_name:sources.get(m.key.remoteJid),sender_id:m.key.participant||'',message_id:m.key.id,text:extractText(m.message),timestamp:ts};
    db.prepare('INSERT OR IGNORE INTO inbox VALUES(?,?,?,?,0)').run(eventId,id,store.seal(JSON.stringify(body)),Date.now());
   }
  });

@@ -56,3 +56,15 @@ test('connector boots with installed Baileys and protects administration',async 
  assert.equal((await call('/accounts/'+a.id+'/config','POST',{sources:[],internal_group:''})).status,400);
  assert.equal((await call('/send-alert','POST',{event_id:'a'.repeat(64),text:'Never send without captured event'})).status,400);
 });
+
+test('author contact: phone, alternative and mapping; never treat LID as phone',async()=>{
+ const {authorContact,phoneFromJid}=await import('./core.mjs');
+ assert.equal(phoneFromJid('123456789012345@lid'),'');
+ assert.equal(phoneFromJid('5493881234567:2@s.whatsapp.net'),'+5493881234567');
+ assert.equal((await authorContact({participant:'123456789012345@lid',participantAlt:'5493881234567@s.whatsapp.net'})).phone_source,'participant_alt');
+ const mapped=await authorContact({participant:'123456789012345@lid'},async()=> '5493881234567@s.whatsapp.net');
+ assert.equal(mapped.sender_phone,'+5493881234567');
+ assert.equal(mapped.phone_source,'lid_mapping');
+ assert.equal((await authorContact({participant:'123456789012345@lid'},async()=>null)).sender_phone,'');
+ assert.equal((await authorContact({participant:'123456789012345@lid'},async()=>{throw Error('no mapping');})).sender_phone,'');
+});
