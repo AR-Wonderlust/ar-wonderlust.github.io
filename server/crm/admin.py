@@ -111,3 +111,6 @@ async def ack(event_id:int,body:Ack): return await service.acknowledge(event_id,
 # Separate private module: never mounted on app.py / public Cloudflare endpoint.
 from crm.whatsapp import install as install_whatsapp
 install_whatsapp(app,operator,automation)
+
+from crm.transport import install as install_transport
+install_transport(app,operator,automation)
