@@ -26,7 +26,7 @@ Si preferís conservar tus nodos actuales, agregar después de Validar niveles c
 {{ JSON.stringify({source:$json.source,rates:$json.rates.map(r=>({service:r.service,green_reference:r.green_reference,yellow_standard:r.yellow_standard,red_floor:r.red_floor}))}) }}
 ```
 
-Solo se importan E1:N3; no clientes. El servidor valida servicios, precios positivos, orden de niveles y lectura reciente (24 horas). Repetir exactamente una importación es idempotente. La fecha de lectura no confirma vigencia comercial; la revisa el operador.
+Solo se importan D1:L3; no clientes. El servidor valida servicios, precios positivos, orden de niveles y lectura reciente (24 horas). Repetir exactamente una importación es idempotente. La fecha de lectura no confirma vigencia comercial; la revisa el operador.
 
 ## Panel
 Abrir `http://172.27.91.193:8011/presupuestos` o el enlace Presupuestos de transporte en Gestión comercial. Seleccionar una consulta existente. Su resumen, pasajeros y fecha se muestran como referencia. Completar un tramo por vehículo, fecha, recorrido, pasajeros, capacidad habilitada y kilómetros operativos totales. No multiplicar por pasajeros ni duplicar los kilómetros de regreso ya incluidos.

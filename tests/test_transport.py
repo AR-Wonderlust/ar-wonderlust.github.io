@@ -33,7 +33,7 @@ class TransportTests(unittest.TestCase):
    self.data['legs'][0]['operational_km']=km
    with self.assertRaises(ValueError):QuoteInput(**self.data)
  def test_rates(self):
-  data=dict(source=dict(spreadsheet_id='1W55J03Uy1sY15Wj649_JDslyg1vCiBNHDpB5pvjTMS8',sheet='TRANSPORTE-ROMA-2026',range='E1:N3',read_at=datetime.now(timezone.utc)),rates=[dict(service=s,green_reference=1450,yellow_standard=1150,red_floor=921) for s in ['traslado','auto','excursion']])
+  data=dict(source=dict(spreadsheet_id='1W55J03Uy1sY15Wj649_JDslyg1vCiBNHDpB5pvjTMS8',sheet='TRANSPORTE-ROMA-2026',range='D1:L3',read_at=datetime.now(timezone.utc)),rates=[dict(service=s,green_reference=1450,yellow_standard=1150,red_floor=921) for s in ['traslado','auto','excursion']])
   RateInput(**data)
   data['rates'][2]['service']='auto'
   with self.assertRaises(ValueError):RateInput(**data)

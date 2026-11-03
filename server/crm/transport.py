@@ -29,7 +29,7 @@ class Rate(Strict):
 class Source(Strict):
     spreadsheet_id: Literal['1W55J03Uy1sY15Wj649_JDslyg1vCiBNHDpB5pvjTMS8']
     sheet: Literal['TRANSPORTE-ROMA-2026']
-    range: Literal['E1:N3']
+    range: Literal['D1:L3']
     read_at: datetime
     @model_validator(mode='after')
     def timestamp(self):
