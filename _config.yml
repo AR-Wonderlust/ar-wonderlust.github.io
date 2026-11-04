@@ -340,6 +340,16 @@ exclude:
   - docs/
   - server/
   - tests/
+  - scripts/
+  - backups/
+  - ".env"
+  - ".env.*"
+  - "*.pem"
+  - "*.key"
+  - "*.p12"
+  - "*.pfx"
+  - "*.dump"
+  - "*.sqlite*"
   - vendor/
   - node_modules/
   - preview.html

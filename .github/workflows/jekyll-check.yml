@@ -18,6 +18,8 @@ jobs:
       - run: bundle exec jekyll build --trace --destination /tmp/roma-site
         env:
           JEKYLL_ENV: production
+      - name: Comprobar archivos sensibles en código y sitio
+        run: python3 scripts/check_public_files.py --site /tmp/roma-site
       - name: Comprobar portada y exclusiones
         run: |
           test -f /tmp/roma-site/index.html

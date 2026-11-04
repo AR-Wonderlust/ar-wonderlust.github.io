@@ -1,32 +1,34 @@
+# Local credentials: examples contain placeholders only.
 .env
 .env.*
 !.env.example
 *service-account*.json
+credentials.json
+client_secret*.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local state and generated files
 __pycache__/
+*.py[cod]
 .venv/
 _site/
 .jekyll-cache/
-
-# Instrucciones locales del operador, independientes de las actualizaciones
+node_modules/
 server/config/
-
-# Local database backups must never be committed
 server/backups/
+backups/
 *.dump
 *.dump.partial
-node_modules/
+*.sql.gz
 *.sqlite*
+*.db
+*.db-wal
+*.db-shm
 
-
-server/.env
-server/.env.*
-!server/.env.example
-server/backups/
-server/.env
-server/.env.*
-!server/.env.example
-server/backups/
-server/.env
-server/.env.*
-!server/.env.example
-server/backups/
+# Session material must stay in Docker volumes, never in Git.
+**/auth_info*/
+**/sessions/
+**/creds.json
