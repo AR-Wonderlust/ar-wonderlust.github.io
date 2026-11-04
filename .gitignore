@@ -18,3 +18,15 @@ node_modules/
 *.sqlite*
 
 
+server/.env
+server/.env.*
+!server/.env.example
+server/backups/
+server/.env
+server/.env.*
+!server/.env.example
+server/backups/
+server/.env
+server/.env.*
+!server/.env.example
+server/backups/
