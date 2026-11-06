@@ -43,3 +43,8 @@ jobs:
                       assert (Path("/tmp/roma-site") / urlparse(url).path.lstrip("/")).is_file(), url
           Assets().feed(Path("/tmp/roma-site/index.html").read_text())
           PYTEST
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/js/roma.js && node tests/chat-fallback.cjs
