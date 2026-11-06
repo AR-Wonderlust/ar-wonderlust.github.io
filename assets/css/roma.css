@@ -107,3 +107,27 @@ header .brand-with-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .chat-tools #handoff:focus-visible{outline:3px solid #d59125;outline-offset:3px}
 .chat-tools #handoff[hidden]{display:none}
 .chat-tools{flex-wrap:wrap}
+
+/* Optional follow-up: a prominent disclosure and a readable, scrollable form. */
+#crm-capture{margin:4px 14px 12px;padding:0;flex-shrink:0;max-height:45%;overflow:auto;font-size:13px;border:1px solid #c8a76b;border-radius:10px;background:#fffaf0}
+#crm-capture>summary{display:flex;align-items:center;gap:10px;list-style:none;padding:13px 12px;min-height:64px;background:#f3dfb6;color:#49331e;font-size:14px;font-weight:750;line-height:1.35;cursor:pointer}
+#crm-capture>summary::-webkit-details-marker{display:none}
+#crm-capture>summary:hover{background:#ecd29d}
+#crm-capture>summary:focus-visible{outline:3px solid #743523;outline-offset:-4px}
+#crm-capture>summary small{display:block;margin-top:4px;font-size:12px;font-weight:400;color:#61472c}
+.crm-save-icon{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#fff9eb;font-size:24px;line-height:1}
+.crm-chevron{margin-left:auto;font-size:22px}
+#crm-capture[open] .crm-chevron{transform:rotate(180deg)}
+#crm-form{padding:12px}
+.crm-intro{margin:0 0 12px;color:#595047;font-size:13px}
+#crm-form>label{display:block;font-weight:600;margin:8px 0 4px}
+#crm-form input:not([type=checkbox]){width:100%;min-height:44px;padding:10px;border:1px solid #b5a999;border-radius:6px;background:white;color:var(--ink);font-size:16px}
+#crm-form label:has(#crm-consent){display:flex!important;align-items:flex-start;gap:8px;font-weight:400;line-height:1.5}
+#crm-consent{flex:0 0 18px;width:18px;height:18px;margin:3px 0;accent-color:var(--rust)}
+#crm-save{width:100%;min-height:46px;margin-top:8px;border-radius:7px;font-size:15px;background:#a34732;color:white}
+#crm-save:hover:not(:disabled){background:#813623}
+#crm-save:disabled{cursor:default}
+#crm-result{margin:0;padding:0 12px 12px;overflow-wrap:anywhere}
+#crm-result:empty{display:none}
+@media(max-width:700px){#crm-capture{margin:4px 12px 8px;max-height:42%}}
+
