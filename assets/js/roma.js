@@ -129,3 +129,51 @@ window.visualViewport?.addEventListener('resize',fitChatViewport);
 window.visualViewport?.addEventListener('scroll',fitChatViewport);
 window.addEventListener('resize',fitChatViewport);
 fitChatViewport();
+
+// Shuffle once per visit; choosing an option drafts text and never sends it.
+const travelOptions=[
+ ['Salinas Grandes','Quiero conocer Salinas Grandes. Contame las opciones de ROMA, recorridos y alternativas de atardecer o astroturismo si están disponibles, con salida desde Jujuy o Salta.'],
+ ['Quebrada','Quiero conocer la Quebrada de Humahuaca. ¿Qué opciones ofrece ROMA para Purmamarca, Tilcara, Humahuaca, Hornocal y caminatas, y desde dónde salen?'],
+ ['Puna','Me interesa conocer la Puna de Jujuy y Salta. ¿Qué recorridos ofrece ROMA, cuánto duran y qué recomendaciones de altura y dificultad debo considerar?'],
+ ['Valles','Quiero conocer los Valles de Jujuy y Salta. Contame qué experiencias ofrece ROMA, incluyendo El Carmen y los diques cuando corresponda.'],
+ ['Yungas · Selva','Me interesan las Yungas y la selva de Jujuy y Salta. ¿Qué opciones de naturaleza, senderismo y excursiones ofrece ROMA? Indicá duración y dificultad si están confirmadas.'],
+ ['Alojamiento','Quiero conocer los alojamientos de ROMA: Casa ROMA en Yala y las opciones de El Carmen y Dique La Ciénaga. ¿Dónde se encuentran, para cuántas personas son, qué servicios incluyen y cuáles son las condiciones de alquiler? Si hay opciones verificadas en Salta, contámelas también.'],
+ ['Traslados privados','Necesito un traslado privado en Salta o Jujuy. Contame las opciones de ROMA y qué datos necesitás sobre origen, destino, fecha, pasajeros y equipaje para cotizar.'],
+ ['Transfer aeropuerto','Necesito un transfer desde o hacia el aeropuerto de Jujuy o Salta. ¿Qué opciones ofrece ROMA y qué datos del vuelo, horario, destino, pasajeros y equipaje necesitás?'],
+ ['Alquiler de vehículos','Quiero alquilar un vehículo con ROMA en Salta o Jujuy. ¿Qué opciones confirmadas hay con o sin chofer, dónde se retiran y cuáles son las condiciones y requisitos?'],
+ ['Paquetes a medida','Quiero armar un viaje por Salta y Jujuy con ROMA. Contame las opciones para combinar excursiones, alojamiento y traslados, y qué fechas, cantidad de personas y preferencias necesitás.'],
+ ['Enoturismo','Me interesa el enoturismo en Salta y Jujuy. ¿Qué visitas a bodegas y traslados ofrece ROMA y qué incluyen según la información disponible?']
+];
+for(let i=travelOptions.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[travelOptions[i],travelOptions[j]]=[travelOptions[j],travelOptions[i]];}
+const optionTrack=$('#chat-options'),optionPause=$('#options-pause');
+const optionMotion=matchMedia('(prefers-reduced-motion: reduce)');
+let optionsPaused=optionMotion.matches,optionsHovered=false,optionsLastTime=0,optionsTravel=0;
+function paintOptionsPause(){optionPause.textContent=optionsPaused?'▶':'Ⅱ';optionPause.setAttribute('aria-pressed',String(optionsPaused));optionPause.setAttribute('aria-label',optionsPaused?'Reanudar opciones':'Pausar opciones');}
+function pauseOptions(){optionsPaused=true;paintOptionsPause();}
+for(const [label,prompt] of travelOptions){
+ const button=document.createElement('button');button.type='button';button.textContent=label;
+ button.addEventListener('click',()=>{
+  if(busy)return;
+  const input=$('#message');
+  if(input.value.trim()){pauseOptions();$('#chat-status').textContent='Tu mensaje está sin enviar. Envialo o borrá el campo antes de elegir otra opción.';return;}
+  input.value=prompt+' Usá la información disponible de Agencia ROMA; diferenciá los servicios confirmados de las opciones por consultar, sin inventar precios, disponibilidad ni inclusiones.';
+  pauseOptions();$('#chat-status').textContent='Consulta preparada. Podés editarla y pulsar Enviar.';input.focus();
+ });optionTrack.append(button);
+}
+optionPause.addEventListener('click',()=>{optionsPaused=!optionsPaused;paintOptionsPause();});
+optionTrack.addEventListener('pointerdown',pauseOptions);
+optionTrack.addEventListener('keydown',pauseOptions);
+optionTrack.addEventListener('mouseenter',()=>optionsHovered=true);
+optionTrack.addEventListener('mouseleave',()=>optionsHovered=false);
+$('#message').addEventListener('input',pauseOptions);
+optionMotion.addEventListener('change',()=>{optionsPaused=optionMotion.matches;paintOptionsPause();});
+paintOptionsPause();
+function animateOptions(time){
+ const elapsed=optionsLastTime?Math.min(time-optionsLastTime,64):0;optionsLastTime=time;
+ if(!optionsPaused&&!optionsHovered&&!document.hidden&&!chatPanel.hidden&&!busy&&document.activeElement!==$('#message')&&!optionTrack.contains(document.activeElement)){
+  const max=optionTrack.scrollWidth-optionTrack.clientWidth;
+  if(max>0){optionsTravel+=elapsed*.025;const pixels=Math.floor(optionsTravel);optionsTravel-=pixels;optionTrack.scrollLeft+=pixels;const first=optionTrack.firstElementChild;const distance=first.getBoundingClientRect().width+7;if(optionTrack.scrollLeft>=distance){const position=optionTrack.scrollLeft-distance;optionTrack.append(first);optionTrack.scrollLeft=position;}}
+ }
+ requestAnimationFrame(animateOptions);
+}
+requestAnimationFrame(animateOptions);

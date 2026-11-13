@@ -124,3 +124,18 @@ header .brand-with-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
  .floating-chat .chat-tools{padding-bottom:max(8px,env(safe-area-inset-bottom,0px))}
  .floating-chat .chat-tools #handoff{padding:8px 12px;min-height:44px}
 }
+
+/* One-line discovery carousel keeps the conversation as the main reading area. */
+.floating-chat .chat-head{gap:10px;padding:6px 10px;min-height:58px;justify-content:initial}
+.floating-chat .avatar{display:grid;width:34px;height:34px;flex:0 0 34px;font-size:22px}
+.chat-heading{min-width:0;line-height:1.3}
+.chat-heading strong{font-size:14px}
+.chat-heading small{font-size:11px;margin-top:3px}
+.chat-discovery{display:flex;align-items:center;gap:5px;padding:6px 8px;border-bottom:1px solid var(--line);flex-shrink:0;min-width:0}
+.chat-options{display:flex;align-items:center;gap:7px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain;padding:3px;touch-action:pan-x}
+.chat-options::-webkit-scrollbar{display:none}
+.chat-options button{white-space:nowrap;flex:0 0 auto;border:1px solid #d8b6a8;border-radius:20px;background:#fffaf2;color:#743523;font-size:12px;padding:8px 12px;min-height:36px}
+.chat-options button:hover{background:#f3dfb6}
+.chat-options button:focus-visible{outline-offset:-2px}
+#options-pause{flex:0 0 36px;min-height:36px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--rust);font-size:16px}
+@media(max-width:700px){.floating-chat .chat-head{padding:4px 8px}.floating-chat .chat-log{padding:10px}}
