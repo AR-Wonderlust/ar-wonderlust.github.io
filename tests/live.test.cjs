@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+const {activeRomaLives}=require('../assets/js/live.js');
+const e={platform:'youtube',url:'https://youtu.be/abc',start:'2026-11-13T18:00:00-03:00',end:'2026-11-13T19:00:00-03:00'};
+const start=Date.parse(e.start),end=Date.parse(e.end);
+assert.equal(activeRomaLives([e],start-1).length,0);
+assert.equal(activeRomaLives([e],start).length,1);
+assert.equal(activeRomaLives([e],end).length,0);
+assert.equal(activeRomaLives([e],Date.parse('2026-11-13T21:30:00Z')).length,1);
+for(const url of ['https://youtube.com.evil.test/watch','https://user@youtube.com/watch','javascript:alert(1)','https://youtube.com/']) assert.equal(activeRomaLives([{...e,url}],start).length,0);
+assert.equal(activeRomaLives([{...e,url:'https://evil.test/live',platform:undefined}],start).length,0);
+assert.equal(activeRomaLives([null,e],start).length,1);
+assert.equal(activeRomaLives([],start).length,0);
+assert.equal(activeRomaLives([e,{...e,platform:'tiktok',url:'https://www.tiktok.com/@roma/live'}],start).length,2);
+assert.equal(activeRomaLives([e,{...e,url:'https://youtu.be/new',start:'2026-11-13T18:15:00-03:00'}],start+1800000)[0].url,'https://youtu.be/new');
+console.log('Live schedule: boundaries, timezone, URLs, simultaneous broadcasts passed');

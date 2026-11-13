@@ -139,3 +139,10 @@ header .brand-with-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .chat-options button:focus-visible{outline-offset:-2px}
 #options-pause{flex:0 0 36px;min-height:36px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--rust);font-size:16px}
 @media(max-width:700px){.floating-chat .chat-head{padding:4px 8px}.floating-chat .chat-log{padding:10px}}
+
+/* Calendar-controlled broadcast notice; remains hidden on missing/stale data. */
+.social-links a.is-live{color:#aa1d1d;background:#fff0ed;border-radius:20px;padding:0 12px;animation:roma-live-glow 2s ease-in-out infinite}
+.live-broadcast{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0 0 12px}
+.live-broadcast a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;background:#a32724;color:white;border-radius:8px;text-decoration:none;text-align:center;font-size:14px;font-weight:650}
+@keyframes roma-live-glow{50%{box-shadow:0 0 0 3px #aa1d1d22}}
+@media(prefers-reduced-motion:reduce){.social-links a.is-live{animation:none}}
