@@ -18,7 +18,7 @@ selectRegion('quebrada');
 document.querySelectorAll('[data-region]').forEach(b=>b.addEventListener('click',()=>selectRegion(b.dataset.region)));
 $('.menu-button').addEventListener('click',e=>{const open=$('#navigation').classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',String(open));});
 document.querySelectorAll('#navigation a').forEach(a=>a.addEventListener('click',()=>{$('#navigation').classList.remove('open');$('.menu-button').setAttribute('aria-expanded','false')}));
-let crmReference='',crmRequest=null;
+
 let history=[],busy=false,fallback=false,fallbackStep=0,fallbackAnswers=[],fallbackInitial='',fallbackExtra='',fallbackLang='es';
 const guidedCopy={
  es:{intro:'La IA no está disponible en este momento. Podemos preparar tu consulta para el equipo de ROMA.',questions:['¿Cuántas personas viajan? Indicá adultos y menores, con sus edades aproximadas.','¿Qué días nos visitan y cuántas noches se quedan?','¿Qué excursiones, lugares o servicios les gustaría disfrutar?','¿Desde dónde salen y dónde se alojarían? Si todavía no lo saben, pueden indicarlo.'],labels:['Pasajeros','Fechas y estadía','Excursiones y servicios','Origen y alojamiento'],done:'¡Gracias! Tu consulta está preparada. Tocá «Enviar al WhatsApp», revisá el mensaje y presioná Enviar en WhatsApp. El equipo confirmará opciones, tarifas y disponibilidad.',button:'Enviar al WhatsApp ↗',mode:'ROMA · Consulta guiada',summary:'Resumen de tu consulta',extra:'Agregué tu aclaración al mensaje. Podés enviarlo por WhatsApp.'},
@@ -30,22 +30,22 @@ function detectGuidedLanguage(text){if(/[\u3400-\u9fff]/u.test(text))return 'zh'
 function guidedSummary(){const c=guidedCopy[fallbackLang];return c.summary+'\n'+fallbackAnswers.map((a,i)=>c.labels[i]+': '+a).join('\n');}
 function beginGuided(message){fallback=true;fallbackLang=detectGuidedLanguage(history.filter(m=>m.role==='user').map(m=>m.text).join(' ')+' '+message);fallbackInitial=history.filter(m=>m.role==='user').map(m=>m.text).join('\n');if(fallbackInitial.length>1500)fallbackInitial='[Consulta previa abreviada]\n'+fallbackInitial.slice(0,1400);fallbackStep=0;fallbackAnswers=[];fallbackExtra='';$('#message').maxLength=600;$('#chat-mode').textContent=guidedCopy[fallbackLang].mode;$('#handoff').textContent=guidedCopy[fallbackLang].button;return guidedCopy[fallbackLang].intro+'\n\n'+guidedCopy[fallbackLang].questions[0];}
 function guidedReply(message){const c=guidedCopy[fallbackLang];if(fallbackStep<c.questions.length){fallbackAnswers.push(message);fallbackStep++;return fallbackStep<c.questions.length?c.questions[fallbackStep]:guidedSummary()+'\n\n'+c.done;}fallbackExtra=message;return c.extra;}
-function addMessage(role,text){const b=document.createElement('div');b.className='bubble'+(role==='user'?' user':'');b.textContent=text;$('#messages').append(b);$('#messages').scrollTop=$('#messages').scrollHeight;}
-function waLink(){let text='Hola, Agencia ROMA. Quisiera organizar mi viaje a Jujuy.';if(crmReference)text+='\nReferencia: '+crmReference;if(fallback){text+='\n\nConsulta inicial:\n'+fallbackInitial+'\n\n'+guidedSummary();if(fallbackExtra)text+='\n\nÚltima aclaración: '+fallbackExtra;}else if(history.length){const transcript=history.map(m=>(m.role==='user'?'Viajero: ':'ROMA: ')+m.text).join('\n');text+='\n\nConsulta:\n'+(transcript.length>4800?'[Últimos mensajes]\n'+transcript.slice(-4800):transcript);}return 'https://wa.me/'+String(cfg.whatsapp||'').replace(/\D/g,'')+'?text='+encodeURIComponent(text);}
+function addMessage(role,text){const b=document.createElement('div');b.className='bubble'+(role==='user'?' user':'');b.textContent=text;$('#messages').append(b);const log=$('#messages');log.scrollTop=role==='model'?log.scrollTop+b.getBoundingClientRect().top-log.getBoundingClientRect().top-12:log.scrollHeight;}
+function waLink(){let text='Hola, Agencia ROMA. Quisiera organizar mi viaje a Jujuy.';if(fallback){text+='\n\nConsulta inicial:\n'+fallbackInitial+'\n\n'+guidedSummary();if(fallbackExtra)text+='\n\nÚltima aclaración: '+fallbackExtra;}else if(history.length){const transcript=history.map(m=>(m.role==='user'?'Viajero: ':'ROMA: ')+m.text).join('\n');text+='\n\nConsulta:\n'+(transcript.length>4800?'[Últimos mensajes]\n'+transcript.slice(-4800):transcript);}return 'https://wa.me/'+String(cfg.whatsapp||'').replace(/\D/g,'')+'?text='+encodeURIComponent(text);}
 function syncWA(){for(const id of ['handoff','contact','floating-wa']){const a=$('#'+id);if(cfg.whatsapp){a.href=waLink();a.hidden=false;}else{a.hidden=true;}}}
-function reset(){crmReference='';crmRequest=null;if($('#crm-form')){$('#crm-form').reset();$('#crm-save').disabled=false;$('#crm-result').textContent='';}history=[];fallback=false;fallbackStep=0;fallbackAnswers=[];fallbackInitial='';fallbackExtra='';$('#message').maxLength=1500;$('#messages').replaceChildren();$('#chat-mode').textContent=cfg.api_url?'Asistente IA de ROMA':'ROMA · Consulta guiada';$('#handoff').textContent='Enviar al WhatsApp ↗';addMessage('model',cfg.api_url?'¡Hola! Soy el asistente IA de ROMA. ¿Qué lugares te gustaría visitar en Jujuy?':'¡Hola! Podemos preparar tu consulta para el equipo ROMA. ¿Qué lugares te gustaría visitar?');syncWA();}
-function setBusy(value){busy=value;$('#send').disabled=value;$('#reset').disabled=value;$('#message').disabled=value;document.querySelectorAll('[data-prompt]').forEach(b=>b.disabled=value);$('#chat-status').textContent=value?'Preparando respuesta…':'';}
-async function send(text){if(busy||!text.trim())return;const message=text.trim().slice(0,fallback?600:1500);addMessage('user',message);$('#message').value='';setBusy(true);
+function reset(){history=[];fallback=false;fallbackStep=0;fallbackAnswers=[];fallbackInitial='';fallbackExtra='';$('#message').maxLength=1500;$('#messages').replaceChildren();$('#chat-mode').textContent=cfg.api_url?'Asistente IA de ROMA':'ROMA · Consulta guiada';$('#handoff').textContent='Enviar al WhatsApp ↗';addMessage('model',cfg.api_url?'¡Hola! Soy el asistente IA de ROMA. ¿Qué lugares te gustaría visitar en Jujuy?':'¡Hola! Podemos preparar tu consulta para el equipo ROMA. ¿Qué lugares te gustaría visitar?');syncWA();}
+function setBusy(value){busy=value;$('#send').disabled=value;$('#message').disabled=value;document.querySelectorAll('[data-prompt]').forEach(b=>b.disabled=value);$('#chat-status').textContent=value?'Preparando respuesta…':'';}
+async function send(text){if(busy||!text.trim())return;const message=text.trim().slice(0,fallback?600:1500);addMessage('user',message);if(matchMedia('(max-width:700px)').matches)$('#message').blur();$('#message').value='';setBusy(true);
  const previous=history.slice(-12);history.push({role:'user',text:message});
  try{let reply;if(fallback){reply=guidedReply(message);}else if(!cfg.api_url){reply=beginGuided(message);}else{try{
  const response=await fetch(cfg.api_url.replace(/\/$/,'')+'/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,history:previous}),signal:AbortSignal.timeout(35000)});
  if(!response.ok)throw new Error('request');const data=await response.json();if(typeof data.reply!=='string'||!data.reply.trim())throw new Error('empty');reply=data.reply;
  }catch{reply=beginGuided(message);}}
  history.push({role:'model',text:reply});addMessage('model',reply);
- }finally{setBusy(false);syncWA();if(!$('#chat').hidden)$('#message').focus();}}
+ }finally{setBusy(false);syncWA();if(!$('#chat').hidden&&!matchMedia('(max-width:700px)').matches)$('#message').focus();}}
 $('#chat-form').addEventListener('submit',e=>{e.preventDefault();send($('#message').value)});
 document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>send(b.dataset.prompt)));
-$('#reset').addEventListener('click',reset);reset();
+reset();
 const nowParts=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Argentina/Jujuy',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
 const part=n=>Number(nowParts.find(p=>p.type===n).value);const today={y:part('year'),m:part('month')-1,d:part('day')};let month=new Date(today.y,today.m,1);
 function drawCalendar(){$('#month-label').textContent=month.toLocaleDateString('es-AR',{month:'long',year:'numeric'});const grid=$('#month-grid');grid.replaceChildren();for(const day of ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom']){const s=document.createElement('span');s.className='weekday';s.textContent=day;grid.append(s)}const offset=(month.getDay()+6)%7,days=new Date(month.getFullYear(),month.getMonth()+1,0).getDate();for(let i=0;i<offset+days;i++){const s=document.createElement('span');const d=i-offset+1;if(d>0){s.textContent=d;if(today.y===month.getFullYear()&&today.m===month.getMonth()&&today.d===d){s.className='today';s.setAttribute('aria-label',`Hoy, ${d}`)}}grid.append(s)}}
@@ -80,6 +80,7 @@ let chatOpener = chatLauncher;
 function showChat(open, trigger, focusInput = true) {
  if (open && trigger) chatOpener = trigger;
  chatPanel.hidden = !open;
+ document.body.classList.toggle('chat-open',open);
  chatLauncher.setAttribute('aria-expanded', String(open));
  chatLauncher.textContent = open ? (matchMedia('(max-width:700px)').matches ? 'Minimizar asistente −' : 'Cerrar asistente ×') : 'Asistente IA · ROMA';
  if (open && focusInput) { (busy ? $('#chat-close') : $('#message')).focus(); }
@@ -118,20 +119,13 @@ window.addEventListener('hashchange',openCalendarFromHash);
 openCalendarFromHash();
 
 
-// Enquiries are saved only after an explicit, optional follow-up request.
-if(cfg.api_url){fetch(cfg.api_url.replace(/\/$/,'')+'/crm/status',{signal:AbortSignal.timeout(5000)})
- .then(r=>r.ok?r.json():null).then(d=>{if(d?.enabled)$('#crm-capture').hidden=false;}).catch(()=>{});}
-$('#crm-form').addEventListener('submit',async e=>{
- e.preventDefault();const result=$('#crm-result');
- if(!$('#crm-consent').checked)return;
- if(!history.some(m=>m.role==='user')){result.textContent='Primero contanos qué viaje querés organizar.';return;}
- if(busy){result.textContent='Esperá a que termine la respuesta del asistente.';return;}
- if(crmReference)return;
- $('#crm-save').disabled=true;setBusy(true);$('#chat-status').textContent='Guardando tu consulta…';result.textContent='Guardando consulta…';
- if(!crmRequest)crmRequest={request_id:crypto.randomUUID(),summary:new URL(waLink()).searchParams.get('text').slice(0,6000),name:$('#crm-name').value.trim(),contact:$('#crm-contact').value.trim(),categories:['otro'],consent:true};
- try{const r=await fetch(cfg.api_url.replace(/\/$/,'')+'/enquiries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(crmRequest),signal:AbortSignal.timeout(10000)});
- if(!r.ok)throw Error('save');const data=await r.json();if(!/^CON-\d+$/.test(data.code))throw Error('code');crmReference=data.code;syncWA();
- result.textContent='Consulta '+crmReference+' guardada. El código está incluido en WhatsApp. Las nuevas respuestas del chat se enviarán por WhatsApp, pero no actualizan este resumen guardado.';
- }catch{result.textContent='No pudimos confirmar el registro. Podés reintentar guardar el mismo resumen o continuar por WhatsApp.';$('#crm-save').disabled=false;}
- finally{setBusy(false);}
-});
+// Fit the assistant to the visible area, including the on-screen keyboard.
+function fitChatViewport(){
+ const viewport=window.visualViewport;
+ document.documentElement.style.setProperty('--chat-visible-height',`${viewport?.height||window.innerHeight}px`);
+ document.documentElement.style.setProperty('--chat-visible-top',`${viewport?.offsetTop||0}px`);
+}
+window.visualViewport?.addEventListener('resize',fitChatViewport);
+window.visualViewport?.addEventListener('scroll',fitChatViewport);
+window.addEventListener('resize',fitChatViewport);
+fitChatViewport();
