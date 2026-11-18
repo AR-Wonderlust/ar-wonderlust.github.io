@@ -1,0 +1,100 @@
+{
+  "links": {
+    "whatsapp": "https://wa.me/5493885383215?text=ROMA-VIAJE",
+    "instagram": "https://www.instagram.com/somosromaturismo/",
+    "tiktok": "https://www.tiktok.com/@romaturismo",
+    "google": "https://g.page/r/CeDpsUjiSiCXEAE/review"
+  },
+  "slides": [
+    {
+      "tag": "JUJUY · SALTA · NORTE ARGENTINO",
+      "title": "Tu viaje al Norte,\nresuelto.",
+      "text": "Alojamiento, traslados y experiencias. Todo empieza con un lugar que querés conocer.",
+      "image": "/assets/showcase/hornocal.jpg",
+      "alt": "Cerros de colores del Hornocal",
+      "kind": "whatsapp",
+      "label": "Hablemos de tu próximo viaje",
+      "duration": 18000
+    },
+    {
+      "tag": "01 / ALOJAMIENTO",
+      "title": "Un lugar para\nsentirte en casa.",
+      "text": "Casa ROMA en Yala. Pileta, quincho y descanso para compartir. Consultá también las opciones en El Carmen, cerca del Dique La Ciénaga.",
+      "image": "/assets/showcase/casa-roma.jpg",
+      "alt": "Pileta y patio de Casa ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá tu estadía",
+      "duration": 20000
+    },
+    {
+      "tag": "02 / TRASLADOS",
+      "title": "Vos disfrutá.\nROMA te lleva.",
+      "text": "Aeropuertos de Jujuy y Salta, excursiones, eventos y viajes en grupo. Consultanos por tu traslado en Toyota Hiace.",
+      "crop": "35 400 485 270",
+      "alt": "Toyota Hiace en la presentación de servicios de ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá tu traslado",
+      "duration": 20000
+    },
+    {
+      "tag": "03 / ALQUILER DE VEHÍCULOS",
+      "title": "El Norte,\na tu ritmo.",
+      "text": "Fiat Mobi Trekking para recorrer con independencia. Consultá disponibilidad y condiciones de alquiler.",
+      "crop": "548 400 485 270",
+      "alt": "Fiat Mobi Trekking en la presentación de servicios de ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá por alquiler",
+      "duration": 18000
+    },
+    {
+      "tag": "04 / ACTIVIDADES",
+      "title": "Siempre hay\nalgo por descubrir.",
+      "text": "Salinas Grandes, Quebrada, Puna, Valles y Yungas. Experiencias en Jujuy y Salta, con propuestas a tu medida.",
+      "image": "/assets/showcase/hornocal.jpg",
+      "alt": "Paisaje del Hornocal, Jujuy",
+      "kind": "whatsapp",
+      "label": "Elegí tu próxima experiencia",
+      "duration": 20000
+    },
+    {
+      "tag": "05 / INSTAGRAM",
+      "title": "El viaje sigue\nen nuestras historias.",
+      "text": "Seguinos, descubrí nuevas salidas y compartí tus momentos con Agencia ROMA.",
+      "image": "/assets/showcase/hornocal.jpg",
+      "alt": "Cerros de Jujuy",
+      "kind": "instagram",
+      "label": "Seguinos en Instagram",
+      "duration": 25000
+    },
+    {
+      "tag": "06 / TIKTOK",
+      "title": "El Norte\nen movimiento.",
+      "text": "Paisajes, recorridos y momentos que dan ganas de volver. Encontranos en TikTok.",
+      "image": "/assets/showcase/hornocal.jpg",
+      "alt": "Cerros de colores del Hornocal",
+      "kind": "tiktok",
+      "label": "Descubrinos en TikTok",
+      "duration": 25000
+    },
+    {
+      "tag": "07 / TU OPINIÓN CUENTA",
+      "title": "¿Cómo estuvo\ntu viaje?",
+      "text": "Contá tu experiencia con Agencia ROMA en Google. Tu opinión nos ayuda a mejorar y a otros viajeros a elegir.",
+      "image": "/assets/showcase/hornocal.jpg",
+      "alt": "Paisaje de Jujuy",
+      "kind": "google",
+      "label": "Dejá tu reseña en Google",
+      "duration": 30000
+    },
+    {
+      "tag": "HASTA LA PRÓXIMA EXPERIENCIA",
+      "title": "Gracias por\nviajar con ROMA.",
+      "text": "Llevate los recuerdos. Nosotros te esperamos para descubrir el próximo destino.",
+      "image": "/assets/showcase/casa-roma.jpg",
+      "alt": "Patio de Casa ROMA",
+      "kind": "whatsapp",
+      "label": "Guardá nuestro contacto",
+      "duration": 25000
+    }
+  ]
+}
