@@ -37,9 +37,9 @@
       "duration": 20000
     },
     {
-      "tag": "03 / ALQUILER DE VEHÍCULOS",
-      "title": "El Norte,\na tu ritmo.",
-      "text": "Fiat Mobi Trekking para recorrer con independencia. Consultá disponibilidad y condiciones de alquiler.",
+      "tag": "03 / REGIONES DEL NORTE",
+      "title": "Paisajes para\nrecordar.",
+      "text": "Valles, Quebrada, Puna y Yungas. Elegí una región y dejá que ROMA te ayude a descubrirla.",
       "crop": "548 400 485 270",
       "alt": "Fiat Mobi Trekking en la presentación de servicios de ROMA",
       "kind": "whatsapp",
@@ -47,7 +47,7 @@
       "duration": 18000
     },
     {
-      "tag": "04 / ACTIVIDADES",
+      "tag": "04 / REGIONES DEL NORTE",
       "title": "Siempre hay\nalgo por descubrir.",
       "text": "Salinas Grandes, Quebrada, Puna, Valles y Yungas. Experiencias en Jujuy y Salta, con propuestas a tu medida.",
       "image": "/assets/showcase/hornocal.jpg",
@@ -67,14 +67,14 @@
       "duration": 25000
     },
     {
-      "tag": "06 / TIKTOK",
-      "title": "El Norte\nen movimiento.",
-      "text": "Paisajes, recorridos y momentos que dan ganas de volver. Encontranos en TikTok.",
+      "tag": "06 / ACTIVIDADES",
+      "title": "Viví el Norte\na tu manera.",
+      "text": "Salinas Grandes, Quebrada, Puna, Valles y Yungas. Consultá por experiencias para disfrutar en el día.",
       "image": "/assets/showcase/hornocal.jpg",
       "alt": "Cerros de colores del Hornocal",
-      "kind": "tiktok",
-      "label": "Descubrinos en TikTok",
-      "duration": 25000
+      "kind": "whatsapp",
+      "label": "Elegí tu próxima experiencia",
+      "duration": 20000
     },
     {
       "tag": "07 / TU OPINIÓN CUENTA",
