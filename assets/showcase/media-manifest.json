@@ -1,6 +1,191 @@
 {
-  "generated_at": "2026-11-25T20:20:48.915508+00:00",
+  "generated_at": "2026-11-25T20:50:01.765751+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
-  "items": [],
-  "music": []
+  "items": [
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+      "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-24T22:20:40.532Z:b2c5f568753acaec544a50193c8546c3:9807128",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+        "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg"
+      },
+      "source_id": "18OSWUyEIpRa3eIbe3t_9N-zYRFEXxUxh",
+      "name": "yungas-yala-0.mp4",
+      "region": "valles",
+      "title": "Yungas Yala 0",
+      "alt": "Yungas yala 0 · Agencia ROMA",
+      "modified_time": "2026-09-24T22:20:40.532Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/yungas/yungas-catre-01--a9ZVC77.mp4",
+      "poster": "/assets/showcase/media/posters/yungas/yungas-catre-01--a9ZVC77.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-22T16:08:11.169Z:307eca6ebe308559758c1e915b32fa5e:3691876",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/yungas/yungas-catre-01--a9ZVC77.mp4",
+        "poster": "/assets/showcase/media/posters/yungas/yungas-catre-01--a9ZVC77.jpg"
+      },
+      "source_id": "1-NPA7_9Dnkqg9VlNQgtKepKo-a9ZVC77",
+      "name": "yungas-catre-01.mp4",
+      "region": "yungas",
+      "title": "Yungas Catre 01",
+      "alt": "Yungas catre 01 · Agencia ROMA",
+      "modified_time": "2026-09-22T16:08:11.169Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/yungas/yungas-termas-01-bOMYvGEN.mp4",
+      "poster": "/assets/showcase/media/posters/yungas/yungas-termas-01-bOMYvGEN.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-02T16:35:47.516Z:31edd4c55f3753e16684c2c19cf57871:12398672",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/yungas/yungas-termas-01-bOMYvGEN.mp4",
+        "poster": "/assets/showcase/media/posters/yungas/yungas-termas-01-bOMYvGEN.jpg"
+      },
+      "source_id": "13eTz89IAMn3JwkRyPR8gTbYQbOMYvGEN",
+      "name": "yungas-termas-01.mp4",
+      "region": "yungas",
+      "title": "Yungas Termas 01",
+      "alt": "Yungas termas 01 · Agencia ROMA",
+      "modified_time": "2026-09-02T16:35:47.516Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/puna/puna-salinas-01-oVIePDqL.mp4",
+      "poster": "/assets/showcase/media/posters/puna/puna-salinas-01-oVIePDqL.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-16T13:18:59.443Z:e8173fae8e554b409822c9969d12c708:5285452",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/puna/puna-salinas-01-oVIePDqL.mp4",
+        "poster": "/assets/showcase/media/posters/puna/puna-salinas-01-oVIePDqL.jpg"
+      },
+      "source_id": "1a6cupBql1K1zJOt2XCfqGBp-oVIePDqL",
+      "name": "puna-salinas-01.mp4",
+      "region": "puna",
+      "title": "Puna Salinas 01",
+      "alt": "Puna salinas 01 · Agencia ROMA",
+      "modified_time": "2026-09-16T13:18:59.443Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/quebrada/quebrada-purmamarca-01-P4GyEppM.mp4",
+      "poster": "/assets/showcase/media/posters/quebrada/quebrada-purmamarca-01-P4GyEppM.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-24T15:17:54.339Z:3175cade345f7375e541513c9998f3d1:11113996",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/quebrada/quebrada-purmamarca-01-P4GyEppM.mp4",
+        "poster": "/assets/showcase/media/posters/quebrada/quebrada-purmamarca-01-P4GyEppM.jpg"
+      },
+      "source_id": "1BevHUakeL52Zu70pbeIShNSMP4GyEppM",
+      "name": "quebrada-purmamarca-01.mp4",
+      "region": "quebrada",
+      "title": "Quebrada Purmamarca 01",
+      "alt": "Quebrada purmamarca 01 · Agencia ROMA",
+      "modified_time": "2026-09-24T15:17:54.339Z"
+    }
+  ],
+  "music": [
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/amazing-grace-caroline-campbell-live-from-brazil-FP4zd3ad.mp3",
+      "fingerprint": "2026-11-25T13:58:04.207Z:32278525795ca4e4d76120d28f4298b4:7651484",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/amazing-grace-caroline-campbell-live-from-brazil-FP4zd3ad.mp3"
+      },
+      "source_id": "19eSN3pN7K3FlNcKIdt466M99FP4zd3ad",
+      "name": "AMAZING GRACE ⧸ Caroline Campbell live from Brazil.mp3",
+      "region": "musica",
+      "title": "Amazing Grace ⧸ Caroline Campbell Live From Brazil",
+      "alt": "Amazing grace ⧸ caroline campbell live from brazil · Agencia ROMA",
+      "modified_time": "2026-11-25T13:58:04.207Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/lola-hauser-f-r-elise-TGdJXE8m.mp3",
+      "fingerprint": "2026-11-25T13:57:57.100Z:c6925eb3cf64b3e4c0958870056a674e:5151740",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/lola-hauser-f-r-elise-TGdJXE8m.mp3"
+      },
+      "source_id": "1Uj3linFIhuQFEp4h5ysLBCnOTGdJXE8m",
+      "name": "LoLa & Hauser - Für Elise.mp3",
+      "region": "musica",
+      "title": "Lola & Hauser   Für Elise",
+      "alt": "Lola & hauser   für elise · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:57.100Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/por-una-cabeza-live-ost-b3gaUiM7.mp3",
+      "fingerprint": "2026-11-25T13:57:50.633Z:c88e31895cfc9581f4d8b1938daa258c:6771884",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/por-una-cabeza-live-ost-b3gaUiM7.mp3"
+      },
+      "source_id": "1iwOilm56UdaMIRmnMcmmaHltb3gaUiM7",
+      "name": "Por Una Cabeza (Live)🌹'여인의향기' OST.mp3",
+      "region": "musica",
+      "title": "Por Una Cabeza (Live)🌹'여인의향기' Ost",
+      "alt": "Por una cabeza (live)🌹'여인의향기' ost · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:50.633Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/hauser-the-lonely-shepherd-alone-together-e_8FzGP2.mp3",
+      "fingerprint": "2026-11-25T13:57:43.402Z:78b1330a616d4829654e637b45cb3cfc:6890900",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/hauser-the-lonely-shepherd-alone-together-e_8FzGP2.mp3"
+      },
+      "source_id": "1mrwOOrWo8OpApABeX0iMjoL8e_8FzGP2",
+      "name": "HAUSER： The Lonely Shepherd - 'Alone, Together'.mp3",
+      "region": "musica",
+      "title": "Hauser： The Lonely Shepherd   'Alone, Together'",
+      "alt": "Hauser： the lonely shepherd   'alone, together' · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:43.402Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/lola-hauser-moonlight-sonata-_IoiiCYj.mp3",
+      "fingerprint": "2026-11-25T13:57:34.500Z:9a6ee62a013cfd4e35ffcffa8221815e:7169996",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/lola-hauser-moonlight-sonata-_IoiiCYj.mp3"
+      },
+      "source_id": "1Usjwb9DfniXmpOtsQxxDcH9s_IoiiCYj",
+      "name": "LoLa & Hauser - Moonlight Sonata.mp3",
+      "region": "musica",
+      "title": "Lola & Hauser   Moonlight Sonata",
+      "alt": "Lola & hauser   moonlight sonata · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:34.500Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/moonlight-sonata-RezoHRpU.mp3",
+      "fingerprint": "2026-11-25T13:57:26.948Z:54180be5fc0ee9704961760c252c5f06:6983948",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/moonlight-sonata-RezoHRpU.mp3"
+      },
+      "source_id": "1XJxXu9XrTV9SeJONGGpWT905RezoHRpU",
+      "name": "Moonlight Sonata.mp3",
+      "region": "musica",
+      "title": "Moonlight Sonata",
+      "alt": "Moonlight sonata · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:26.948Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/lola-palladio-2-0-live-with-orchestra-vu78YHnR.mp3",
+      "fingerprint": "2026-11-25T13:57:20.174Z:b99fcf1cde49ce263fae1b6759ac3f37:7668188",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/lola-palladio-2-0-live-with-orchestra-vu78YHnR.mp3"
+      },
+      "source_id": "1pGDDlJ4TK6Bx-_E6WFmQUPedvu78YHnR",
+      "name": "Lola - Palladio 2.0 (Live with Orchestra).mp3",
+      "region": "musica",
+      "title": "Lola   Palladio 2.0 (Live With Orchestra)",
+      "alt": "Lola   palladio 2.0 (live with orchestra) · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:20.174Z"
+    }
+  ]
 }
