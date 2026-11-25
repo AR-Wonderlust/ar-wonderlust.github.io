@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T21:16:32.369555+00:00",
+  "generated_at": "2026-11-25T21:24:58.692058+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
     {
@@ -29,6 +29,23 @@
       "title": "Toyota Hiace",
       "alt": "Toyota hiace · Agencia ROMA",
       "modified_time": "2026-08-08T20:56:55.526Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
+      "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-11-25T21:19:25.546Z:afb1861fb39cf2d1b71aeab213def641:9292673",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
+        "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg"
+      },
+      "source_id": "1c9qUudTgumXy2dBfW00XvifG-U8Bk9CI",
+      "name": "untitled.mp4",
+      "region": "alojamiento",
+      "title": "Untitled",
+      "alt": "Untitled · Agencia ROMA",
+      "modified_time": "2026-11-25T21:19:25.546Z"
     },
     {
       "type": "image",
@@ -79,40 +96,6 @@
       "modified_time": "2025-07-11T13:11:38.000Z"
     },
     {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/yungas/yungas-catre-01--a9ZVC77.mp4",
-      "poster": "/assets/showcase/media/posters/yungas/yungas-catre-01--a9ZVC77.jpg",
-      "duration": 18000,
-      "fingerprint": "2026-09-22T16:08:11.169Z:307eca6ebe308559758c1e915b32fa5e:3691876",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/yungas/yungas-catre-01--a9ZVC77.mp4",
-        "poster": "/assets/showcase/media/posters/yungas/yungas-catre-01--a9ZVC77.jpg"
-      },
-      "source_id": "1-NPA7_9Dnkqg9VlNQgtKepKo-a9ZVC77",
-      "name": "yungas-catre-01.mp4",
-      "region": "yungas",
-      "title": "Yungas Catre 01",
-      "alt": "Yungas catre 01 · Agencia ROMA",
-      "modified_time": "2026-09-22T16:08:11.169Z"
-    },
-    {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/yungas/yungas-termas-01-bOMYvGEN.mp4",
-      "poster": "/assets/showcase/media/posters/yungas/yungas-termas-01-bOMYvGEN.jpg",
-      "duration": 18000,
-      "fingerprint": "2026-09-02T16:35:47.516Z:31edd4c55f3753e16684c2c19cf57871:12398672",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/yungas/yungas-termas-01-bOMYvGEN.mp4",
-        "poster": "/assets/showcase/media/posters/yungas/yungas-termas-01-bOMYvGEN.jpg"
-      },
-      "source_id": "13eTz89IAMn3JwkRyPR8gTbYQbOMYvGEN",
-      "name": "yungas-termas-01.mp4",
-      "region": "yungas",
-      "title": "Yungas Termas 01",
-      "alt": "Yungas termas 01 · Agencia ROMA",
-      "modified_time": "2026-09-02T16:35:47.516Z"
-    },
-    {
       "type": "image",
       "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp",
       "fingerprint": "2026-08-19T13:41:44.660Z:103090246b1d44a004f5210f8a842cf3:2258601",
@@ -144,23 +127,6 @@
       "modified_time": "2026-09-16T20:23:51.508Z"
     },
     {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/puna/puna-salinas-01-oVIePDqL.mp4",
-      "poster": "/assets/showcase/media/posters/puna/puna-salinas-01-oVIePDqL.jpg",
-      "duration": 18000,
-      "fingerprint": "2026-09-16T13:18:59.443Z:e8173fae8e554b409822c9969d12c708:5285452",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/puna/puna-salinas-01-oVIePDqL.mp4",
-        "poster": "/assets/showcase/media/posters/puna/puna-salinas-01-oVIePDqL.jpg"
-      },
-      "source_id": "1a6cupBql1K1zJOt2XCfqGBp-oVIePDqL",
-      "name": "puna-salinas-01.mp4",
-      "region": "puna",
-      "title": "Puna Salinas 01",
-      "alt": "Puna salinas 01 · Agencia ROMA",
-      "modified_time": "2026-09-16T13:18:59.443Z"
-    },
-    {
       "type": "image",
       "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
       "fingerprint": "2026-09-16T01:03:42.026Z:2e2a2c23e667781eb7b88e9295811977:309092",
@@ -173,23 +139,6 @@
       "title": "Pasted Image (15)",
       "alt": "Pasted image (15) · Agencia ROMA",
       "modified_time": "2026-09-16T01:03:42.026Z"
-    },
-    {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/quebrada/quebrada-purmamarca-01-P4GyEppM.mp4",
-      "poster": "/assets/showcase/media/posters/quebrada/quebrada-purmamarca-01-P4GyEppM.jpg",
-      "duration": 18000,
-      "fingerprint": "2026-09-24T15:17:54.339Z:3175cade345f7375e541513c9998f3d1:11113996",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/quebrada/quebrada-purmamarca-01-P4GyEppM.mp4",
-        "poster": "/assets/showcase/media/posters/quebrada/quebrada-purmamarca-01-P4GyEppM.jpg"
-      },
-      "source_id": "1BevHUakeL52Zu70pbeIShNSMP4GyEppM",
-      "name": "quebrada-purmamarca-01.mp4",
-      "region": "quebrada",
-      "title": "Quebrada Purmamarca 01",
-      "alt": "Quebrada purmamarca 01 · Agencia ROMA",
-      "modified_time": "2026-09-24T15:17:54.339Z"
     },
     {
       "type": "image",
