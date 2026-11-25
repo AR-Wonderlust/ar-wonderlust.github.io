@@ -1,49 +1,7 @@
 {
-  "generated_at": "2026-11-25T21:16:32.369555+00:00",
+  "generated_at": "2026-11-25T21:00:09.202755+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp",
-      "fingerprint": "2026-08-10T16:32:59.642Z:344be413c690c045129492ae8e29f1b8:80854",
-      "outputs": {
-        "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp"
-      },
-      "source_id": "1ePin_KbCyq62Dgj4wtdGm-NDwgySX_E2",
-      "name": "Mobi-trekking.png",
-      "region": "traslados",
-      "title": "Mobi Trekking",
-      "alt": "Mobi trekking · Agencia ROMA",
-      "modified_time": "2026-08-10T16:32:59.642Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp",
-      "fingerprint": "2026-08-08T20:56:55.526Z:96d68a0cc79fdc51e068372988a7b32f:98659",
-      "outputs": {
-        "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp"
-      },
-      "source_id": "1rh34VkQFVlIVI59LNlo1-vX-n4uVs2jg",
-      "name": "Toyota-Hiace.png",
-      "region": "traslados",
-      "title": "Toyota Hiace",
-      "alt": "Toyota hiace · Agencia ROMA",
-      "modified_time": "2026-08-08T20:56:55.526Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp",
-      "fingerprint": "2026-08-29T13:40:44.415Z:6a434fe2371e9f789d846d93859c4409:310710",
-      "outputs": {
-        "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp"
-      },
-      "source_id": "1gWf909dGmsRFCoADYBl19WeP7Hrawj8g",
-      "name": "Apart-LA-Cienaga-AGENCIA-ROMA.jpg",
-      "region": "alojamiento",
-      "title": "Apart La Cienaga Agencia Roma",
-      "alt": "Apart la cienaga agencia roma · Agencia ROMA",
-      "modified_time": "2026-08-29T13:40:44.415Z"
-    },
     {
       "type": "video",
       "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
@@ -60,23 +18,6 @@
       "title": "Yungas Yala 0",
       "alt": "Yungas yala 0 · Agencia ROMA",
       "modified_time": "2026-09-24T22:20:40.532Z"
-    },
-    {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/valles/angosto-de-jaire-R94khGuc.mp4",
-      "poster": "/assets/showcase/media/posters/valles/angosto-de-jaire-R94khGuc.jpg",
-      "duration": 18000,
-      "fingerprint": "2025-07-11T13:11:38.000Z:52d5e82ffd25eb6e2608929723509369:30085647",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/valles/angosto-de-jaire-R94khGuc.mp4",
-        "poster": "/assets/showcase/media/posters/valles/angosto-de-jaire-R94khGuc.jpg"
-      },
-      "source_id": "1eS1P5OrQb4l5_ItjqI64YB2IR94khGuc",
-      "name": "Angosto de Jaire.mp4",
-      "region": "valles",
-      "title": "Angosto De Jaire",
-      "alt": "Angosto de jaire · Agencia ROMA",
-      "modified_time": "2025-07-11T13:11:38.000Z"
     },
     {
       "type": "video",
@@ -113,37 +54,6 @@
       "modified_time": "2026-09-02T16:35:47.516Z"
     },
     {
-      "type": "image",
-      "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp",
-      "fingerprint": "2026-08-19T13:41:44.660Z:103090246b1d44a004f5210f8a842cf3:2258601",
-      "outputs": {
-        "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp"
-      },
-      "source_id": "1ULKohnA8ZlJyn98aZZSlGsUkuTvr6oJW",
-      "name": "ChatGPT Image 19 ago 2026, 10_41_44 a.m. (3).png",
-      "region": "yungas",
-      "title": "Chatgpt Image 19 Ago 2026, 10_41_44 A.M. (3)",
-      "alt": "Chatgpt image 19 ago 2026, 10_41_44 a.m. (3) · Agencia ROMA",
-      "modified_time": "2026-08-19T13:41:44.660Z"
-    },
-    {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
-      "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg",
-      "duration": 18000,
-      "fingerprint": "2026-09-16T20:23:51.508Z:930472a221f6d9712aa16aaf56e7159e:54896580",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
-        "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg"
-      },
-      "source_id": "151mooNpU_geRUbuOl6nKporQWyT6q7iu",
-      "name": "22-16-9-26.mp4",
-      "region": "puna",
-      "title": "22 16 9 26",
-      "alt": "22 16 9 26 · Agencia ROMA",
-      "modified_time": "2026-09-16T20:23:51.508Z"
-    },
-    {
       "type": "video",
       "src": "/assets/showcase/media/videos/puna/puna-salinas-01-oVIePDqL.mp4",
       "poster": "/assets/showcase/media/posters/puna/puna-salinas-01-oVIePDqL.jpg",
@@ -161,20 +71,6 @@
       "modified_time": "2026-09-16T13:18:59.443Z"
     },
     {
-      "type": "image",
-      "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
-      "fingerprint": "2026-09-16T01:03:42.026Z:2e2a2c23e667781eb7b88e9295811977:309092",
-      "outputs": {
-        "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp"
-      },
-      "source_id": "13tF872APJc7b7c59o8oDcWukeBFMGb9T",
-      "name": "Pasted image (15).png",
-      "region": "puna",
-      "title": "Pasted Image (15)",
-      "alt": "Pasted image (15) · Agencia ROMA",
-      "modified_time": "2026-09-16T01:03:42.026Z"
-    },
-    {
       "type": "video",
       "src": "/assets/showcase/media/videos/quebrada/quebrada-purmamarca-01-P4GyEppM.mp4",
       "poster": "/assets/showcase/media/posters/quebrada/quebrada-purmamarca-01-P4GyEppM.jpg",
@@ -190,51 +86,6 @@
       "title": "Quebrada Purmamarca 01",
       "alt": "Quebrada purmamarca 01 · Agencia ROMA",
       "modified_time": "2026-09-24T15:17:54.339Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp",
-      "fingerprint": "2026-09-17T14:10:33.324Z:2e86cddf66e85df0c50d488d5cfdead5:688078",
-      "outputs": {
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp"
-      },
-      "source_id": "1-noyPAmAeqY6RBPm3jqmqKASCoNLQJ5L",
-      "name": "Pasted image (15).png",
-      "region": "quebrada",
-      "title": "Pasted Image (15)",
-      "alt": "Pasted image (15) · Agencia ROMA",
-      "modified_time": "2026-09-17T14:10:33.324Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp",
-      "fingerprint": "2026-09-17T14:09:24.448Z:4c4e3aad790308e0c10c35e3c5d768de:516671",
-      "outputs": {
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp"
-      },
-      "source_id": "13YVkGzW5Vr33mb1b0KfH2BElCD_FBn14",
-      "name": "Pasted image (13).png",
-      "region": "quebrada",
-      "title": "Pasted Image (13)",
-      "alt": "Pasted image (13) · Agencia ROMA",
-      "modified_time": "2026-09-17T14:09:24.448Z"
-    },
-    {
-      "type": "video",
-      "src": "/assets/showcase/media/videos/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.mp4",
-      "poster": "/assets/showcase/media/posters/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.jpg",
-      "duration": 18000,
-      "fingerprint": "2026-09-14T19:25:10.981Z:0609783cb3251dff524e918eda000642:7487744",
-      "outputs": {
-        "src": "/assets/showcase/media/videos/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.mp4",
-        "poster": "/assets/showcase/media/posters/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.jpg"
-      },
-      "source_id": "1AZAEEdLmTNObLfdLN6CVHlD9NadMYqSB",
-      "name": "UTMB-Video by jujuyutmb [DdR0f0mpXSe].mp4",
-      "region": "quebrada",
-      "title": "Utmb Video By Jujuyutmb [Ddr0F0Mpxse]",
-      "alt": "Utmb video by jujuyutmb [ddr0f0mpxse] · Agencia ROMA",
-      "modified_time": "2026-09-14T19:25:10.981Z"
     }
   ],
   "music": [
