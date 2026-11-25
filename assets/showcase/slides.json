@@ -95,6 +95,76 @@
       "kind": "whatsapp",
       "label": "Guardá nuestro contacto",
       "duration": 25000
+    },
+    {
+      "source": "drive",
+      "source_id": "18OSWUyEIpRa3eIbe3t_9N-zYRFEXxUxh",
+      "tag": "VALLES · ROMA",
+      "title": "Yungas Yala 0",
+      "text": "Contenido actualizado desde la biblioteca multimedia de ROMA.",
+      "alt": "Yungas yala 0 · Agencia ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá con ROMA ↗",
+      "duration": 18000,
+      "type": "video",
+      "video": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+      "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg"
+    },
+    {
+      "source": "drive",
+      "source_id": "1-NPA7_9Dnkqg9VlNQgtKepKo-a9ZVC77",
+      "tag": "YUNGAS · ROMA",
+      "title": "Yungas Catre 01",
+      "text": "Contenido actualizado desde la biblioteca multimedia de ROMA.",
+      "alt": "Yungas catre 01 · Agencia ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá con ROMA ↗",
+      "duration": 18000,
+      "type": "video",
+      "video": "/assets/showcase/media/videos/yungas/yungas-catre-01--a9ZVC77.mp4",
+      "poster": "/assets/showcase/media/posters/yungas/yungas-catre-01--a9ZVC77.jpg"
+    },
+    {
+      "source": "drive",
+      "source_id": "13eTz89IAMn3JwkRyPR8gTbYQbOMYvGEN",
+      "tag": "YUNGAS · ROMA",
+      "title": "Yungas Termas 01",
+      "text": "Contenido actualizado desde la biblioteca multimedia de ROMA.",
+      "alt": "Yungas termas 01 · Agencia ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá con ROMA ↗",
+      "duration": 18000,
+      "type": "video",
+      "video": "/assets/showcase/media/videos/yungas/yungas-termas-01-bOMYvGEN.mp4",
+      "poster": "/assets/showcase/media/posters/yungas/yungas-termas-01-bOMYvGEN.jpg"
+    },
+    {
+      "source": "drive",
+      "source_id": "1a6cupBql1K1zJOt2XCfqGBp-oVIePDqL",
+      "tag": "PUNA · ROMA",
+      "title": "Puna Salinas 01",
+      "text": "Contenido actualizado desde la biblioteca multimedia de ROMA.",
+      "alt": "Puna salinas 01 · Agencia ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá con ROMA ↗",
+      "duration": 18000,
+      "type": "video",
+      "video": "/assets/showcase/media/videos/puna/puna-salinas-01-oVIePDqL.mp4",
+      "poster": "/assets/showcase/media/posters/puna/puna-salinas-01-oVIePDqL.jpg"
+    },
+    {
+      "source": "drive",
+      "source_id": "1BevHUakeL52Zu70pbeIShNSMP4GyEppM",
+      "tag": "QUEBRADA · ROMA",
+      "title": "Quebrada Purmamarca 01",
+      "text": "Contenido actualizado desde la biblioteca multimedia de ROMA.",
+      "alt": "Quebrada purmamarca 01 · Agencia ROMA",
+      "kind": "whatsapp",
+      "label": "Consultá con ROMA ↗",
+      "duration": 18000,
+      "type": "video",
+      "video": "/assets/showcase/media/videos/quebrada/quebrada-purmamarca-01-P4GyEppM.mp4",
+      "poster": "/assets/showcase/media/posters/quebrada/quebrada-purmamarca-01-P4GyEppM.jpg"
     }
   ]
 }
