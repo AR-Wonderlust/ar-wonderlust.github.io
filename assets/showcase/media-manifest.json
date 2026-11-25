@@ -1,0 +1,935 @@
+{
+  "generated_at": "2026-11-25T23:06:21.098058+00:00",
+  "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
+  "items": [
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp",
+      "fingerprint": "2026-09-24T12:44:04.691Z:9a4bfd3837f233465bd4b089fd2e06ad:3129845",
+      "outputs": {
+        "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp"
+      },
+      "source_id": "14TVJQEAdGuyLuDXIXI9hy9MCgKF0MOSn",
+      "name": "Logo_displaying_travel_agency_name_2K_20260924094404.jpeg",
+      "region": "despedida",
+      "pool": "despedida",
+      "title": "Nos volvemos a encontrar",
+      "tag": "HASTA LA PRÓXIMA · ROMA",
+      "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
+      "alt": "Despedida de Agencia ROMA",
+      "modified_time": "2026-09-24T12:44:04.691Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp",
+      "fingerprint": "2026-09-24T12:40:44.240Z:947dbaa41952a10db94ba3c306a24499:2795967",
+      "outputs": {
+        "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp"
+      },
+      "source_id": "1oR9NXfX9hIkjb6JTEPON4ZjKCLzpgMBo",
+      "name": "Logo_display_over_Andes_sunset_2K_20260924094044.jpeg",
+      "region": "despedida",
+      "pool": "despedida",
+      "title": "Nos volvemos a encontrar",
+      "tag": "HASTA LA PRÓXIMA · ROMA",
+      "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
+      "alt": "Despedida de Agencia ROMA",
+      "modified_time": "2026-09-24T12:40:44.240Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.mp4",
+      "poster": "/assets/showcase/media/posters/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-10-21T15:46:07.047Z:6763c31817bdc3d204510a7457b62f63:20271582",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.mp4",
+        "poster": "/assets/showcase/media/posters/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.jpg"
+      },
+      "source_id": "1FRBxxCo9CrTe-TMgmYMRyxEf6jrzP6xl",
+      "name": "Video by ezecardozof [DcmknQCprUe].mp4",
+      "region": "actividades",
+      "pool": "actividades",
+      "title": "Experiencias para vivir",
+      "tag": "ACTIVIDADES · ROMA",
+      "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
+      "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
+      "modified_time": "2026-10-21T15:46:07.047Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/actividades/ver-eaHk9iRs.webp",
+      "fingerprint": "2026-09-24T19:45:46.949Z:bd50e47fee5e756af2896b569102e935:3214385",
+      "outputs": {
+        "src": "/assets/showcase/media/images/actividades/ver-eaHk9iRs.webp"
+      },
+      "source_id": "1ipAhNWT1cX4xXNqQVBbi5FNdeaHk9iRs",
+      "name": "ver.jpeg",
+      "region": "actividades",
+      "pool": "actividades",
+      "title": "Experiencias para vivir",
+      "tag": "ACTIVIDADES · ROMA",
+      "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
+      "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
+      "modified_time": "2026-09-24T19:45:46.949Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/actividades/exploring-argentina-s-four-geogr-2k-20260924094323-GGBdLH7L.webp",
+      "fingerprint": "2026-09-24T12:43:23.985Z:9be0659a6a824c3dcdc390cd927ab587:3562276",
+      "outputs": {
+        "src": "/assets/showcase/media/images/actividades/exploring-argentina-s-four-geogr-2k-20260924094323-GGBdLH7L.webp"
+      },
+      "source_id": "1x9iMV4Y3JZeZpXziXwHb_NERGGBdLH7L",
+      "name": "Exploring_Argentina's_four_geogr…_2K_20260924094323.jpeg",
+      "region": "actividades",
+      "pool": "actividades",
+      "title": "Experiencias para vivir",
+      "tag": "ACTIVIDADES · ROMA",
+      "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
+      "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
+      "modified_time": "2026-09-24T12:43:23.985Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/traslados/gemini-generated-image-3nit783nit783nit-W-1sQpQA.webp",
+      "fingerprint": "2026-09-24T19:56:23.029Z:6625c12fa9d62500ca5071fba77d2e62:1875494",
+      "outputs": {
+        "src": "/assets/showcase/media/images/traslados/gemini-generated-image-3nit783nit783nit-W-1sQpQA.webp"
+      },
+      "source_id": "1P7Y_xYWDapKPS2NO7j876_lxW-1sQpQA",
+      "name": "Gemini_Generated_Image_3nit783nit783nit.jpeg",
+      "region": "traslados",
+      "pool": "traslados",
+      "title": "ROMA te lleva",
+      "tag": "TRASLADOS · ROMA",
+      "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+      "alt": "Traslados ROMA · Agencia ROMA",
+      "modified_time": "2026-09-24T19:56:23.029Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp",
+      "fingerprint": "2026-08-10T16:32:59.642Z:344be413c690c045129492ae8e29f1b8:80854",
+      "outputs": {
+        "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp"
+      },
+      "source_id": "1ePin_KbCyq62Dgj4wtdGm-NDwgySX_E2",
+      "name": "Mobi-trekking.png",
+      "region": "traslados",
+      "pool": "traslados",
+      "title": "ROMA te lleva",
+      "tag": "TRASLADOS · ROMA",
+      "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+      "alt": "Traslados ROMA · Agencia ROMA",
+      "modified_time": "2026-08-10T16:32:59.642Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp",
+      "fingerprint": "2026-08-08T20:56:55.526Z:96d68a0cc79fdc51e068372988a7b32f:98659",
+      "outputs": {
+        "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp"
+      },
+      "source_id": "1rh34VkQFVlIVI59LNlo1-vX-n4uVs2jg",
+      "name": "Toyota-Hiace.png",
+      "region": "traslados",
+      "pool": "traslados",
+      "title": "ROMA te lleva",
+      "tag": "TRASLADOS · ROMA",
+      "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+      "alt": "Traslados ROMA · Agencia ROMA",
+      "modified_time": "2026-08-08T20:56:55.526Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
+      "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-11-25T21:19:25.546Z:afb1861fb39cf2d1b71aeab213def641:9292673",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
+        "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg"
+      },
+      "source_id": "1c9qUudTgumXy2dBfW00XvifG-U8Bk9CI",
+      "name": "untitled.mp4",
+      "region": "alojamiento",
+      "pool": "alojamiento",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T21:19:25.546Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/alojamiento/stone-pathway-through-mountain-c-2k-20260909164511-ztovE5SL.webp",
+      "fingerprint": "2026-09-09T19:45:11.783Z:3a2b72a7ee1e5a4e76f44bcbf2ca0c67:3823568",
+      "outputs": {
+        "src": "/assets/showcase/media/images/alojamiento/stone-pathway-through-mountain-c-2k-20260909164511-ztovE5SL.webp"
+      },
+      "source_id": "1oyw10jeEa4E7Q5qLshotMmw8ztovE5SL",
+      "name": "Stone_pathway_through_mountain_c…_2K_20260909164511.jpeg",
+      "region": "alojamiento",
+      "pool": "alojamiento",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-09-09T19:45:11.783Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp",
+      "fingerprint": "2026-08-29T13:40:44.415Z:6a434fe2371e9f789d846d93859c4409:310710",
+      "outputs": {
+        "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp"
+      },
+      "source_id": "1gWf909dGmsRFCoADYBl19WeP7Hrawj8g",
+      "name": "Apart-LA-Cienaga-AGENCIA-ROMA.jpg",
+      "region": "alojamiento",
+      "pool": "alojamiento",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-08-29T13:40:44.415Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+      "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-24T22:20:40.532Z:b2c5f568753acaec544a50193c8546c3:9807128",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+        "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg"
+      },
+      "source_id": "18OSWUyEIpRa3eIbe3t_9N-zYRFEXxUxh",
+      "name": "yungas-yala-0.mp4",
+      "region": "valles",
+      "pool": "paisajes",
+      "title": "Valles de Jujuy",
+      "tag": "VALLES · ROMA",
+      "text": "Paisajes, cultura y experiencias para descubrir el corazón de Jujuy.",
+      "alt": "Valles de Jujuy · Agencia ROMA",
+      "modified_time": "2026-09-24T22:20:40.532Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/valles/angosto-de-jaire-R94khGuc.mp4",
+      "poster": "/assets/showcase/media/posters/valles/angosto-de-jaire-R94khGuc.jpg",
+      "duration": 18000,
+      "fingerprint": "2025-07-11T13:11:38.000Z:52d5e82ffd25eb6e2608929723509369:30085647",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/valles/angosto-de-jaire-R94khGuc.mp4",
+        "poster": "/assets/showcase/media/posters/valles/angosto-de-jaire-R94khGuc.jpg"
+      },
+      "source_id": "1eS1P5OrQb4l5_ItjqI64YB2IR94khGuc",
+      "name": "Angosto de Jaire.mp4",
+      "region": "valles",
+      "pool": "paisajes",
+      "title": "Valles de Jujuy",
+      "tag": "VALLES · ROMA",
+      "text": "Paisajes, cultura y experiencias para descubrir el corazón de Jujuy.",
+      "alt": "Valles de Jujuy · Agencia ROMA",
+      "modified_time": "2025-07-11T13:11:38.000Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
+      "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-10-21T15:28:33.445Z:c296633896438d9f8194a8f64b55e241:16229462",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
+        "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg"
+      },
+      "source_id": "17N_4PEPOMeZb-65mpqt9US26ge1m_w76",
+      "name": "Video by hospedaje.sanfrancisco [DXT6KcoDonL].mp4",
+      "region": "yungas",
+      "pool": "paisajes",
+      "title": "Yungas Jujeñas",
+      "tag": "YUNGAS · ROMA",
+      "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+      "alt": "Yungas Jujeñas · Agencia ROMA",
+      "modified_time": "2026-10-21T15:28:33.445Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/yungas/20170112-200135-wtPU4eOr.webp",
+      "fingerprint": "2026-09-24T22:24:43.761Z:2ebbbc78783e1f19cd3e366b8ca31a60:1025958",
+      "outputs": {
+        "src": "/assets/showcase/media/images/yungas/20170112-200135-wtPU4eOr.webp"
+      },
+      "source_id": "1bx8_8Z3cRCYFbu5RP3La8_PiwtPU4eOr",
+      "name": "20170112_200135.jpg",
+      "region": "yungas",
+      "pool": "paisajes",
+      "title": "Yungas Jujeñas",
+      "tag": "YUNGAS · ROMA",
+      "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+      "alt": "Yungas Jujeñas · Agencia ROMA",
+      "modified_time": "2026-09-24T22:24:43.761Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp",
+      "fingerprint": "2026-08-19T13:41:44.660Z:103090246b1d44a004f5210f8a842cf3:2258601",
+      "outputs": {
+        "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp"
+      },
+      "source_id": "1ULKohnA8ZlJyn98aZZSlGsUkuTvr6oJW",
+      "name": "ChatGPT Image 19 ago 2026, 10_41_44 a.m. (3).png",
+      "region": "yungas",
+      "pool": "paisajes",
+      "title": "Yungas Jujeñas",
+      "tag": "YUNGAS · ROMA",
+      "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+      "alt": "Yungas Jujeñas · Agencia ROMA",
+      "modified_time": "2026-08-19T13:41:44.660Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
+      "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-16T20:23:51.508Z:930472a221f6d9712aa16aaf56e7159e:54896580",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
+        "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg"
+      },
+      "source_id": "151mooNpU_geRUbuOl6nKporQWyT6q7iu",
+      "name": "22-16-9-26.mp4",
+      "region": "puna",
+      "pool": "paisajes",
+      "title": "Puna y Salinas Grandes",
+      "tag": "PUNA · ROMA",
+      "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+      "alt": "Puna y Salinas Grandes · Agencia ROMA",
+      "modified_time": "2026-09-16T20:23:51.508Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
+      "fingerprint": "2026-09-16T01:03:42.026Z:2e2a2c23e667781eb7b88e9295811977:309092",
+      "outputs": {
+        "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp"
+      },
+      "source_id": "13tF872APJc7b7c59o8oDcWukeBFMGb9T",
+      "name": "Pasted image (15).png",
+      "region": "puna",
+      "pool": "paisajes",
+      "title": "Puna y Salinas Grandes",
+      "tag": "PUNA · ROMA",
+      "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+      "alt": "Puna y Salinas Grandes · Agencia ROMA",
+      "modified_time": "2026-09-16T01:03:42.026Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.mp4",
+      "poster": "/assets/showcase/media/posters/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-10-21T15:45:45.450Z:ae1e45fb02b3d87e46dfd5a6ed246124:39138514",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.mp4",
+        "poster": "/assets/showcase/media/posters/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.jpg"
+      },
+      "source_id": "1JpeU1K0LgN0uMed_5yeKMoFXR0wLh5fo",
+      "name": "Video by flaco.phot [DebsregyLlD].mp4",
+      "region": "quebrada",
+      "pool": "paisajes",
+      "title": "Quebrada de Humahuaca",
+      "tag": "QUEBRADA · ROMA",
+      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+      "alt": "Quebrada de Humahuaca · Agencia ROMA",
+      "modified_time": "2026-10-21T15:45:45.450Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp",
+      "fingerprint": "2026-09-17T14:10:33.324Z:2e86cddf66e85df0c50d488d5cfdead5:688078",
+      "outputs": {
+        "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp"
+      },
+      "source_id": "1-noyPAmAeqY6RBPm3jqmqKASCoNLQJ5L",
+      "name": "Pasted image (15).png",
+      "region": "quebrada",
+      "pool": "paisajes",
+      "title": "Quebrada de Humahuaca",
+      "tag": "QUEBRADA · ROMA",
+      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+      "alt": "Quebrada de Humahuaca · Agencia ROMA",
+      "modified_time": "2026-09-17T14:10:33.324Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp",
+      "fingerprint": "2026-09-17T14:09:24.448Z:4c4e3aad790308e0c10c35e3c5d768de:516671",
+      "outputs": {
+        "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp"
+      },
+      "source_id": "13YVkGzW5Vr33mb1b0KfH2BElCD_FBn14",
+      "name": "Pasted image (13).png",
+      "region": "quebrada",
+      "pool": "paisajes",
+      "title": "Quebrada de Humahuaca",
+      "tag": "QUEBRADA · ROMA",
+      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+      "alt": "Quebrada de Humahuaca · Agencia ROMA",
+      "modified_time": "2026-09-17T14:09:24.448Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.mp4",
+      "poster": "/assets/showcase/media/posters/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.jpg",
+      "duration": 18000,
+      "fingerprint": "2026-09-14T19:25:10.981Z:0609783cb3251dff524e918eda000642:7487744",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.mp4",
+        "poster": "/assets/showcase/media/posters/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.jpg"
+      },
+      "source_id": "1AZAEEdLmTNObLfdLN6CVHlD9NadMYqSB",
+      "name": "UTMB-Video by jujuyutmb [DdR0f0mpXSe].mp4",
+      "region": "quebrada",
+      "pool": "paisajes",
+      "title": "Quebrada de Humahuaca",
+      "tag": "QUEBRADA · ROMA",
+      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+      "alt": "Quebrada de Humahuaca · Agencia ROMA",
+      "modified_time": "2026-09-14T19:25:10.981Z"
+    }
+  ],
+  "music": [
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/amazing-grace-caroline-campbell-live-from-brazil-FP4zd3ad.mp3",
+      "fingerprint": "2026-11-25T13:58:04.207Z:32278525795ca4e4d76120d28f4298b4:7651484",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/amazing-grace-caroline-campbell-live-from-brazil-FP4zd3ad.mp3"
+      },
+      "source_id": "19eSN3pN7K3FlNcKIdt466M99FP4zd3ad",
+      "name": "AMAZING GRACE ⧸ Caroline Campbell live from Brazil.mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:58:04.207Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/lola-hauser-fur-elise-TGdJXE8m.mp3",
+      "fingerprint": "2026-11-25T13:57:57.100Z:c6925eb3cf64b3e4c0958870056a674e:5151740",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/lola-hauser-fur-elise-TGdJXE8m.mp3"
+      },
+      "source_id": "1Uj3linFIhuQFEp4h5ysLBCnOTGdJXE8m",
+      "name": "LoLa & Hauser - Für Elise.mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:57.100Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/por-una-cabeza-live-ost-b3gaUiM7.mp3",
+      "fingerprint": "2026-11-25T13:57:50.633Z:c88e31895cfc9581f4d8b1938daa258c:6771884",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/por-una-cabeza-live-ost-b3gaUiM7.mp3"
+      },
+      "source_id": "1iwOilm56UdaMIRmnMcmmaHltb3gaUiM7",
+      "name": "Por Una Cabeza (Live)🌹'여인의향기' OST.mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:50.633Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/hauser-the-lonely-shepherd-alone-together-e_8FzGP2.mp3",
+      "fingerprint": "2026-11-25T13:57:43.402Z:78b1330a616d4829654e637b45cb3cfc:6890900",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/hauser-the-lonely-shepherd-alone-together-e_8FzGP2.mp3"
+      },
+      "source_id": "1mrwOOrWo8OpApABeX0iMjoL8e_8FzGP2",
+      "name": "HAUSER： The Lonely Shepherd - 'Alone, Together'.mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:43.402Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/lola-hauser-moonlight-sonata-_IoiiCYj.mp3",
+      "fingerprint": "2026-11-25T13:57:34.500Z:9a6ee62a013cfd4e35ffcffa8221815e:7169996",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/lola-hauser-moonlight-sonata-_IoiiCYj.mp3"
+      },
+      "source_id": "1Usjwb9DfniXmpOtsQxxDcH9s_IoiiCYj",
+      "name": "LoLa & Hauser - Moonlight Sonata.mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:34.500Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/moonlight-sonata-RezoHRpU.mp3",
+      "fingerprint": "2026-11-25T13:57:26.948Z:54180be5fc0ee9704961760c252c5f06:6983948",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/moonlight-sonata-RezoHRpU.mp3"
+      },
+      "source_id": "1XJxXu9XrTV9SeJONGGpWT905RezoHRpU",
+      "name": "Moonlight Sonata.mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:26.948Z"
+    },
+    {
+      "type": "audio",
+      "src": "/assets/showcase/media/audio/lola-palladio-2-0-live-with-orchestra-vu78YHnR.mp3",
+      "fingerprint": "2026-11-25T13:57:20.174Z:b99fcf1cde49ce263fae1b6759ac3f37:7668188",
+      "outputs": {
+        "src": "/assets/showcase/media/audio/lola-palladio-2-0-live-with-orchestra-vu78YHnR.mp3"
+      },
+      "source_id": "1pGDDlJ4TK6Bx-_E6WFmQUPedvu78YHnR",
+      "name": "Lola - Palladio 2.0 (Live with Orchestra).mp3",
+      "region": "musica",
+      "pool": "music",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-25T13:57:20.174Z"
+    }
+  ],
+  "pools": {
+    "despedida": [
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp",
+        "fingerprint": "2026-09-24T12:44:04.691Z:9a4bfd3837f233465bd4b089fd2e06ad:3129845",
+        "outputs": {
+          "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp"
+        },
+        "source_id": "14TVJQEAdGuyLuDXIXI9hy9MCgKF0MOSn",
+        "name": "Logo_displaying_travel_agency_name_2K_20260924094404.jpeg",
+        "region": "despedida",
+        "pool": "despedida",
+        "title": "Nos volvemos a encontrar",
+        "tag": "HASTA LA PRÓXIMA · ROMA",
+        "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
+        "alt": "Despedida de Agencia ROMA",
+        "modified_time": "2026-09-24T12:44:04.691Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp",
+        "fingerprint": "2026-09-24T12:40:44.240Z:947dbaa41952a10db94ba3c306a24499:2795967",
+        "outputs": {
+          "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp"
+        },
+        "source_id": "1oR9NXfX9hIkjb6JTEPON4ZjKCLzpgMBo",
+        "name": "Logo_display_over_Andes_sunset_2K_20260924094044.jpeg",
+        "region": "despedida",
+        "pool": "despedida",
+        "title": "Nos volvemos a encontrar",
+        "tag": "HASTA LA PRÓXIMA · ROMA",
+        "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
+        "alt": "Despedida de Agencia ROMA",
+        "modified_time": "2026-09-24T12:40:44.240Z"
+      }
+    ],
+    "actividades": [
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.mp4",
+        "poster": "/assets/showcase/media/posters/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-10-21T15:46:07.047Z:6763c31817bdc3d204510a7457b62f63:20271582",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.mp4",
+          "poster": "/assets/showcase/media/posters/actividades/video-by-ezecardozof-dcmknqcprue-6jrzP6xl.jpg"
+        },
+        "source_id": "1FRBxxCo9CrTe-TMgmYMRyxEf6jrzP6xl",
+        "name": "Video by ezecardozof [DcmknQCprUe].mp4",
+        "region": "actividades",
+        "pool": "actividades",
+        "title": "Experiencias para vivir",
+        "tag": "ACTIVIDADES · ROMA",
+        "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
+        "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
+        "modified_time": "2026-10-21T15:46:07.047Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/actividades/ver-eaHk9iRs.webp",
+        "fingerprint": "2026-09-24T19:45:46.949Z:bd50e47fee5e756af2896b569102e935:3214385",
+        "outputs": {
+          "src": "/assets/showcase/media/images/actividades/ver-eaHk9iRs.webp"
+        },
+        "source_id": "1ipAhNWT1cX4xXNqQVBbi5FNdeaHk9iRs",
+        "name": "ver.jpeg",
+        "region": "actividades",
+        "pool": "actividades",
+        "title": "Experiencias para vivir",
+        "tag": "ACTIVIDADES · ROMA",
+        "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
+        "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
+        "modified_time": "2026-09-24T19:45:46.949Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/actividades/exploring-argentina-s-four-geogr-2k-20260924094323-GGBdLH7L.webp",
+        "fingerprint": "2026-09-24T12:43:23.985Z:9be0659a6a824c3dcdc390cd927ab587:3562276",
+        "outputs": {
+          "src": "/assets/showcase/media/images/actividades/exploring-argentina-s-four-geogr-2k-20260924094323-GGBdLH7L.webp"
+        },
+        "source_id": "1x9iMV4Y3JZeZpXziXwHb_NERGGBdLH7L",
+        "name": "Exploring_Argentina's_four_geogr…_2K_20260924094323.jpeg",
+        "region": "actividades",
+        "pool": "actividades",
+        "title": "Experiencias para vivir",
+        "tag": "ACTIVIDADES · ROMA",
+        "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
+        "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
+        "modified_time": "2026-09-24T12:43:23.985Z"
+      }
+    ],
+    "traslados": [
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/traslados/gemini-generated-image-3nit783nit783nit-W-1sQpQA.webp",
+        "fingerprint": "2026-09-24T19:56:23.029Z:6625c12fa9d62500ca5071fba77d2e62:1875494",
+        "outputs": {
+          "src": "/assets/showcase/media/images/traslados/gemini-generated-image-3nit783nit783nit-W-1sQpQA.webp"
+        },
+        "source_id": "1P7Y_xYWDapKPS2NO7j876_lxW-1sQpQA",
+        "name": "Gemini_Generated_Image_3nit783nit783nit.jpeg",
+        "region": "traslados",
+        "pool": "traslados",
+        "title": "ROMA te lleva",
+        "tag": "TRASLADOS · ROMA",
+        "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+        "alt": "Traslados ROMA · Agencia ROMA",
+        "modified_time": "2026-09-24T19:56:23.029Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp",
+        "fingerprint": "2026-08-10T16:32:59.642Z:344be413c690c045129492ae8e29f1b8:80854",
+        "outputs": {
+          "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp"
+        },
+        "source_id": "1ePin_KbCyq62Dgj4wtdGm-NDwgySX_E2",
+        "name": "Mobi-trekking.png",
+        "region": "traslados",
+        "pool": "traslados",
+        "title": "ROMA te lleva",
+        "tag": "TRASLADOS · ROMA",
+        "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+        "alt": "Traslados ROMA · Agencia ROMA",
+        "modified_time": "2026-08-10T16:32:59.642Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp",
+        "fingerprint": "2026-08-08T20:56:55.526Z:96d68a0cc79fdc51e068372988a7b32f:98659",
+        "outputs": {
+          "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp"
+        },
+        "source_id": "1rh34VkQFVlIVI59LNlo1-vX-n4uVs2jg",
+        "name": "Toyota-Hiace.png",
+        "region": "traslados",
+        "pool": "traslados",
+        "title": "ROMA te lleva",
+        "tag": "TRASLADOS · ROMA",
+        "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+        "alt": "Traslados ROMA · Agencia ROMA",
+        "modified_time": "2026-08-08T20:56:55.526Z"
+      }
+    ],
+    "alojamiento": [
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
+        "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-11-25T21:19:25.546Z:afb1861fb39cf2d1b71aeab213def641:9292673",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
+          "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg"
+        },
+        "source_id": "1c9qUudTgumXy2dBfW00XvifG-U8Bk9CI",
+        "name": "untitled.mp4",
+        "region": "alojamiento",
+        "pool": "alojamiento",
+        "title": "Alojamiento ROMA",
+        "tag": "ALOJAMIENTO · ROMA",
+        "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+        "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+        "modified_time": "2026-11-25T21:19:25.546Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/alojamiento/stone-pathway-through-mountain-c-2k-20260909164511-ztovE5SL.webp",
+        "fingerprint": "2026-09-09T19:45:11.783Z:3a2b72a7ee1e5a4e76f44bcbf2ca0c67:3823568",
+        "outputs": {
+          "src": "/assets/showcase/media/images/alojamiento/stone-pathway-through-mountain-c-2k-20260909164511-ztovE5SL.webp"
+        },
+        "source_id": "1oyw10jeEa4E7Q5qLshotMmw8ztovE5SL",
+        "name": "Stone_pathway_through_mountain_c…_2K_20260909164511.jpeg",
+        "region": "alojamiento",
+        "pool": "alojamiento",
+        "title": "Alojamiento ROMA",
+        "tag": "ALOJAMIENTO · ROMA",
+        "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+        "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+        "modified_time": "2026-09-09T19:45:11.783Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp",
+        "fingerprint": "2026-08-29T13:40:44.415Z:6a434fe2371e9f789d846d93859c4409:310710",
+        "outputs": {
+          "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp"
+        },
+        "source_id": "1gWf909dGmsRFCoADYBl19WeP7Hrawj8g",
+        "name": "Apart-LA-Cienaga-AGENCIA-ROMA.jpg",
+        "region": "alojamiento",
+        "pool": "alojamiento",
+        "title": "Alojamiento ROMA",
+        "tag": "ALOJAMIENTO · ROMA",
+        "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+        "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+        "modified_time": "2026-08-29T13:40:44.415Z"
+      }
+    ],
+    "paisajes": [
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+        "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-09-24T22:20:40.532Z:b2c5f568753acaec544a50193c8546c3:9807128",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/valles/yungas-yala-0-RFEXxUxh.mp4",
+          "poster": "/assets/showcase/media/posters/valles/yungas-yala-0-RFEXxUxh.jpg"
+        },
+        "source_id": "18OSWUyEIpRa3eIbe3t_9N-zYRFEXxUxh",
+        "name": "yungas-yala-0.mp4",
+        "region": "valles",
+        "pool": "paisajes",
+        "title": "Valles de Jujuy",
+        "tag": "VALLES · ROMA",
+        "text": "Paisajes, cultura y experiencias para descubrir el corazón de Jujuy.",
+        "alt": "Valles de Jujuy · Agencia ROMA",
+        "modified_time": "2026-09-24T22:20:40.532Z"
+      },
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/valles/angosto-de-jaire-R94khGuc.mp4",
+        "poster": "/assets/showcase/media/posters/valles/angosto-de-jaire-R94khGuc.jpg",
+        "duration": 18000,
+        "fingerprint": "2025-07-11T13:11:38.000Z:52d5e82ffd25eb6e2608929723509369:30085647",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/valles/angosto-de-jaire-R94khGuc.mp4",
+          "poster": "/assets/showcase/media/posters/valles/angosto-de-jaire-R94khGuc.jpg"
+        },
+        "source_id": "1eS1P5OrQb4l5_ItjqI64YB2IR94khGuc",
+        "name": "Angosto de Jaire.mp4",
+        "region": "valles",
+        "pool": "paisajes",
+        "title": "Valles de Jujuy",
+        "tag": "VALLES · ROMA",
+        "text": "Paisajes, cultura y experiencias para descubrir el corazón de Jujuy.",
+        "alt": "Valles de Jujuy · Agencia ROMA",
+        "modified_time": "2025-07-11T13:11:38.000Z"
+      },
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
+        "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-10-21T15:28:33.445Z:c296633896438d9f8194a8f64b55e241:16229462",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
+          "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg"
+        },
+        "source_id": "17N_4PEPOMeZb-65mpqt9US26ge1m_w76",
+        "name": "Video by hospedaje.sanfrancisco [DXT6KcoDonL].mp4",
+        "region": "yungas",
+        "pool": "paisajes",
+        "title": "Yungas Jujeñas",
+        "tag": "YUNGAS · ROMA",
+        "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+        "alt": "Yungas Jujeñas · Agencia ROMA",
+        "modified_time": "2026-10-21T15:28:33.445Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/yungas/20170112-200135-wtPU4eOr.webp",
+        "fingerprint": "2026-09-24T22:24:43.761Z:2ebbbc78783e1f19cd3e366b8ca31a60:1025958",
+        "outputs": {
+          "src": "/assets/showcase/media/images/yungas/20170112-200135-wtPU4eOr.webp"
+        },
+        "source_id": "1bx8_8Z3cRCYFbu5RP3La8_PiwtPU4eOr",
+        "name": "20170112_200135.jpg",
+        "region": "yungas",
+        "pool": "paisajes",
+        "title": "Yungas Jujeñas",
+        "tag": "YUNGAS · ROMA",
+        "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+        "alt": "Yungas Jujeñas · Agencia ROMA",
+        "modified_time": "2026-09-24T22:24:43.761Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp",
+        "fingerprint": "2026-08-19T13:41:44.660Z:103090246b1d44a004f5210f8a842cf3:2258601",
+        "outputs": {
+          "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp"
+        },
+        "source_id": "1ULKohnA8ZlJyn98aZZSlGsUkuTvr6oJW",
+        "name": "ChatGPT Image 19 ago 2026, 10_41_44 a.m. (3).png",
+        "region": "yungas",
+        "pool": "paisajes",
+        "title": "Yungas Jujeñas",
+        "tag": "YUNGAS · ROMA",
+        "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+        "alt": "Yungas Jujeñas · Agencia ROMA",
+        "modified_time": "2026-08-19T13:41:44.660Z"
+      },
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
+        "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-09-16T20:23:51.508Z:930472a221f6d9712aa16aaf56e7159e:54896580",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
+          "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg"
+        },
+        "source_id": "151mooNpU_geRUbuOl6nKporQWyT6q7iu",
+        "name": "22-16-9-26.mp4",
+        "region": "puna",
+        "pool": "paisajes",
+        "title": "Puna y Salinas Grandes",
+        "tag": "PUNA · ROMA",
+        "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+        "alt": "Puna y Salinas Grandes · Agencia ROMA",
+        "modified_time": "2026-09-16T20:23:51.508Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
+        "fingerprint": "2026-09-16T01:03:42.026Z:2e2a2c23e667781eb7b88e9295811977:309092",
+        "outputs": {
+          "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp"
+        },
+        "source_id": "13tF872APJc7b7c59o8oDcWukeBFMGb9T",
+        "name": "Pasted image (15).png",
+        "region": "puna",
+        "pool": "paisajes",
+        "title": "Puna y Salinas Grandes",
+        "tag": "PUNA · ROMA",
+        "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+        "alt": "Puna y Salinas Grandes · Agencia ROMA",
+        "modified_time": "2026-09-16T01:03:42.026Z"
+      },
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.mp4",
+        "poster": "/assets/showcase/media/posters/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-10-21T15:45:45.450Z:ae1e45fb02b3d87e46dfd5a6ed246124:39138514",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.mp4",
+          "poster": "/assets/showcase/media/posters/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.jpg"
+        },
+        "source_id": "1JpeU1K0LgN0uMed_5yeKMoFXR0wLh5fo",
+        "name": "Video by flaco.phot [DebsregyLlD].mp4",
+        "region": "quebrada",
+        "pool": "paisajes",
+        "title": "Quebrada de Humahuaca",
+        "tag": "QUEBRADA · ROMA",
+        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA",
+        "modified_time": "2026-10-21T15:45:45.450Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp",
+        "fingerprint": "2026-09-17T14:10:33.324Z:2e86cddf66e85df0c50d488d5cfdead5:688078",
+        "outputs": {
+          "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp"
+        },
+        "source_id": "1-noyPAmAeqY6RBPm3jqmqKASCoNLQJ5L",
+        "name": "Pasted image (15).png",
+        "region": "quebrada",
+        "pool": "paisajes",
+        "title": "Quebrada de Humahuaca",
+        "tag": "QUEBRADA · ROMA",
+        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA",
+        "modified_time": "2026-09-17T14:10:33.324Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp",
+        "fingerprint": "2026-09-17T14:09:24.448Z:4c4e3aad790308e0c10c35e3c5d768de:516671",
+        "outputs": {
+          "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp"
+        },
+        "source_id": "13YVkGzW5Vr33mb1b0KfH2BElCD_FBn14",
+        "name": "Pasted image (13).png",
+        "region": "quebrada",
+        "pool": "paisajes",
+        "title": "Quebrada de Humahuaca",
+        "tag": "QUEBRADA · ROMA",
+        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA",
+        "modified_time": "2026-09-17T14:09:24.448Z"
+      },
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.mp4",
+        "poster": "/assets/showcase/media/posters/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.jpg",
+        "duration": 18000,
+        "fingerprint": "2026-09-14T19:25:10.981Z:0609783cb3251dff524e918eda000642:7487744",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.mp4",
+          "poster": "/assets/showcase/media/posters/quebrada/utmb-video-by-jujuyutmb-ddr0f0mpxse-NadMYqSB.jpg"
+        },
+        "source_id": "1AZAEEdLmTNObLfdLN6CVHlD9NadMYqSB",
+        "name": "UTMB-Video by jujuyutmb [DdR0f0mpXSe].mp4",
+        "region": "quebrada",
+        "pool": "paisajes",
+        "title": "Quebrada de Humahuaca",
+        "tag": "QUEBRADA · ROMA",
+        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA",
+        "modified_time": "2026-09-14T19:25:10.981Z"
+      }
+    ]
+  }
+}
