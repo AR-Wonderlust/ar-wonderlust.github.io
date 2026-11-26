@@ -101,13 +101,13 @@
     "despedida": [
       {
         "type": "image",
-        "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp",
+        "src": "/assets/showcase/media/images/despedida/gemini-generated-image-b6lq4sb6lq4sb6lq-14kLrAp1.webp",
         "region": "despedida",
         "alt": "Despedida de Agencia ROMA"
       },
       {
         "type": "image",
-        "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp",
+        "src": "/assets/showcase/media/images/despedida/gemini-generated-image-rdu4jlrdu4jlrdu4-8mwEXZlM.webp",
         "region": "despedida",
         "alt": "Despedida de Agencia ROMA"
       }
@@ -182,6 +182,12 @@
         "alt": "Valles de Jujuy · Agencia ROMA"
       },
       {
+        "type": "image",
+        "src": "/assets/showcase/media/images/yungas/gemini-generated-image-htu36whtu36whtu3-lhrBKHZC.webp",
+        "region": "yungas",
+        "alt": "Yungas Jujeñas · Agencia ROMA"
+      },
+      {
         "type": "video",
         "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
         "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg",
@@ -205,27 +211,21 @@
       },
       {
         "type": "image",
-        "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
-        "region": "puna",
-        "alt": "Puna y Salinas Grandes · Agencia ROMA"
+        "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-x6t81qx6t81qx6t8-nxFiqWC6.webp",
+        "region": "quebrada",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-iteiikiteiikitei-8EfVZs8w.webp",
+        "region": "quebrada",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA"
       },
       {
         "type": "video",
         "src": "/assets/showcase/media/videos/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.mp4",
         "poster": "/assets/showcase/media/posters/quebrada/video-by-flaco-phot-debsregylld-R0wLh5fo.jpg",
         "duration": 18000,
-        "region": "quebrada",
-        "alt": "Quebrada de Humahuaca · Agencia ROMA"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp",
-        "region": "quebrada",
-        "alt": "Quebrada de Humahuaca · Agencia ROMA"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp",
         "region": "quebrada",
         "alt": "Quebrada de Humahuaca · Agencia ROMA"
       },

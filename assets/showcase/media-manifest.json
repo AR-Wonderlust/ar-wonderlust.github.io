@@ -1,40 +1,40 @@
 {
-  "generated_at": "2026-11-26T01:30:11.326799+00:00",
+  "generated_at": "2026-11-26T01:45:23.282374+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
     {
       "type": "image",
-      "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-09-24T12:44:04.691Z:9a4bfd3837f233465bd4b089fd2e06ad:3129845",
+      "src": "/assets/showcase/media/images/despedida/gemini-generated-image-b6lq4sb6lq4sb6lq-14kLrAp1.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:38:16.333Z:58e1d14b87d4f87831fec34197744261:3188477",
       "outputs": {
-        "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp"
+        "src": "/assets/showcase/media/images/despedida/gemini-generated-image-b6lq4sb6lq4sb6lq-14kLrAp1.webp"
       },
-      "source_id": "14TVJQEAdGuyLuDXIXI9hy9MCgKF0MOSn",
-      "name": "Logo_displaying_travel_agency_name_2K_20260924094404.jpeg",
+      "source_id": "16cTqg0v930l-UovDTtlNzl0q14kLrAp1",
+      "name": "Gemini_Generated_Image_b6lq4sb6lq4sb6lq.jpeg",
       "region": "despedida",
       "pool": "despedida",
       "title": "Nos volvemos a encontrar",
       "tag": "HASTA LA PRÓXIMA · ROMA",
       "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
       "alt": "Despedida de Agencia ROMA",
-      "modified_time": "2026-09-24T12:44:04.691Z"
+      "modified_time": "2026-11-26T01:38:16.333Z"
     },
     {
       "type": "image",
-      "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-09-24T12:40:44.240Z:947dbaa41952a10db94ba3c306a24499:2795967",
+      "src": "/assets/showcase/media/images/despedida/gemini-generated-image-rdu4jlrdu4jlrdu4-8mwEXZlM.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:36:02.202Z:522ace58cc7bdf1ccb264ad96c4ba3bb:2530773",
       "outputs": {
-        "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp"
+        "src": "/assets/showcase/media/images/despedida/gemini-generated-image-rdu4jlrdu4jlrdu4-8mwEXZlM.webp"
       },
-      "source_id": "1oR9NXfX9hIkjb6JTEPON4ZjKCLzpgMBo",
-      "name": "Logo_display_over_Andes_sunset_2K_20260924094044.jpeg",
+      "source_id": "1ybAnD4wEOiTycydzwgPfVQNE8mwEXZlM",
+      "name": "Gemini_Generated_Image_rdu4jlrdu4jlrdu4.jpeg",
       "region": "despedida",
       "pool": "despedida",
       "title": "Nos volvemos a encontrar",
       "tag": "HASTA LA PRÓXIMA · ROMA",
       "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
       "alt": "Despedida de Agencia ROMA",
-      "modified_time": "2026-09-24T12:40:44.240Z"
+      "modified_time": "2026-11-26T01:36:02.202Z"
     },
     {
       "type": "video",
@@ -202,6 +202,23 @@
       "modified_time": "2025-07-11T13:11:38.000Z"
     },
     {
+      "type": "image",
+      "src": "/assets/showcase/media/images/yungas/gemini-generated-image-htu36whtu36whtu3-lhrBKHZC.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:31:36.375Z:36d22e0ee34da3dde5cadb5b5b33ac70:2761651",
+      "outputs": {
+        "src": "/assets/showcase/media/images/yungas/gemini-generated-image-htu36whtu36whtu3-lhrBKHZC.webp"
+      },
+      "source_id": "1eAAJO4mnMnaLTAIVagtLtYValhrBKHZC",
+      "name": "Gemini_Generated_Image_htu36whtu36whtu3.jpeg",
+      "region": "yungas",
+      "pool": "paisajes",
+      "title": "Yungas Jujeñas",
+      "tag": "YUNGAS · ROMA",
+      "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+      "alt": "Yungas Jujeñas · Agencia ROMA",
+      "modified_time": "2026-11-26T01:31:36.375Z"
+    },
+    {
       "type": "video",
       "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
       "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg",
@@ -260,20 +277,37 @@
     },
     {
       "type": "image",
-      "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-09-16T01:03:42.026Z:2e2a2c23e667781eb7b88e9295811977:309092",
+      "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-x6t81qx6t81qx6t8-nxFiqWC6.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:43:57.590Z:c5bb29689cde84f5706ef4c83194057f:3843836",
       "outputs": {
-        "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp"
+        "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-x6t81qx6t81qx6t8-nxFiqWC6.webp"
       },
-      "source_id": "13tF872APJc7b7c59o8oDcWukeBFMGb9T",
-      "name": "Pasted image (15).png",
-      "region": "puna",
+      "source_id": "1L-PwnJbZua7xoXf6SyRH6p0nnxFiqWC6",
+      "name": "Gemini_Generated_Image_x6t81qx6t81qx6t8.jpeg",
+      "region": "quebrada",
       "pool": "paisajes",
-      "title": "Puna y Salinas Grandes",
-      "tag": "PUNA · ROMA",
-      "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
-      "alt": "Puna y Salinas Grandes · Agencia ROMA",
-      "modified_time": "2026-09-16T01:03:42.026Z"
+      "title": "Quebrada de Humahuaca",
+      "tag": "QUEBRADA · ROMA",
+      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+      "alt": "Quebrada de Humahuaca · Agencia ROMA",
+      "modified_time": "2026-11-26T01:43:57.590Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-iteiikiteiikitei-8EfVZs8w.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:42:33.048Z:e647bc493068c172dfd55718e7d7c9f5:4236557",
+      "outputs": {
+        "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-iteiikiteiikitei-8EfVZs8w.webp"
+      },
+      "source_id": "1g_4BPoNIHikgrifECOITx7Ep8EfVZs8w",
+      "name": "Gemini_Generated_Image_iteiikiteiikitei.jpeg",
+      "region": "quebrada",
+      "pool": "paisajes",
+      "title": "Quebrada de Humahuaca",
+      "tag": "QUEBRADA · ROMA",
+      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+      "alt": "Quebrada de Humahuaca · Agencia ROMA",
+      "modified_time": "2026-11-26T01:42:33.048Z"
     },
     {
       "type": "video",
@@ -294,40 +328,6 @@
       "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
       "alt": "Quebrada de Humahuaca · Agencia ROMA",
       "modified_time": "2026-10-21T15:45:45.450Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-09-17T14:10:33.324Z:2e86cddf66e85df0c50d488d5cfdead5:688078",
-      "outputs": {
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp"
-      },
-      "source_id": "1-noyPAmAeqY6RBPm3jqmqKASCoNLQJ5L",
-      "name": "Pasted image (15).png",
-      "region": "quebrada",
-      "pool": "paisajes",
-      "title": "Quebrada de Humahuaca",
-      "tag": "QUEBRADA · ROMA",
-      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
-      "alt": "Quebrada de Humahuaca · Agencia ROMA",
-      "modified_time": "2026-09-17T14:10:33.324Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-09-17T14:09:24.448Z:4c4e3aad790308e0c10c35e3c5d768de:516671",
-      "outputs": {
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp"
-      },
-      "source_id": "13YVkGzW5Vr33mb1b0KfH2BElCD_FBn14",
-      "name": "Pasted image (13).png",
-      "region": "quebrada",
-      "pool": "paisajes",
-      "title": "Quebrada de Humahuaca",
-      "tag": "QUEBRADA · ROMA",
-      "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
-      "alt": "Quebrada de Humahuaca · Agencia ROMA",
-      "modified_time": "2026-09-17T14:09:24.448Z"
     },
     {
       "type": "video",
@@ -475,37 +475,37 @@
     "despedida": [
       {
         "type": "image",
-        "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-09-24T12:44:04.691Z:9a4bfd3837f233465bd4b089fd2e06ad:3129845",
+        "src": "/assets/showcase/media/images/despedida/gemini-generated-image-b6lq4sb6lq4sb6lq-14kLrAp1.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:38:16.333Z:58e1d14b87d4f87831fec34197744261:3188477",
         "outputs": {
-          "src": "/assets/showcase/media/images/despedida/logo-displaying-travel-agency-name-2k-20260924094404-gKF0MOSn.webp"
+          "src": "/assets/showcase/media/images/despedida/gemini-generated-image-b6lq4sb6lq4sb6lq-14kLrAp1.webp"
         },
-        "source_id": "14TVJQEAdGuyLuDXIXI9hy9MCgKF0MOSn",
-        "name": "Logo_displaying_travel_agency_name_2K_20260924094404.jpeg",
+        "source_id": "16cTqg0v930l-UovDTtlNzl0q14kLrAp1",
+        "name": "Gemini_Generated_Image_b6lq4sb6lq4sb6lq.jpeg",
         "region": "despedida",
         "pool": "despedida",
         "title": "Nos volvemos a encontrar",
         "tag": "HASTA LA PRÓXIMA · ROMA",
         "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
         "alt": "Despedida de Agencia ROMA",
-        "modified_time": "2026-09-24T12:44:04.691Z"
+        "modified_time": "2026-11-26T01:38:16.333Z"
       },
       {
         "type": "image",
-        "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-09-24T12:40:44.240Z:947dbaa41952a10db94ba3c306a24499:2795967",
+        "src": "/assets/showcase/media/images/despedida/gemini-generated-image-rdu4jlrdu4jlrdu4-8mwEXZlM.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:36:02.202Z:522ace58cc7bdf1ccb264ad96c4ba3bb:2530773",
         "outputs": {
-          "src": "/assets/showcase/media/images/despedida/logo-display-over-andes-sunset-2k-20260924094044-CLzpgMBo.webp"
+          "src": "/assets/showcase/media/images/despedida/gemini-generated-image-rdu4jlrdu4jlrdu4-8mwEXZlM.webp"
         },
-        "source_id": "1oR9NXfX9hIkjb6JTEPON4ZjKCLzpgMBo",
-        "name": "Logo_display_over_Andes_sunset_2K_20260924094044.jpeg",
+        "source_id": "1ybAnD4wEOiTycydzwgPfVQNE8mwEXZlM",
+        "name": "Gemini_Generated_Image_rdu4jlrdu4jlrdu4.jpeg",
         "region": "despedida",
         "pool": "despedida",
         "title": "Nos volvemos a encontrar",
         "tag": "HASTA LA PRÓXIMA · ROMA",
         "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
         "alt": "Despedida de Agencia ROMA",
-        "modified_time": "2026-09-24T12:40:44.240Z"
+        "modified_time": "2026-11-26T01:36:02.202Z"
       }
     ],
     "actividades": [
@@ -681,6 +681,23 @@
         "modified_time": "2025-07-11T13:11:38.000Z"
       },
       {
+        "type": "image",
+        "src": "/assets/showcase/media/images/yungas/gemini-generated-image-htu36whtu36whtu3-lhrBKHZC.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:31:36.375Z:36d22e0ee34da3dde5cadb5b5b33ac70:2761651",
+        "outputs": {
+          "src": "/assets/showcase/media/images/yungas/gemini-generated-image-htu36whtu36whtu3-lhrBKHZC.webp"
+        },
+        "source_id": "1eAAJO4mnMnaLTAIVagtLtYValhrBKHZC",
+        "name": "Gemini_Generated_Image_htu36whtu36whtu3.jpeg",
+        "region": "yungas",
+        "pool": "paisajes",
+        "title": "Yungas Jujeñas",
+        "tag": "YUNGAS · ROMA",
+        "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
+        "alt": "Yungas Jujeñas · Agencia ROMA",
+        "modified_time": "2026-11-26T01:31:36.375Z"
+      },
+      {
         "type": "video",
         "src": "/assets/showcase/media/videos/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.mp4",
         "poster": "/assets/showcase/media/posters/yungas/video-by-hospedaje-sanfrancisco-dxt6kcodonl-ge1m_w76.jpg",
@@ -739,20 +756,37 @@
       },
       {
         "type": "image",
-        "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-09-16T01:03:42.026Z:2e2a2c23e667781eb7b88e9295811977:309092",
+        "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-x6t81qx6t81qx6t8-nxFiqWC6.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:43:57.590Z:c5bb29689cde84f5706ef4c83194057f:3843836",
         "outputs": {
-          "src": "/assets/showcase/media/images/puna/pasted-image-15-eBFMGb9T.webp"
+          "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-x6t81qx6t81qx6t8-nxFiqWC6.webp"
         },
-        "source_id": "13tF872APJc7b7c59o8oDcWukeBFMGb9T",
-        "name": "Pasted image (15).png",
-        "region": "puna",
+        "source_id": "1L-PwnJbZua7xoXf6SyRH6p0nnxFiqWC6",
+        "name": "Gemini_Generated_Image_x6t81qx6t81qx6t8.jpeg",
+        "region": "quebrada",
         "pool": "paisajes",
-        "title": "Puna y Salinas Grandes",
-        "tag": "PUNA · ROMA",
-        "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
-        "alt": "Puna y Salinas Grandes · Agencia ROMA",
-        "modified_time": "2026-09-16T01:03:42.026Z"
+        "title": "Quebrada de Humahuaca",
+        "tag": "QUEBRADA · ROMA",
+        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA",
+        "modified_time": "2026-11-26T01:43:57.590Z"
+      },
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-iteiikiteiikitei-8EfVZs8w.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:42:33.048Z:e647bc493068c172dfd55718e7d7c9f5:4236557",
+        "outputs": {
+          "src": "/assets/showcase/media/images/quebrada/gemini-generated-image-iteiikiteiikitei-8EfVZs8w.webp"
+        },
+        "source_id": "1g_4BPoNIHikgrifECOITx7Ep8EfVZs8w",
+        "name": "Gemini_Generated_Image_iteiikiteiikitei.jpeg",
+        "region": "quebrada",
+        "pool": "paisajes",
+        "title": "Quebrada de Humahuaca",
+        "tag": "QUEBRADA · ROMA",
+        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
+        "alt": "Quebrada de Humahuaca · Agencia ROMA",
+        "modified_time": "2026-11-26T01:42:33.048Z"
       },
       {
         "type": "video",
@@ -773,40 +807,6 @@
         "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
         "alt": "Quebrada de Humahuaca · Agencia ROMA",
         "modified_time": "2026-10-21T15:45:45.450Z"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-09-17T14:10:33.324Z:2e86cddf66e85df0c50d488d5cfdead5:688078",
-        "outputs": {
-          "src": "/assets/showcase/media/images/quebrada/pasted-image-15-CoNLQJ5L.webp"
-        },
-        "source_id": "1-noyPAmAeqY6RBPm3jqmqKASCoNLQJ5L",
-        "name": "Pasted image (15).png",
-        "region": "quebrada",
-        "pool": "paisajes",
-        "title": "Quebrada de Humahuaca",
-        "tag": "QUEBRADA · ROMA",
-        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
-        "alt": "Quebrada de Humahuaca · Agencia ROMA",
-        "modified_time": "2026-09-17T14:10:33.324Z"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-09-17T14:09:24.448Z:4c4e3aad790308e0c10c35e3c5d768de:516671",
-        "outputs": {
-          "src": "/assets/showcase/media/images/quebrada/pasted-image-13-CD_FBn14.webp"
-        },
-        "source_id": "13YVkGzW5Vr33mb1b0KfH2BElCD_FBn14",
-        "name": "Pasted image (13).png",
-        "region": "quebrada",
-        "pool": "paisajes",
-        "title": "Quebrada de Humahuaca",
-        "tag": "QUEBRADA · ROMA",
-        "text": "Cerros de colores, pueblos históricos y experiencias para vivir el Norte.",
-        "alt": "Quebrada de Humahuaca · Agencia ROMA",
-        "modified_time": "2026-09-17T14:09:24.448Z"
       },
       {
         "type": "video",
