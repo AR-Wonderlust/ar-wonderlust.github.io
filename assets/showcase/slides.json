@@ -249,7 +249,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/amazing-grace-caroline-campbell-live-from-brazil-FP4zd3ad.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:58:04.207Z:32278525795ca4e4d76120d28f4298b4:7651484",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:58:04.207Z:32278525795ca4e4d76120d28f4298b4:7651484",
       "outputs": {
         "src": "/assets/showcase/media/audio/amazing-grace-caroline-campbell-live-from-brazil-FP4zd3ad.mp3"
       },
@@ -266,7 +266,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/lola-hauser-fur-elise-TGdJXE8m.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:57:57.100Z:c6925eb3cf64b3e4c0958870056a674e:5151740",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:57:57.100Z:c6925eb3cf64b3e4c0958870056a674e:5151740",
       "outputs": {
         "src": "/assets/showcase/media/audio/lola-hauser-fur-elise-TGdJXE8m.mp3"
       },
@@ -283,7 +283,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/por-una-cabeza-live-ost-b3gaUiM7.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:57:50.633Z:c88e31895cfc9581f4d8b1938daa258c:6771884",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:57:50.633Z:c88e31895cfc9581f4d8b1938daa258c:6771884",
       "outputs": {
         "src": "/assets/showcase/media/audio/por-una-cabeza-live-ost-b3gaUiM7.mp3"
       },
@@ -300,7 +300,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/hauser-the-lonely-shepherd-alone-together-e_8FzGP2.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:57:43.402Z:78b1330a616d4829654e637b45cb3cfc:6890900",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:57:43.402Z:78b1330a616d4829654e637b45cb3cfc:6890900",
       "outputs": {
         "src": "/assets/showcase/media/audio/hauser-the-lonely-shepherd-alone-together-e_8FzGP2.mp3"
       },
@@ -317,7 +317,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/lola-hauser-moonlight-sonata-_IoiiCYj.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:57:34.500Z:9a6ee62a013cfd4e35ffcffa8221815e:7169996",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:57:34.500Z:9a6ee62a013cfd4e35ffcffa8221815e:7169996",
       "outputs": {
         "src": "/assets/showcase/media/audio/lola-hauser-moonlight-sonata-_IoiiCYj.mp3"
       },
@@ -334,7 +334,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/moonlight-sonata-RezoHRpU.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:57:26.948Z:54180be5fc0ee9704961760c252c5f06:6983948",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:57:26.948Z:54180be5fc0ee9704961760c252c5f06:6983948",
       "outputs": {
         "src": "/assets/showcase/media/audio/moonlight-sonata-RezoHRpU.mp3"
       },
@@ -351,7 +351,7 @@
     {
       "type": "audio",
       "src": "/assets/showcase/media/audio/lola-palladio-2-0-live-with-orchestra-vu78YHnR.mp3",
-      "fingerprint": "cover-20261125-v1:2026-11-25T13:57:20.174Z:b99fcf1cde49ce263fae1b6759ac3f37:7668188",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-25T13:57:20.174Z:b99fcf1cde49ce263fae1b6759ac3f37:7668188",
       "outputs": {
         "src": "/assets/showcase/media/audio/lola-palladio-2-0-live-with-orchestra-vu78YHnR.mp3"
       },
