@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T01:45:23.282374+00:00",
+  "generated_at": "2026-11-26T02:00:19.353688+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
     {
@@ -108,6 +108,23 @@
       "modified_time": "2026-09-24T19:56:23.029Z"
     },
     {
+      "type": "image",
+      "src": "/assets/showcase/media/images/alojamiento/gemini-generated-image-524nwq524nwq524n--qFCPKdU.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:53:55.896Z:ae19f37dd4215719d95028a42c8cedd2:2700579",
+      "outputs": {
+        "src": "/assets/showcase/media/images/alojamiento/gemini-generated-image-524nwq524nwq524n--qFCPKdU.webp"
+      },
+      "source_id": "1SjRyhFo23mxQeJhIBtDg60Px-qFCPKdU",
+      "name": "Gemini_Generated_Image_524nwq524nwq524n.jpeg",
+      "region": "alojamiento",
+      "pool": "alojamiento",
+      "title": "Alojamiento ROMA",
+      "tag": "ALOJAMIENTO · ROMA",
+      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+      "modified_time": "2026-11-26T01:53:55.896Z"
+    },
+    {
       "type": "video",
       "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
       "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg",
@@ -143,23 +160,6 @@
       "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
       "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
       "modified_time": "2026-09-09T19:45:11.783Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-08-29T13:40:44.415Z:6a434fe2371e9f789d846d93859c4409:310710",
-      "outputs": {
-        "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp"
-      },
-      "source_id": "1gWf909dGmsRFCoADYBl19WeP7Hrawj8g",
-      "name": "Apart-LA-Cienaga-AGENCIA-ROMA.jpg",
-      "region": "alojamiento",
-      "pool": "alojamiento",
-      "title": "Alojamiento ROMA",
-      "tag": "ALOJAMIENTO · ROMA",
-      "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
-      "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
-      "modified_time": "2026-08-29T13:40:44.415Z"
     },
     {
       "type": "video",
@@ -256,6 +256,23 @@
       "modified_time": "2026-09-24T22:24:43.761Z"
     },
     {
+      "type": "image",
+      "src": "/assets/showcase/media/images/puna/gemini-generated-image-3ixh2d3ixh2d3ixh-liodDYse.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:45:13.731Z:0f34b91c98d99e778a8850fc044ee01b:3613922",
+      "outputs": {
+        "src": "/assets/showcase/media/images/puna/gemini-generated-image-3ixh2d3ixh2d3ixh-liodDYse.webp"
+      },
+      "source_id": "1JlWlSaHcUMQW1b2gi64glDtXliodDYse",
+      "name": "Gemini_Generated_Image_3ixh2d3ixh2d3ixh.jpeg",
+      "region": "puna",
+      "pool": "paisajes",
+      "title": "Puna y Salinas Grandes",
+      "tag": "PUNA · ROMA",
+      "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+      "alt": "Puna y Salinas Grandes · Agencia ROMA",
+      "modified_time": "2026-11-26T01:45:13.731Z"
+    },
+    {
       "type": "video",
       "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
       "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg",
@@ -274,6 +291,26 @@
       "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
       "alt": "Puna y Salinas Grandes · Agencia ROMA",
       "modified_time": "2026-09-16T20:23:51.508Z"
+    },
+    {
+      "type": "video",
+      "src": "/assets/showcase/media/videos/puna/f17740154-aVgNMHmG.mp4",
+      "poster": "/assets/showcase/media/posters/puna/f17740154-aVgNMHmG.jpg",
+      "duration": 18000,
+      "fingerprint": "cover-20261125-v2-audio:2026-09-02T16:11:30.533Z:8cc5e203795d208c58ffa6be67bf218e:2485544",
+      "outputs": {
+        "src": "/assets/showcase/media/videos/puna/f17740154-aVgNMHmG.mp4",
+        "poster": "/assets/showcase/media/posters/puna/f17740154-aVgNMHmG.jpg"
+      },
+      "source_id": "1NmaobdzIGOr6tzqYbsjig8v5aVgNMHmG",
+      "name": "f17740154.mp4",
+      "region": "puna",
+      "pool": "paisajes",
+      "title": "Puna y Salinas Grandes",
+      "tag": "PUNA · ROMA",
+      "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+      "alt": "Puna y Salinas Grandes · Agencia ROMA",
+      "modified_time": "2026-09-02T16:11:30.533Z"
     },
     {
       "type": "image",
@@ -585,6 +622,23 @@
     ],
     "alojamiento": [
       {
+        "type": "image",
+        "src": "/assets/showcase/media/images/alojamiento/gemini-generated-image-524nwq524nwq524n--qFCPKdU.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:53:55.896Z:ae19f37dd4215719d95028a42c8cedd2:2700579",
+        "outputs": {
+          "src": "/assets/showcase/media/images/alojamiento/gemini-generated-image-524nwq524nwq524n--qFCPKdU.webp"
+        },
+        "source_id": "1SjRyhFo23mxQeJhIBtDg60Px-qFCPKdU",
+        "name": "Gemini_Generated_Image_524nwq524nwq524n.jpeg",
+        "region": "alojamiento",
+        "pool": "alojamiento",
+        "title": "Alojamiento ROMA",
+        "tag": "ALOJAMIENTO · ROMA",
+        "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
+        "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
+        "modified_time": "2026-11-26T01:53:55.896Z"
+      },
+      {
         "type": "video",
         "src": "/assets/showcase/media/videos/alojamiento/untitled--U8Bk9CI.mp4",
         "poster": "/assets/showcase/media/posters/alojamiento/untitled--U8Bk9CI.jpg",
@@ -620,23 +674,6 @@
         "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
         "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
         "modified_time": "2026-09-09T19:45:11.783Z"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-08-29T13:40:44.415Z:6a434fe2371e9f789d846d93859c4409:310710",
-        "outputs": {
-          "src": "/assets/showcase/media/images/alojamiento/apart-la-cienaga-agencia-roma-7Hrawj8g.webp"
-        },
-        "source_id": "1gWf909dGmsRFCoADYBl19WeP7Hrawj8g",
-        "name": "Apart-LA-Cienaga-AGENCIA-ROMA.jpg",
-        "region": "alojamiento",
-        "pool": "alojamiento",
-        "title": "Alojamiento ROMA",
-        "tag": "ALOJAMIENTO · ROMA",
-        "text": "Casas, cabañas y propuestas de descanso para disfrutar tu estadía.",
-        "alt": "Alojamiento ROMA en Jujuy · Agencia ROMA",
-        "modified_time": "2026-08-29T13:40:44.415Z"
       }
     ],
     "paisajes": [
@@ -735,6 +772,23 @@
         "modified_time": "2026-09-24T22:24:43.761Z"
       },
       {
+        "type": "image",
+        "src": "/assets/showcase/media/images/puna/gemini-generated-image-3ixh2d3ixh2d3ixh-liodDYse.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T01:45:13.731Z:0f34b91c98d99e778a8850fc044ee01b:3613922",
+        "outputs": {
+          "src": "/assets/showcase/media/images/puna/gemini-generated-image-3ixh2d3ixh2d3ixh-liodDYse.webp"
+        },
+        "source_id": "1JlWlSaHcUMQW1b2gi64glDtXliodDYse",
+        "name": "Gemini_Generated_Image_3ixh2d3ixh2d3ixh.jpeg",
+        "region": "puna",
+        "pool": "paisajes",
+        "title": "Puna y Salinas Grandes",
+        "tag": "PUNA · ROMA",
+        "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+        "alt": "Puna y Salinas Grandes · Agencia ROMA",
+        "modified_time": "2026-11-26T01:45:13.731Z"
+      },
+      {
         "type": "video",
         "src": "/assets/showcase/media/videos/puna/22-16-9-26-WyT6q7iu.mp4",
         "poster": "/assets/showcase/media/posters/puna/22-16-9-26-WyT6q7iu.jpg",
@@ -753,6 +807,26 @@
         "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
         "alt": "Puna y Salinas Grandes · Agencia ROMA",
         "modified_time": "2026-09-16T20:23:51.508Z"
+      },
+      {
+        "type": "video",
+        "src": "/assets/showcase/media/videos/puna/f17740154-aVgNMHmG.mp4",
+        "poster": "/assets/showcase/media/posters/puna/f17740154-aVgNMHmG.jpg",
+        "duration": 18000,
+        "fingerprint": "cover-20261125-v2-audio:2026-09-02T16:11:30.533Z:8cc5e203795d208c58ffa6be67bf218e:2485544",
+        "outputs": {
+          "src": "/assets/showcase/media/videos/puna/f17740154-aVgNMHmG.mp4",
+          "poster": "/assets/showcase/media/posters/puna/f17740154-aVgNMHmG.jpg"
+        },
+        "source_id": "1NmaobdzIGOr6tzqYbsjig8v5aVgNMHmG",
+        "name": "f17740154.mp4",
+        "region": "puna",
+        "pool": "paisajes",
+        "title": "Puna y Salinas Grandes",
+        "tag": "PUNA · ROMA",
+        "text": "Altura, salares y paisajes inmensos para una experiencia inolvidable.",
+        "alt": "Puna y Salinas Grandes · Agencia ROMA",
+        "modified_time": "2026-09-02T16:11:30.533Z"
       },
       {
         "type": "image",
