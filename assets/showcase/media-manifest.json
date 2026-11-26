@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T02:00:19.353688+00:00",
+  "generated_at": "2026-11-26T02:15:17.532898+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
     {
@@ -35,6 +35,23 @@
       "text": "Gracias por viajar con ROMA. Te esperamos para la próxima experiencia.",
       "alt": "Despedida de Agencia ROMA",
       "modified_time": "2026-11-26T01:36:02.202Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/opinion/gemini-generated-image-zdtrwgzdtrwgzdtr-Eaf37AUM.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T02:10:33.600Z:f4d1c7de0daac6878525d2f802d8b2c6:2869700",
+      "outputs": {
+        "src": "/assets/showcase/media/images/opinion/gemini-generated-image-zdtrwgzdtrwgzdtr-Eaf37AUM.webp"
+      },
+      "source_id": "12SOEabi01k8OtxLA2M7GugtbEaf37AUM",
+      "name": "Gemini_Generated_Image_zdtrwgzdtrwgzdtr.jpeg",
+      "region": "opinion",
+      "pool": "opinion",
+      "title": "Tu experiencia cuenta",
+      "tag": "TU OPINIÓN · ROMA",
+      "text": "Compartí tu viaje con ROMA y ayudá a otros viajeros a elegirnos.",
+      "alt": "Opiniones de pasajeros de Agencia ROMA",
+      "modified_time": "2026-11-26T02:10:33.600Z"
     },
     {
       "type": "video",
@@ -89,6 +106,23 @@
       "text": "Propuestas, recorridos y momentos para descubrir el Norte a tu manera.",
       "alt": "Actividades ROMA en el Norte Argentino · Agencia ROMA",
       "modified_time": "2026-09-24T12:43:23.985Z"
+    },
+    {
+      "type": "image",
+      "src": "/assets/showcase/media/images/traslados/gemini-generated-image-tlv0zwtlv0zwtlv0-8x1Y84Zk.webp",
+      "fingerprint": "cover-20261125-v2-audio:2026-11-26T02:13:02.745Z:84e53864c895277e1b0084768986829e:3141819",
+      "outputs": {
+        "src": "/assets/showcase/media/images/traslados/gemini-generated-image-tlv0zwtlv0zwtlv0-8x1Y84Zk.webp"
+      },
+      "source_id": "1oRasCR10xrYnneadK0Wi6ncX8x1Y84Zk",
+      "name": "Gemini_Generated_Image_tlv0zwtlv0zwtlv0.jpeg",
+      "region": "traslados",
+      "pool": "traslados",
+      "title": "ROMA te lleva",
+      "tag": "TRASLADOS · ROMA",
+      "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+      "alt": "Traslados ROMA · Agencia ROMA",
+      "modified_time": "2026-11-26T02:13:02.745Z"
     },
     {
       "type": "image",
@@ -545,6 +579,25 @@
         "modified_time": "2026-11-26T01:36:02.202Z"
       }
     ],
+    "opinion": [
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/opinion/gemini-generated-image-zdtrwgzdtrwgzdtr-Eaf37AUM.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T02:10:33.600Z:f4d1c7de0daac6878525d2f802d8b2c6:2869700",
+        "outputs": {
+          "src": "/assets/showcase/media/images/opinion/gemini-generated-image-zdtrwgzdtrwgzdtr-Eaf37AUM.webp"
+        },
+        "source_id": "12SOEabi01k8OtxLA2M7GugtbEaf37AUM",
+        "name": "Gemini_Generated_Image_zdtrwgzdtrwgzdtr.jpeg",
+        "region": "opinion",
+        "pool": "opinion",
+        "title": "Tu experiencia cuenta",
+        "tag": "TU OPINIÓN · ROMA",
+        "text": "Compartí tu viaje con ROMA y ayudá a otros viajeros a elegirnos.",
+        "alt": "Opiniones de pasajeros de Agencia ROMA",
+        "modified_time": "2026-11-26T02:10:33.600Z"
+      }
+    ],
     "actividades": [
       {
         "type": "video",
@@ -602,6 +655,23 @@
       }
     ],
     "traslados": [
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/traslados/gemini-generated-image-tlv0zwtlv0zwtlv0-8x1Y84Zk.webp",
+        "fingerprint": "cover-20261125-v2-audio:2026-11-26T02:13:02.745Z:84e53864c895277e1b0084768986829e:3141819",
+        "outputs": {
+          "src": "/assets/showcase/media/images/traslados/gemini-generated-image-tlv0zwtlv0zwtlv0-8x1Y84Zk.webp"
+        },
+        "source_id": "1oRasCR10xrYnneadK0Wi6ncX8x1Y84Zk",
+        "name": "Gemini_Generated_Image_tlv0zwtlv0zwtlv0.jpeg",
+        "region": "traslados",
+        "pool": "traslados",
+        "title": "ROMA te lleva",
+        "tag": "TRASLADOS · ROMA",
+        "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
+        "alt": "Traslados ROMA · Agencia ROMA",
+        "modified_time": "2026-11-26T02:13:02.745Z"
+      },
       {
         "type": "image",
         "src": "/assets/showcase/media/images/traslados/gemini-generated-image-3nit783nit783nit-W-1sQpQA.webp",

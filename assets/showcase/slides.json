@@ -112,6 +112,14 @@
         "alt": "Despedida de Agencia ROMA"
       }
     ],
+    "opinion": [
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/opinion/gemini-generated-image-zdtrwgzdtrwgzdtr-Eaf37AUM.webp",
+        "region": "opinion",
+        "alt": "Opiniones de pasajeros de Agencia ROMA"
+      }
+    ],
     "actividades": [
       {
         "type": "video",
@@ -135,6 +143,12 @@
       }
     ],
     "traslados": [
+      {
+        "type": "image",
+        "src": "/assets/showcase/media/images/traslados/gemini-generated-image-tlv0zwtlv0zwtlv0-8x1Y84Zk.webp",
+        "region": "traslados",
+        "alt": "Traslados ROMA · Agencia ROMA"
+      },
       {
         "type": "image",
         "src": "/assets/showcase/media/images/traslados/gemini-generated-image-3nit783nit783nit-W-1sQpQA.webp",
