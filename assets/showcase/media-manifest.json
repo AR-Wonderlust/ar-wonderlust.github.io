@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T01:15:24.601378+00:00",
+  "generated_at": "2026-11-26T01:30:11.326799+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
     {
@@ -237,23 +237,6 @@
       "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
       "alt": "Yungas Jujeñas · Agencia ROMA",
       "modified_time": "2026-09-24T22:24:43.761Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp",
-      "fingerprint": "cover-20261125-v2-audio:2026-08-19T13:41:44.660Z:103090246b1d44a004f5210f8a842cf3:2258601",
-      "outputs": {
-        "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp"
-      },
-      "source_id": "1ULKohnA8ZlJyn98aZZSlGsUkuTvr6oJW",
-      "name": "ChatGPT Image 19 ago 2026, 10_41_44 a.m. (3).png",
-      "region": "yungas",
-      "pool": "paisajes",
-      "title": "Yungas Jujeñas",
-      "tag": "YUNGAS · ROMA",
-      "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
-      "alt": "Yungas Jujeñas · Agencia ROMA",
-      "modified_time": "2026-08-19T13:41:44.660Z"
     },
     {
       "type": "video",
@@ -733,23 +716,6 @@
         "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
         "alt": "Yungas Jujeñas · Agencia ROMA",
         "modified_time": "2026-09-24T22:24:43.761Z"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp",
-        "fingerprint": "cover-20261125-v2-audio:2026-08-19T13:41:44.660Z:103090246b1d44a004f5210f8a842cf3:2258601",
-        "outputs": {
-          "src": "/assets/showcase/media/images/yungas/chatgpt-image-19-ago-2026-10-41-44-a-m-3-uTvr6oJW.webp"
-        },
-        "source_id": "1ULKohnA8ZlJyn98aZZSlGsUkuTvr6oJW",
-        "name": "ChatGPT Image 19 ago 2026, 10_41_44 a.m. (3).png",
-        "region": "yungas",
-        "pool": "paisajes",
-        "title": "Yungas Jujeñas",
-        "tag": "YUNGAS · ROMA",
-        "text": "Selva, agua y naturaleza para conectar con el lado verde de Jujuy.",
-        "alt": "Yungas Jujeñas · Agencia ROMA",
-        "modified_time": "2026-08-19T13:41:44.660Z"
       },
       {
         "type": "video",
