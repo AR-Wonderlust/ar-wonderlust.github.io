@@ -10,6 +10,8 @@
   var wake;
   var hideTimer;
   var audio;
+  var musicTracks = [];
+  var musicIndex = -1;
   var musicButton = document.getElementById('music');
   var pause = document.getElementById('pause');
   var full = document.getElementById('fullscreen');
@@ -74,18 +76,43 @@
     else { audio.muted = true; musicState(); }
   }
 
+  function playCurrentTrack() {
+    if (!audio || musicIndex < 0 || !musicTracks[musicIndex]) return;
+    audio.src = musicTracks[musicIndex].src || musicTracks[musicIndex];
+    audio.load();
+    var attempt = audio.play();
+    if (attempt && attempt.catch) attempt.catch(function () {
+      notice('Tocá “Activar música” para iniciar el audio.');
+    });
+  }
+
+  function nextTrack() {
+    if (!musicTracks.length) return;
+    var next = musicIndex;
+    if (musicTracks.length > 1) {
+      while (next === musicIndex) next = Math.floor(Math.random() * musicTracks.length);
+    } else {
+      next = 0;
+    }
+    musicIndex = next;
+    playCurrentTrack();
+  }
+
   function setupMusic(tracks) {
     if (!tracks || !tracks.length) { musicState(); return; }
-    audio = new Audio(tracks[0].src || tracks[0]);
+    musicTracks = tracks.filter(function (track) { return track && (track.src || typeof track === 'string'); });
+    if (!musicTracks.length) { musicState(); return; }
+    audio = new Audio();
     audio.preload = 'auto';
     audio.autoplay = true;
-    audio.loop = true;
+    audio.loop = false;
     audio.muted = true;
     audio.volume = 0.35;
+    audio.addEventListener('ended', nextTrack);
+    audio.addEventListener('error', nextTrack);
+    nextTrack();
     musicState();
     // Chrome/Android allow muted autoplay; audible playback requires a gesture.
-    var attempt = audio.play();
-    if (attempt && attempt.catch) attempt.catch(function () {});
   }
 
   function shuffled(values) {
@@ -270,13 +297,13 @@
     document.getElementById('progress').style.width = (100 * elapsed / duration) + '%';
   }, 200);
 
-  fetch('/assets/showcase/slides.json?v=2')
+  fetch('/assets/showcase/slides.json?v=3')
     .then(function (response) { if (!response.ok) throw Error('data'); return response.json(); })
     .then(function (loaded) {
       if (!loaded.slides || !loaded.slides.length) throw Error('empty');
       data = loaded;
       if (data.music && data.music.length) return data;
-      return fetch('/assets/showcase/media-manifest.json?v=2')
+      return fetch('/assets/showcase/media-manifest.json?v=3')
         .then(function (manifestResponse) {
           if (!manifestResponse.ok) return data;
           return manifestResponse.json();
