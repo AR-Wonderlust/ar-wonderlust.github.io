@@ -19,7 +19,7 @@ RULES = {
 def forbidden(path):
     p = Path(path)
     name = p.name.lower()
-    return ((name == '.env' or name.startswith('.env.')) and name != '.env.example'
+    return (path.startswith('server/') or (name == '.env' or name.startswith('.env.')) and name != '.env.example'
             or name in {'credentials.json', 'creds.json'}
             or ('service-account' in name or name.startswith('client_secret')) and name.endswith('.json')
             or p.suffix.lower() in {'.pem', '.key', '.p12', '.pfx', '.dump', '.sqlite', '.sqlite3', '.db'}

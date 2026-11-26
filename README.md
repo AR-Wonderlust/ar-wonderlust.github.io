@@ -1,3 +1,11 @@
+# Agencia ROMA — Sitio público
+
+Este repositorio contiene la web Jekyll y el catálogo público `_data/roma.yml`.
+El backend y sus instaladores se mantienen en el repositorio privado `AR-Wonderlust/ar-wonderlust-server`.
+No ejecutar instalaciones del CRM desde este checkout.
+
+---
+
 # Beautiful Jekyll
 
 [![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)
