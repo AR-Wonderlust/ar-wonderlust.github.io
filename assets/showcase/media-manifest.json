@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T23:46:35.162370+00:00",
+  "generated_at": "2026-11-26T00:23:03.128530+00:00",
   "source_folder_id": "1apG5IsXUjhmB4Tabh126bA5qKlpitRu6",
   "items": [
     {
@@ -106,40 +106,6 @@
       "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
       "alt": "Traslados ROMA · Agencia ROMA",
       "modified_time": "2026-09-24T19:56:23.029Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp",
-      "fingerprint": "cover-20261125-v1:2026-08-10T16:32:59.642Z:344be413c690c045129492ae8e29f1b8:80854",
-      "outputs": {
-        "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp"
-      },
-      "source_id": "1ePin_KbCyq62Dgj4wtdGm-NDwgySX_E2",
-      "name": "Mobi-trekking.png",
-      "region": "traslados",
-      "pool": "traslados",
-      "title": "ROMA te lleva",
-      "tag": "TRASLADOS · ROMA",
-      "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
-      "alt": "Traslados ROMA · Agencia ROMA",
-      "modified_time": "2026-08-10T16:32:59.642Z"
-    },
-    {
-      "type": "image",
-      "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp",
-      "fingerprint": "cover-20261125-v1:2026-08-08T20:56:55.526Z:96d68a0cc79fdc51e068372988a7b32f:98659",
-      "outputs": {
-        "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp"
-      },
-      "source_id": "1rh34VkQFVlIVI59LNlo1-vX-n4uVs2jg",
-      "name": "Toyota-Hiace.png",
-      "region": "traslados",
-      "pool": "traslados",
-      "title": "ROMA te lleva",
-      "tag": "TRASLADOS · ROMA",
-      "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
-      "alt": "Traslados ROMA · Agencia ROMA",
-      "modified_time": "2026-08-08T20:56:55.526Z"
     },
     {
       "type": "video",
@@ -632,40 +598,6 @@
         "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
         "alt": "Traslados ROMA · Agencia ROMA",
         "modified_time": "2026-09-24T19:56:23.029Z"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp",
-        "fingerprint": "cover-20261125-v1:2026-08-10T16:32:59.642Z:344be413c690c045129492ae8e29f1b8:80854",
-        "outputs": {
-          "src": "/assets/showcase/media/images/traslados/mobi-trekking-wgySX_E2.webp"
-        },
-        "source_id": "1ePin_KbCyq62Dgj4wtdGm-NDwgySX_E2",
-        "name": "Mobi-trekking.png",
-        "region": "traslados",
-        "pool": "traslados",
-        "title": "ROMA te lleva",
-        "tag": "TRASLADOS · ROMA",
-        "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
-        "alt": "Traslados ROMA · Agencia ROMA",
-        "modified_time": "2026-08-10T16:32:59.642Z"
-      },
-      {
-        "type": "image",
-        "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp",
-        "fingerprint": "cover-20261125-v1:2026-08-08T20:56:55.526Z:96d68a0cc79fdc51e068372988a7b32f:98659",
-        "outputs": {
-          "src": "/assets/showcase/media/images/traslados/toyota-hiace-n4uVs2jg.webp"
-        },
-        "source_id": "1rh34VkQFVlIVI59LNlo1-vX-n4uVs2jg",
-        "name": "Toyota-Hiace.png",
-        "region": "traslados",
-        "pool": "traslados",
-        "title": "ROMA te lleva",
-        "tag": "TRASLADOS · ROMA",
-        "text": "Aeropuertos, terminales, excursiones y traslados privados en Jujuy y Salta.",
-        "alt": "Traslados ROMA · Agencia ROMA",
-        "modified_time": "2026-08-08T20:56:55.526Z"
       }
     ],
     "alojamiento": [
