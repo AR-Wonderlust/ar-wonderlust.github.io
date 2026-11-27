@@ -4,3 +4,6 @@ calendar_id: "85c172a9c864406f2d7c257aaf1c21b5492cd961ef9fea9c014bdcfe343b0a61@g
 # WhatsApp comercial de Agencia ROMA, confirmado por el operador.
 whatsapp: "5493885383215"
 maps_url: ""
+voice:
+  webhook_url: "https://n8n.romanomad.travel/workflow/HnOioEZ2GeIBp8Es?projectId=FtndIOWwMd82jSwA&uiContext=workflow_list"
+  live_url: ""
