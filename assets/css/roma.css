@@ -146,3 +146,15 @@ header .brand-with-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .live-broadcast a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;background:#a32724;color:white;border-radius:8px;text-decoration:none;text-align:center;font-size:14px;font-weight:650}
 @keyframes roma-live-glow{50%{box-shadow:0 0 0 3px #aa1d1d22}}
 @media(prefers-reduced-motion:reduce){.social-links a.is-live{animation:none}}
+
+/* RomAi voice controls */
+.voice-launcher{position:fixed;right:18px;bottom:78px;z-index:101;min-height:48px;padding:12px 20px;border:1px solid #ffffff70;border-radius:28px;background:#263c3c;color:#fff;font-weight:700;box-shadow:0 6px 24px #0004}
+.voice-launcher:hover,.voice-launcher:focus-visible{background:#1d3030}
+.chat-tools .voice-record,.chat-tools .live-voice{display:flex;align-items:center;justify-content:center;gap:7px;flex:1 1 100%;min-height:46px;padding:10px 12px;border:1px solid #d8b6a8;border-radius:8px;background:#fffaf2;color:#743523;font-size:13px;font-weight:700;text-decoration:none}
+.chat-tools .voice-record.is-recording{background:#b3262d;color:#fff;border-color:#b3262d;animation:romai-recording 1.2s ease-in-out infinite}
+.chat-tools .live-voice{background:#f1eee8;color:#69716a;border-color:#d9d2c7}
+.chat-tools .live-voice:not(:disabled){background:#263c3c;color:#fff;border-color:#263c3c}
+.chat-tools .voice-status{flex:1 1 100%;min-height:18px;color:#80502b;font-size:11px;text-align:center}
+@keyframes romai-recording{50%{box-shadow:0 0 0 5px #b3262d2b}}
+@media(max-width:650px){.voice-launcher{right:10px;bottom:calc(72px + env(safe-area-inset-bottom,0px));padding:11px 14px;font-size:12px}.chat-open .voice-launcher{display:none}}
+@media(prefers-reduced-motion:reduce){.chat-tools .voice-record.is-recording{animation:none}}
